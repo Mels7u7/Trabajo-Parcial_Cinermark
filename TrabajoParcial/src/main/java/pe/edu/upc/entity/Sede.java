@@ -10,7 +10,6 @@ public class Sede {
 	}
 
 	public Sede(int idSede, String direccionSede) {
-		super();
 		this.idSede = idSede;
 		this.direccionSede = direccionSede;
 	}
