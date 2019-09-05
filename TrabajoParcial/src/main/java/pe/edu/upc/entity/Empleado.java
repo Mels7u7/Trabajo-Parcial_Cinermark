@@ -1,11 +1,37 @@
 package pe.edu.upc.entity;
 
-public class Empleado {
+import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="empleado")
+public class Empleado implements Serializable{
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	private int idEmpleado;
+	
+	@Column(name="nombreEmpleado",nullable = false,length=20)
 	private String nombreEmpleado;
+	
+	@Column(name="apellidoEmpleado",nullable = false,length=20)
 	private String apellidoEmpleado;
+	
+	
 	private int dniEmpleado;
+	
+	@Column(name="puestolaboralEmpleado",nullable = false, length=20)
 	private String puestolaboralEmpleado;
 	
 	public Empleado() {
