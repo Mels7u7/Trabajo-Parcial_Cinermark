@@ -1,17 +1,40 @@
 package pe.edu.upc.entity;
 
-public class Herramienta {
+import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "herramienta")
+public class Herramienta implements Serializable {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idHerramienta;
+
+	@Column(name = "nombreHerramienta", nullable = false, length = 50)
 	private String nombreHerramienta;
+
 	private int stockHerramienta;
+
+	@Column(name = "unidadHerramienta", nullable = false, length = 50)
 	private String unidadHerramienta;
-	
+
 	public Herramienta() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	
+
 	public Herramienta(int idHerramienta, String nombreHerramienta, int stockHerramienta, String unidadHerramienta) {
 		this.idHerramienta = idHerramienta;
 		this.nombreHerramienta = nombreHerramienta;
