@@ -87,5 +87,6 @@ public class Empleado implements Serializable{
 	public void setPuestolaboralEmpleado(String puestolaboralEmpleado) {
 		this.puestolaboralEmpleado = puestolaboralEmpleado;
 	}
-	
+	/*
+	 * */
 }
