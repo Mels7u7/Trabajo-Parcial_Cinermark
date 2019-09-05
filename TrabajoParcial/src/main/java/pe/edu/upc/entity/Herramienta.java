@@ -18,6 +18,8 @@ public class Herramienta implements Serializable {
 	 */
 	private static final long serialVersionUID = 1L;
 
+	/* gaaaaaaaaaaaaaaaaa */
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idHerramienta;
