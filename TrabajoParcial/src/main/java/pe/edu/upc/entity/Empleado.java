@@ -48,7 +48,6 @@ public class Empleado implements Serializable {
 
 	public Empleado() {
 		super();
-		// TODO Auto-generated constructor stub
 	}
 
 	public Empleado(int idEmpleado, String nombreEmpleado, String apellidoEmpleado, int dniEmpleado,
@@ -108,5 +107,4 @@ public class Empleado implements Serializable {
 	public void setCelularEmpleado(int celularEmpleado) {
 		this.celularEmpleado = celularEmpleado;
 	}
-
 }
