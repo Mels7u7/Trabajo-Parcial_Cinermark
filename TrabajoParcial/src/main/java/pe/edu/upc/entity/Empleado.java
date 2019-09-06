@@ -8,44 +8,57 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 @Entity
-@Table(name="empleado")
-public class Empleado implements Serializable{
+@Table(name = "empleado")
+public class Empleado implements Serializable {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	@Id
-	@GeneratedValue(strategy= GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idEmpleado;
-	
-	@Column(name="nombreEmpleado",nullable = false,length=20)
+
+	@NotEmpty(message = "Ingresa los nombres del empleado")
+	@Column(name = "nombreEmpleado", nullable = false, length = 30)
 	private String nombreEmpleado;
-	
-	@Column(name="apellidoEmpleado",nullable = false,length=20)
+
+	@NotEmpty(message = "Ingresa los apellidos del empleado")
+	@Column(name = "apellidoEmpleado", nullable = false, length = 30)
 	private String apellidoEmpleado;
-	
-	
+
+	@Size(min = 8, max = 8)
+	@NotEmpty(message = "Ingresar DNI")
+	@Column(name = "dniEmpleado", nullable = false, length = 45, unique = true)
 	private int dniEmpleado;
-	
-	@Column(name="puestolaboralEmpleado",nullable = false, length=20)
+
+	@NotEmpty(message = "Ingrese el puesto laboral del empleado")
+	@Column(name = "puestolaboralEmpleado", nullable = false, length = 20)
 	private String puestolaboralEmpleado;
-	
+
+	@Size(min = 9, max = 9)
+	@NotEmpty(message = "Ingrese el celular del empleado")
+	@Column(name = "celularEmpleado", nullable = false, length = 9)
+	private int celularEmpleado;
+
 	public Empleado() {
 		super();
 		// TODO Auto-generated constructor stub
 	}
 
 	public Empleado(int idEmpleado, String nombreEmpleado, String apellidoEmpleado, int dniEmpleado,
-			String puestolaboralEmpleado) {
+			String puestolaboralEmpleado, int celularEmpleado) {
 		this.idEmpleado = idEmpleado;
 		this.nombreEmpleado = nombreEmpleado;
 		this.apellidoEmpleado = apellidoEmpleado;
 		this.dniEmpleado = dniEmpleado;
 		this.puestolaboralEmpleado = puestolaboralEmpleado;
+		this.celularEmpleado = celularEmpleado;
 	}
 
 	public int getIdEmpleado() {
@@ -87,5 +100,13 @@ public class Empleado implements Serializable{
 	public void setPuestolaboralEmpleado(String puestolaboralEmpleado) {
 		this.puestolaboralEmpleado = puestolaboralEmpleado;
 	}
-	
+
+	public int getCelularEmpleado() {
+		return celularEmpleado;
+	}
+
+	public void setCelularEmpleado(int celularEmpleado) {
+		this.celularEmpleado = celularEmpleado;
+	}
+
 }
