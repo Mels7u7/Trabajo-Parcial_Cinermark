@@ -5,6 +5,6 @@ import javax.inject.Named;
 
 @Named
 @RequestScoped
-public class EmpleadoController {
+public class FirmaConsultoraController {
 
 }
