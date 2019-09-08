@@ -8,6 +8,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name = "especialidad")
@@ -21,10 +22,12 @@ public class Especialidad implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idEspecialidad;
-
+	
+	@NotEmpty(message = "Ingresa el nombre de la especialidad")
 	@Column(name = "nombreEspecialidad", nullable = false, length = 30)
 	private String nombreEspecialidad;
-
+	
+	@NotEmpty(message = "Ingresa la certificadora")
 	@Column(name = "certificadoraEspecialidad", nullable = false, length = 30)
 	private String certificadoraEspecialidad;
 
@@ -32,7 +35,8 @@ public class Especialidad implements Serializable {
 		super();
 	}
 
-	public Especialidad(int idEspecialidad, String nombreEspecialidad, String certificadoraEspecialidad) {
+	public Especialidad(int idEspecialidad,@NotEmpty(message = "Ingresa el nombre de la especialidad") String nombreEspecialidad,
+			@NotEmpty(message = "Ingresa la certificadora")	String certificadoraEspecialidad) {
 		this.idEspecialidad = idEspecialidad;
 		this.nombreEspecialidad = nombreEspecialidad;
 		this.certificadoraEspecialidad = certificadoraEspecialidad;
