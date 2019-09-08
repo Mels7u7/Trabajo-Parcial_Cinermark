@@ -83,6 +83,6 @@ public class Sala implements Serializable{
 	public void setSedeSala(Sede sedeSala) {
 		this.sedeSala = sedeSala;
 	}
-	
+	//*
 	
 }
