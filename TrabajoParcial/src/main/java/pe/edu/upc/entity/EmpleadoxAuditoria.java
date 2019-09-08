@@ -26,4 +26,8 @@ public class EmpleadoxAuditoria implements Serializable{
 	@JoinColumn(name = "idEmpleado")
 	private Empleado empleadoEmpleadoAuditoria;
 	
+	@ManyToOne
+	@JoinColumn(name = "idAuditoria")
+	private Auditoria auditoriaEmpleadoxAuditoria;
+	
 }
