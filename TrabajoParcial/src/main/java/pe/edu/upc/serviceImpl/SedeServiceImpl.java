@@ -1,6 +1,7 @@
 package pe.edu.upc.serviceImpl;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -31,5 +32,11 @@ public class SedeServiceImpl implements ISedeService, Serializable {
 	public void eliminar(int idSede)
 	{
 		sD.eliminar(idSede);
+	}
+	
+	@Override
+	public List<Sede> listar()
+	{
+		return sD.listar();
 	}
 }

@@ -1,9 +1,12 @@
 package pe.edu.upc.daoImpl;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.transaction.Transactional;
 
 import pe.edu.upc.dao.ISedeDao;
@@ -47,5 +50,23 @@ public class SedeDaoImpl implements ISedeDao, Serializable {
 		{
 			System.out.println(e.getMessage());
 		}
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Sede> listar()
+	{
+		List<Sede> lista = new ArrayList<Sede>();
+		try
+		{
+			Query q = em.createQuery("Select s from Sede s");
+			lista = (List<Sede>) q.getResultList();
+		}
+		catch(Exception e)
+		{
+			System.out.println(e.getMessage());
+		}
+		
+		return lista;
 	}
 }
