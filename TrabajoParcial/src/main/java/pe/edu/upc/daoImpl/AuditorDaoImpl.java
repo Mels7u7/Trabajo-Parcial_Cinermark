@@ -1,9 +1,12 @@
 package pe.edu.upc.daoImpl;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.transaction.Transactional;
 
 import pe.edu.upc.dao.IAuditorDao;
@@ -49,4 +52,21 @@ public class AuditorDaoImpl implements IAuditorDao, Serializable {
 		}
 	}
 	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Auditor> listar()
+	{
+		List<Auditor> lista = new ArrayList<Auditor>();
+		try
+		{
+			Query q = em.createQuery("Select a from Auditor a");
+			lista = (List<Auditor>) q.getResultList();
+		}
+		catch(Exception e)
+		{
+			System.out.println(e.getMessage());
+		}
+		
+		return lista;
+	}
 }
