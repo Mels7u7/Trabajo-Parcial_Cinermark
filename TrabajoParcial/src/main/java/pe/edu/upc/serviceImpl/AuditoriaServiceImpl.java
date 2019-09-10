@@ -25,5 +25,11 @@ public class AuditoriaServiceImpl implements IAuditoriaService, Serializable {
 	public void insertar(Auditoria auditoria) {
 		aD.insertar(auditoria);
 	}
+	
+	@Override
+	public void eliminar(int idAuditoria)
+	{
+		aD.eliminar(idAuditoria);
+	}
 
 }

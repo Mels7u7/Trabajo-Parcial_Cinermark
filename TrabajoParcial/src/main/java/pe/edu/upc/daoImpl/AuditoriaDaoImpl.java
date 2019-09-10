@@ -32,5 +32,21 @@ public class AuditoriaDaoImpl implements IAuditoriaDao, Serializable {
 			System.out.println(e.getMessage());
 		}
 	}
+	
+	@Transactional	
+	@Override
+	public void eliminar(int idAuditoria)
+	{
+	
+		Auditoria aud = new Auditoria();
+		try {
+			aud = em.getReference(Auditoria.class, idAuditoria);
+			em.remove(aud);
+		}
+		catch(Exception e)
+		{
+			System.out.println(e.getMessage());
+		}
+	}
 
 }
