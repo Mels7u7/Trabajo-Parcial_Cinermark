@@ -26,5 +26,11 @@ public class SalaServiceImpl implements ISalaService, Serializable {
 	public void insertar(Sala sala) {
 		sD.insertar(sala);
 	}
+	
+	@Override
+	public void eliminar(int idSala)
+	{
+		sD.eliminar(idSala);
+	}
 
 }

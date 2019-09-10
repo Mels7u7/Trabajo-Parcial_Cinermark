@@ -32,5 +32,21 @@ public class SalaDaoImpl implements ISalaDao, Serializable {
 			System.out.println(e.getMessage());
 		}
 	}
+	
+	@Transactional	
+	@Override
+	public void eliminar(int idSala)
+	{
+	
+		Sala sala = new Sala();
+		try {
+			sala = em.getReference(Sala.class, idSala);
+			em.remove(sala);
+		}
+		catch(Exception e)
+		{
+			System.out.println(e.getMessage());
+		}
+	}
 
 }
