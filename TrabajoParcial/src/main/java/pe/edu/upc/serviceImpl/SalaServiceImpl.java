@@ -1,10 +1,30 @@
 package pe.edu.upc.serviceImpl;
 
+import java.io.Serializable;
+
 import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
+
+import pe.edu.upc.dao.ISalaDao;
+import pe.edu.upc.entity.Sala;
+import pe.edu.upc.service.ISalaService;
 
 @Named
 @RequestScoped
-public class SalaServiceImpl {
+public class SalaServiceImpl implements ISalaService, Serializable {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	@Inject
+	private ISalaDao sD;
+	
+	@Override
+	public void insertar(Sala sala) {
+		sD.insertar(sala);
+	}
 
 }
