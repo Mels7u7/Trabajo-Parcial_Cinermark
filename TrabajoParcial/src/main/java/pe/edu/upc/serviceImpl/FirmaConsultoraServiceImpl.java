@@ -1,6 +1,7 @@
 package pe.edu.upc.serviceImpl;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -31,5 +32,11 @@ public class FirmaConsultoraServiceImpl implements IFirmaConsultoraService, Seri
 	public void eliminar(int idFirma)
 	{
 		fD.eliminar(idFirma);
+	}
+	
+	@Override
+	public List<FirmaConsultora> listar()
+	{
+		return fD.listar();
 	}
 }

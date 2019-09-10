@@ -1,9 +1,12 @@
 package pe.edu.upc.daoImpl;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.transaction.Transactional;
 
 import pe.edu.upc.dao.IFirmaConsultoraDao;
@@ -47,6 +50,24 @@ public class FirmaConsultoraDaoImpl implements IFirmaConsultoraDao, Serializable
 		{
 			System.out.println(e.getMessage());
 		}
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<FirmaConsultora> listar()
+	{
+		List<FirmaConsultora> lista = new ArrayList<FirmaConsultora>();
+		try
+		{
+			Query q = em.createQuery("Select f from FirmaConsultora f");
+			lista = (List<FirmaConsultora>) q.getResultList();
+		}
+		catch(Exception e)
+		{
+			System.out.println(e.getMessage());
+		}
+		
+		return lista;
 	}
 
 }
