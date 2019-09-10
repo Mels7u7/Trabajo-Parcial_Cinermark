@@ -9,7 +9,6 @@ import javax.transaction.Transactional;
 import pe.edu.upc.dao.IEspecialidadDao;
 import pe.edu.upc.entity.Especialidad;
 
-
 public class EspecialidadDaoImpl implements IEspecialidadDao, Serializable {
 	
 	/**
@@ -27,6 +26,22 @@ public class EspecialidadDaoImpl implements IEspecialidadDao, Serializable {
 		try
 		{
 			em.persist(especialidad);
+		}
+		catch(Exception e)
+		{
+			System.out.println(e.getMessage());
+		}
+	}
+	
+	@Transactional	
+	@Override
+	public void eliminar(int idEspecialidad)
+	{
+	
+		Especialidad esp = new Especialidad();
+		try {
+			esp = em.getReference(Especialidad.class, idEspecialidad);
+			em.remove(esp);
 		}
 		catch(Exception e)
 		{

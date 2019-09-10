@@ -25,4 +25,10 @@ public class EspecialidadServiceImpl implements IEspecialidadService, Serializab
 	public void insertar(Especialidad especialidad) {
 		eD.insertar(especialidad);
 	}
+	
+	@Override
+	public void eliminar(int idEspecialidad)
+	{
+		eD.eliminar(idEspecialidad);
+	}
 }
