@@ -1,9 +1,12 @@
 package pe.edu.upc.daoImpl;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.transaction.Transactional;
 
 import pe.edu.upc.dao.ISalaDao;
@@ -47,6 +50,24 @@ public class SalaDaoImpl implements ISalaDao, Serializable {
 		{
 			System.out.println(e.getMessage());
 		}
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Sala> listar()
+	{
+		List<Sala> lista = new ArrayList<Sala>();
+		try
+		{
+			Query q = em.createQuery("Select s from Sala s");
+			lista = (List<Sala>) q.getResultList();
+		}
+		catch(Exception e)
+		{
+			System.out.println(e.getMessage());
+		}
+		
+		return lista;
 	}
 
 }

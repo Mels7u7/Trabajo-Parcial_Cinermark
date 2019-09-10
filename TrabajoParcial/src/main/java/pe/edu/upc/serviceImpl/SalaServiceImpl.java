@@ -1,6 +1,7 @@
 package pe.edu.upc.serviceImpl;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -33,4 +34,9 @@ public class SalaServiceImpl implements ISalaService, Serializable {
 		sD.eliminar(idSala);
 	}
 
+	@Override
+	public List<Sala> listar()
+	{
+		return sD.listar();
+	}
 }
