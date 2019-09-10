@@ -16,7 +16,7 @@ import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name = "sala")
-public class Sala implements Serializable{
+public class Sala implements Serializable {
 
 	/**
 	 * 
@@ -25,16 +25,16 @@ public class Sala implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idSala;
-	
+
 	@NotEmpty(message = "Ingresa el tipo de sala")
 	@Column(name = "tipoSala", nullable = false, length = 50)
 	private String tipoSala;
-	
+
 	@Min(1)
 	@Max(50)
 	@Column(name = "capacidadSala", nullable = false)
 	private int capacidadSala;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "idSede")
 	private Sede sedeSala;
@@ -43,8 +43,7 @@ public class Sala implements Serializable{
 		super();
 	}
 
-	public Sala(int idSala, @NotEmpty(message = "Ingresa el tipo de sala") String tipoSala,
-			@Min(1) @Max(50) int capacidadSala, Sede sedeSala) {
+	public Sala(int idSala, String tipoSala, int capacidadSala, Sede sedeSala) {
 		super();
 		this.idSala = idSala;
 		this.tipoSala = tipoSala;
@@ -83,6 +82,5 @@ public class Sala implements Serializable{
 	public void setSedeSala(Sede sedeSala) {
 		this.sedeSala = sedeSala;
 	}
-	
-	
+
 }

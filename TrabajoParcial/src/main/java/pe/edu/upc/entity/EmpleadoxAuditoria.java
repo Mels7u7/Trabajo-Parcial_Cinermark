@@ -24,10 +24,49 @@ public class EmpleadoxAuditoria implements Serializable{
 	
 	@ManyToOne
 	@JoinColumn(name = "idEmpleado")
-	private Empleado empleadoEmpleadoAuditoria;
+	private Empleado empleadoEmpleadoxAuditoria;
 	
 	@ManyToOne
 	@JoinColumn(name = "idAuditoria")
 	private Auditoria auditoriaEmpleadoxAuditoria;
+
+	public EmpleadoxAuditoria() {
+		super();
+	}
+
+	public EmpleadoxAuditoria(int idEmpleadoxAuditoria, Empleado empleadoEmpleadoxAuditoria,
+			Auditoria auditoriaEmpleadoxAuditoria) {
+		super();
+		this.idEmpleadoxAuditoria = idEmpleadoxAuditoria;
+		this.empleadoEmpleadoxAuditoria = empleadoEmpleadoxAuditoria;
+		this.auditoriaEmpleadoxAuditoria = auditoriaEmpleadoxAuditoria;
+	}
+
+	public int getIdEmpleadoxAuditoria() {
+		return idEmpleadoxAuditoria;
+	}
+
+	public void setIdEmpleadoxAuditoria(int idEmpleadoxAuditoria) {
+		this.idEmpleadoxAuditoria = idEmpleadoxAuditoria;
+	}
+
+	public Empleado getEmpleadoEmpleadoxAuditoria() {
+		return empleadoEmpleadoxAuditoria;
+	}
+
+	public void setEmpleadoEmpleadoxAuditoria(Empleado empleadoEmpleadoxAuditoria) {
+		this.empleadoEmpleadoxAuditoria = empleadoEmpleadoxAuditoria;
+	}
+
+	public Auditoria getAuditoriaEmpleadoxAuditoria() {
+		return auditoriaEmpleadoxAuditoria;
+	}
+
+	public void setAuditoriaEmpleadoxAuditoria(Auditoria auditoriaEmpleadoxAuditoria) {
+		this.auditoriaEmpleadoxAuditoria = auditoriaEmpleadoxAuditoria;
+	}
+	
+	
+	
 	
 }

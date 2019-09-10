@@ -36,6 +36,9 @@ public class Sede implements Serializable{
 		this.direccionSede = direccionSede;
 	}
 
+	
+	
+	
 	public int getIdSede() {
 		return idSede;
 	}

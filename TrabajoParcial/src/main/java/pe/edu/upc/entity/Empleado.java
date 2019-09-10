@@ -24,16 +24,16 @@ public class Empleado implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idEmpleado;
 
-	@NotEmpty(message = "Ingresa los nombres del empleado")
+	@NotEmpty(message = "Ingrese los nombres del empleado")
 	@Column(name = "nombreEmpleado", nullable = false, length = 30)
 	private String nombreEmpleado;
 
-	@NotEmpty(message = "Ingresa los apellidos del empleado")
+	@NotEmpty(message = "Ingrese los apellidos del empleado")
 	@Column(name = "apellidoEmpleado", nullable = false, length = 30)
 	private String apellidoEmpleado;
 
 	@Size(min = 8, max = 8)
-	@NotEmpty(message = "Ingresar DNI")
+	@NotEmpty(message = "Ingresar DNI del empleado")
 	@Column(name = "dniEmpleado", nullable = false, length = 45, unique = true)
 	private int dniEmpleado;
 
@@ -50,11 +50,8 @@ public class Empleado implements Serializable {
 		super();
 	}
 
-	public Empleado(int idEmpleado, @NotEmpty(message = "Ingresa los nombres del empleado") String nombreEmpleado,
-			@NotEmpty(message = "Ingresa los apellidos del empleado") String apellidoEmpleado,
-			@Size(min = 8, max = 8) @NotEmpty(message = "Ingresar DNI") int dniEmpleado,
-			@NotEmpty(message = "Ingrese el puesto laboral del empleado") String puestolaboralEmpleado,
-			@Size(min = 9, max = 9) @NotEmpty(message = "Ingrese el celular del empleado")int celularEmpleado) {
+	public Empleado(int idEmpleado, String nombreEmpleado, String apellidoEmpleado, int dniEmpleado,
+			String puestolaboralEmpleado, int celularEmpleado) {
 		this.idEmpleado = idEmpleado;
 		this.nombreEmpleado = nombreEmpleado;
 		this.apellidoEmpleado = apellidoEmpleado;

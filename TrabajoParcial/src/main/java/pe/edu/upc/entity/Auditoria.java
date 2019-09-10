@@ -19,10 +19,9 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Past;
 
-
 @Entity
 @Table(name = "auditoria")
-public class Auditoria implements Serializable{
+public class Auditoria implements Serializable {
 
 	/**
 	 * 
@@ -31,34 +30,34 @@ public class Auditoria implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idAuditoria;
-	
+
 	@NotEmpty(message = "Ingresa el tema principal")
 	@Column(name = "temaPrincipal", nullable = false, length = 45)
 	private String temaPrincipal;
-	
+
 	@NotEmpty(message = "Escriba una descripcion")
 	@Column(name = "descripcionAuditoria", nullable = false, length = 70)
 	private String descripcionAuditoria;
-	
+
 	@NotNull(message = "La fecha es obligatoria")
 	@Past(message = "La fecha debe estar en el pasado")
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "fechaAuditoria")
 	private Date fechaAuditoria;
-	
+
 	@Min(1)
 	@Max(100)
 	@Column(name = "trabajadoresAuditados", nullable = false)
 	private int trabajadoresAuditados;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "idAuditor")
 	private Auditor auditorAuditoria;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "idSala")
 	private Sala salaAuditoria;
-	
+
 	@NotEmpty(message = "Escriba el estado")
 	@Column(name = "estadoAuditoria", nullable = false, length = 20)
 	private String estadoAuditoria;
@@ -67,11 +66,8 @@ public class Auditoria implements Serializable{
 		super();
 	}
 
-	public Auditoria(int idAuditoria, @NotEmpty(message = "Ingresa el tema principal") String temaPrincipal,
-			@NotEmpty(message = "Escriba una descripcion") String descripcionAuditoria,
-			@NotNull(message = "La fecha es obligatoria") @Past(message = "La fecha debe estar en el pasado") Date fechaAuditoria,
-			@Min(1) @Max(100) int trabajadoresAuditados, Auditor auditorAuditoria, Sala salaAuditoria,
-			@NotEmpty(message = "Escriba el estado") String estadoAuditoria) {
+	public Auditoria(int idAuditoria, String temaPrincipal, String descripcionAuditoria, Date fechaAuditoria,
+			int trabajadoresAuditados, Auditor auditorAuditoria, Sala salaAuditoria, String estadoAuditoria) {
 		super();
 		this.idAuditoria = idAuditoria;
 		this.temaPrincipal = temaPrincipal;
@@ -146,6 +142,5 @@ public class Auditoria implements Serializable{
 	public void setEstadoAuditoria(String estadoAuditoria) {
 		this.estadoAuditoria = estadoAuditoria;
 	}
-	
-	
+
 }

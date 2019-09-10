@@ -16,7 +16,7 @@ import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name = "auditor")
-public class Auditor implements Serializable{
+public class Auditor implements Serializable {
 
 	/**
 	 * 
@@ -27,24 +27,24 @@ public class Auditor implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idAuditor;
-	
+
 	@NotEmpty(message = "Ingresa el nombre del Auditor")
 	@Column(name = "nombreAuditor", nullable = false, length = 20)
 	private String nombreAuditor;
-	
+
 	@NotEmpty(message = "Ingresa el tema principal")
 	@Column(name = "numeroAuditor", nullable = false, length = 9)
 	private String numeroAuditor;
-	
+
 	@Min(1)
 	@Max(20)
 	@Column(name = "tiempoExpAuditor", nullable = false)
 	private int tiempoExpAuditor;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "idEspecialidad")
 	private Especialidad especialidadAuditor;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "idFirma")
 	private FirmaConsultora firmaAuditor;
@@ -53,9 +53,8 @@ public class Auditor implements Serializable{
 		super();
 	}
 
-	public Auditor(int idAuditor, @NotEmpty(message = "Ingresa el nombre del Auditor") String nombreAuditor,
-			@NotEmpty(message = "Ingresa el tema principal") String numeroAuditor,
-			@Min(1) @Max(20) int tiempoExpAuditor, Especialidad especialidadAuditor, FirmaConsultora firmaAuditor) {
+	public Auditor(int idAuditor, String nombreAuditor, String numeroAuditor, int tiempoExpAuditor,
+			Especialidad especialidadAuditor, FirmaConsultora firmaAuditor) {
 		super();
 		this.idAuditor = idAuditor;
 		this.nombreAuditor = nombreAuditor;
@@ -112,6 +111,5 @@ public class Auditor implements Serializable{
 	public void setFirmaAuditor(FirmaConsultora firmaAuditor) {
 		this.firmaAuditor = firmaAuditor;
 	}
-	
-	
+
 }
