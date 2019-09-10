@@ -25,4 +25,9 @@ public class EmpleadoServiceImpl implements IEmpleadoService, Serializable {
 		eD.insertar(empleado);
 	}
 	
+	@Override
+	public void eliminar(int idEmpleado)
+	{
+		eD.eliminar(idEmpleado);
+	}
 }

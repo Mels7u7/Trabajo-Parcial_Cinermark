@@ -33,4 +33,19 @@ public class EmpleadoDaoImpl implements IEmpleadoDao, Serializable {
 		}
 	}
 
+	@Transactional	
+	@Override
+	public void eliminar(int idEmpleado)
+	{
+	
+		Empleado emp = new Empleado();
+		try {
+			emp = em.getReference(Empleado.class, idEmpleado);
+			em.remove(emp);
+		}
+		catch(Exception e)
+		{
+			System.out.println(e.getMessage());
+		}
+	}
 }
