@@ -33,5 +33,20 @@ public class HerramientaDaoImpl implements IHerramientaDao, Serializable{
 		}
 	}
 	
+	@Transactional	
+	@Override
+	public void eliminar(int idHerramienta)
+	{
+	
+		Herramienta her = new Herramienta();
+		try {
+			her = em.getReference(Herramienta.class, idHerramienta);
+			em.remove(her);
+		}
+		catch(Exception e)
+		{
+			System.out.println(e.getMessage());
+		}
+	}
 
 }

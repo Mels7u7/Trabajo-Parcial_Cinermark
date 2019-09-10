@@ -26,5 +26,11 @@ public class HerramientaServiceImpl implements IHerramientaService,Serializable 
 	public void insertar(Herramienta herramienta) {
 		hD.insertar(herramienta);
 	}
+	
+	@Override
+	public void eliminar(int idHerramienta)
+	{
+		hD.eliminar(idHerramienta);
+	}
 
 }
