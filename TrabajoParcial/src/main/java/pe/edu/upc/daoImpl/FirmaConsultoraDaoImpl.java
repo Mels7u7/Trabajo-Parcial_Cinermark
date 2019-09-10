@@ -32,5 +32,21 @@ public class FirmaConsultoraDaoImpl implements IFirmaConsultoraDao, Serializable
 			System.out.println(e.getMessage());
 		}
 	}
+	
+	@Transactional	
+	@Override
+	public void eliminar(int idFirma)
+	{
+	
+		FirmaConsultora firm = new FirmaConsultora();
+		try {
+			firm = em.getReference(FirmaConsultora.class, idFirma);
+			em.remove(firm);
+		}
+		catch(Exception e)
+		{
+			System.out.println(e.getMessage());
+		}
+	}
 
 }

@@ -26,4 +26,10 @@ public class FirmaConsultoraServiceImpl implements IFirmaConsultoraService, Seri
 	public void insertar(FirmaConsultora firma) {
 		fD.insertar(firma);
 	}
+	
+	@Override
+	public void eliminar(int idFirma)
+	{
+		fD.eliminar(idFirma);
+	}
 }
