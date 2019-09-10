@@ -1,5 +1,37 @@
 package pe.edu.upc.daoImpl;
 
-public class EspecialidadDaoImpl {
+import java.io.Serializable;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
+
+import pe.edu.upc.dao.IEspecialidadDao;
+import pe.edu.upc.entity.Especialidad;
+
+
+public class EspecialidadDaoImpl implements IEspecialidadDao, Serializable {
+	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
+	
+	@PersistenceContext(unitName = "TrabajoParcial")
+	private EntityManager em;
+	
+	@Transactional	
+	@Override
+	public void insertar(Especialidad especialidad)
+	{
+		try
+		{
+			em.persist(especialidad);
+		}
+		catch(Exception e)
+		{
+			System.out.println(e.getMessage());
+		}
+	}
 
 }
