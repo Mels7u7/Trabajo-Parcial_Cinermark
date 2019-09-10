@@ -1,6 +1,7 @@
 package pe.edu.upc.serviceImpl;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -31,6 +32,12 @@ public class HerramientaServiceImpl implements IHerramientaService,Serializable 
 	public void eliminar(int idHerramienta)
 	{
 		hD.eliminar(idHerramienta);
+	}
+	
+	@Override
+	public List<Herramienta> listar()
+	{
+		return hD.listar();
 	}
 
 }

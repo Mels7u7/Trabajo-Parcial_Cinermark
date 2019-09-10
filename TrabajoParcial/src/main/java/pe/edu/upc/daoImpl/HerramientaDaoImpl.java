@@ -1,9 +1,12 @@
 package pe.edu.upc.daoImpl;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.transaction.Transactional;
 
 import pe.edu.upc.dao.IHerramientaDao;
@@ -47,6 +50,24 @@ public class HerramientaDaoImpl implements IHerramientaDao, Serializable{
 		{
 			System.out.println(e.getMessage());
 		}
+	}
+	
+	@SuppressWarnings("unchecked")
+	@Override
+	public List<Herramienta> listar()
+	{
+		List<Herramienta> lista = new ArrayList<Herramienta>();
+		try
+		{
+			Query q = em.createQuery("Select h from Herramienta h");
+			lista = (List<Herramienta>) q.getResultList();
+		}
+		catch(Exception e)
+		{
+			System.out.println(e.getMessage());
+		}
+		
+		return lista;
 	}
 
 }
