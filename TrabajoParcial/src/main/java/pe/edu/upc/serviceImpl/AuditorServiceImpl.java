@@ -25,4 +25,10 @@ public class AuditorServiceImpl implements IAuditorService, Serializable {
 	public void insertar(Auditor auditor) {
 		aD.insertar(auditor);
 	}
+	
+	@Override
+	public void eliminar(int idAuditor)
+	{
+		aD.eliminar(idAuditor);
+	}
 }

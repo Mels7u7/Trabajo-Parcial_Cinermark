@@ -33,4 +33,20 @@ public class AuditorDaoImpl implements IAuditorDao, Serializable {
 		}
 	}
 	
+	@Transactional	
+	@Override
+	public void eliminar(int idAuditor)
+	{
+	
+		Auditor aud = new Auditor();
+		try {
+			aud = em.getReference(Auditor.class, idAuditor);
+			em.remove(aud);
+		}
+		catch(Exception e)
+		{
+			System.out.println(e.getMessage());
+		}
+	}
+	
 }
