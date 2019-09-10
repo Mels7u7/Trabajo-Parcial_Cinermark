@@ -1,6 +1,7 @@
 package pe.edu.upc.serviceImpl;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
@@ -29,5 +30,11 @@ public class EmpleadoServiceImpl implements IEmpleadoService, Serializable {
 	public void eliminar(int idEmpleado)
 	{
 		eD.eliminar(idEmpleado);
+	}
+	
+	@Override
+	public List<Empleado> listar()
+	{
+		return eD.listar();
 	}
 }
