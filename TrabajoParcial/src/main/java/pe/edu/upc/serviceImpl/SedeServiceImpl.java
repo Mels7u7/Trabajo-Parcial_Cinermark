@@ -26,4 +26,10 @@ public class SedeServiceImpl implements ISedeService, Serializable {
 	public void insertar(Sede sede) {
 		sD.insertar(sede);
 	}
+	
+	@Override
+	public void eliminar(int idSede)
+	{
+		sD.eliminar(idSede);
+	}
 }

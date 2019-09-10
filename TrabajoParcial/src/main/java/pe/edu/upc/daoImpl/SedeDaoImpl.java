@@ -32,4 +32,20 @@ public class SedeDaoImpl implements ISedeDao, Serializable {
 			System.out.println(e.getMessage());
 		}
 	}
+	
+	@Transactional	
+	@Override
+	public void eliminar(int idSede)
+	{
+	
+		Sede sede = new Sede();
+		try {
+			sede = em.getReference(Sede.class, idSede);
+			em.remove(sede);
+		}
+		catch(Exception e)
+		{
+			System.out.println(e.getMessage());
+		}
+	}
 }
