@@ -23,7 +23,7 @@ public class Herramienta implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idHerramienta;
-
+	
 	@NotEmpty(message = "Ingresa el nombre de la herramienta")
 	@Column(name = "nombreHerramienta", nullable = false, length = 50)
 	private String nombreHerramienta;
@@ -32,7 +32,7 @@ public class Herramienta implements Serializable {
 	@Max(500)
 	@Column(name = "stockHerramienta", nullable = false)
 	private int stockHerramienta;
-
+	
 	@NotEmpty(message = "Ingresa las unidades")
 	@Column(name = "unidadHerramienta", nullable = false, length = 50)
 	private String unidadHerramienta;
@@ -42,7 +42,8 @@ public class Herramienta implements Serializable {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Herramienta(int idHerramienta, String nombreHerramienta, int stockHerramienta, String unidadHerramienta) {
+	public Herramienta(int idHerramienta,@NotEmpty(message = "Ingresa el nombre de la herramienta") String nombreHerramienta,
+			@Min(1) @Max(500) int stockHerramienta,@NotEmpty(message = "Ingresa las unidades") String unidadHerramienta) {
 		this.idHerramienta = idHerramienta;
 		this.nombreHerramienta = nombreHerramienta;
 		this.stockHerramienta = stockHerramienta;
