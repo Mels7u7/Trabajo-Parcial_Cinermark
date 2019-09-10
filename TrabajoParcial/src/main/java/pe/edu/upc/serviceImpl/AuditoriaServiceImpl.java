@@ -1,6 +1,7 @@
 package pe.edu.upc.serviceImpl;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -32,4 +33,9 @@ public class AuditoriaServiceImpl implements IAuditoriaService, Serializable {
 		aD.eliminar(idAuditoria);
 	}
 
+	@Override
+	public List<Auditoria> listar()
+	{
+		return aD.listar();
+	}
 }
