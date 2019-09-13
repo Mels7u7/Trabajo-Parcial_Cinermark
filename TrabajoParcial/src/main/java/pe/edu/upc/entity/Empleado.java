@@ -9,6 +9,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "empleado")
@@ -31,26 +32,25 @@ public class Empleado implements Serializable {
 	@Column(name = "apellidoEmpleado", nullable = false, length = 30)
 	private String apellidoEmpleado;
 
-	
-	@NotEmpty(message = "Ingresar DNI del empleado")
+	@Size(min = 8, max = 8)
 	@Column(name = "dniEmpleado", nullable = false, length = 45, unique = true)
-	private int dniEmpleado;
+	private String dniEmpleado;
 
 	@NotEmpty(message = "Ingrese el puesto laboral del empleado")
 	@Column(name = "puestolaboralEmpleado", nullable = false, length = 20)
 	private String puestolaboralEmpleado;
 
-	
-	@NotEmpty(message = "Ingrese el celular del empleado")
+	@Size(min = 9, max = 9)
 	@Column(name = "celularEmpleado", nullable = false, length = 9)
-	private int celularEmpleado;
+	private String celularEmpleado;
 
 	public Empleado() {
 		super();
 	}
 
-	public Empleado(int idEmpleado, String nombreEmpleado, String apellidoEmpleado, int dniEmpleado,
-			String puestolaboralEmpleado, int celularEmpleado) {
+	public Empleado(int idEmpleado, String nombreEmpleado, String apellidoEmpleado, String dniEmpleado,
+			String puestolaboralEmpleado, String celularEmpleado) {
+		super();
 		this.idEmpleado = idEmpleado;
 		this.nombreEmpleado = nombreEmpleado;
 		this.apellidoEmpleado = apellidoEmpleado;
@@ -83,11 +83,11 @@ public class Empleado implements Serializable {
 		this.apellidoEmpleado = apellidoEmpleado;
 	}
 
-	public int getDniEmpleado() {
+	public String getDniEmpleado() {
 		return dniEmpleado;
 	}
 
-	public void setDniEmpleado(int dniEmpleado) {
+	public void setDniEmpleado(String dniEmpleado) {
 		this.dniEmpleado = dniEmpleado;
 	}
 
@@ -99,11 +99,34 @@ public class Empleado implements Serializable {
 		this.puestolaboralEmpleado = puestolaboralEmpleado;
 	}
 
-	public int getCelularEmpleado() {
+	public String getCelularEmpleado() {
 		return celularEmpleado;
 	}
 
-	public void setCelularEmpleado(int celularEmpleado) {
+	public void setCelularEmpleado(String celularEmpleado) {
 		this.celularEmpleado = celularEmpleado;
 	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + idEmpleado;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Empleado other = (Empleado) obj;
+		if (idEmpleado != other.idEmpleado)
+			return false;
+		return true;
+	}
+
 }
