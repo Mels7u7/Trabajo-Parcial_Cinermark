@@ -17,7 +17,7 @@
 	<class>pe.edu.upc.entity.FirmaConsultora</class>
 	<class>pe.edu.upc.entity.EmpleadoxAuditoria</class>
 	<properties>
-		<property name="javax.persistence.schema-generation.database.action" value="create"/>
+		<property name="javax.persistence.schema-generation.database.action" value="update"/>
 	</properties>
 	</persistence-unit>
 </persistence>

@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html>
 <html lang="es" xmlns="http://www.w3.org/1999/xhtml" 
       xmlns:ui="http://java.sun.com/jsf/facelets" 
       xmlns:h="http://java.sun.com/jsf/html" 
@@ -13,25 +13,44 @@
 	<meta name="viewport"
 		content="width=device-width, initial-scale=1, maximum-scale=1" />
     <!-- Title -->
-    <title>Cinemark &amp; Proceso de auditoria</title>
+    <title>Cinemark | Proceso de auditoria</title>
 
 	<link
-	href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-	rel="stylesheet" id="bootstrap-css"></link>
-<link
-	href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900"
-	rel="stylesheet"/>
-<link
-	href="https://fonts.googleapis.com/css?family=Nunito+Sans:200,300,400,600,700,800,900"
-	rel="stylesheet"/>
+		href='https://fonts.googleapis.com/css?family=Roboto:400,300,500|Ubuntu+Condensed'
+		rel='stylesheet' type='text/css' />
+	<link rel="shortcut icon" type="image/x-icon"
+		href="resources/img/core-img/favicon.png" />
+
+	<h:outputStylesheet name="/css/bootstrap.min.css" />
+	<h:outputStylesheet name="/css/style.css" />
+	<h:outputStylesheet name="/css/animate.css" />
+	<h:outputStylesheet name="/css/font-awesome.min.css" />
+	<h:outputStylesheet name="/css/bootstrap-datepicker.min.css" />
+	<h:outputStylesheet name="/css/jquery-ui.min.css" />
+	<h:outputStylesheet name="/css/magnific-popup.css" />
+	<h:outputStylesheet name="/css/nice-select.css" />
+	<h:outputStylesheet name="/css/owl.carousel.min.css" />
 	
-    <!-- Favicon -->
-    <link rel="icon" href="/img/core-img/favicon.png"/>
-
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="@{/css/bootstrap.min.css}"></link>
-    
-
+	<h:outputScript library="js" name="/js/jquery.min.js" />
+   <h:outputScript library="js" name="/js/popper.min.js" />
+   <h:outputScript library="js" name="/js/bootstrap.min.js" />
+   <h:outputScript library="js" name="/js/roberto.bundle.js" />
+   <h:outputScript library="js" name="/js/default-assets/active.js" />
+   <h:outputScript library="js" name="/js/bootstrap-datepicker.min.js" />
+   <h:outputScript library="js" name="/js/imagesloaded.pkgd.min.js" />
+   <h:outputScript library="js" name="/js/isotope.pkgd.min.js" />
+   <h:outputScript library="js" name="/js/jarallax-video.min.js" />
+   <h:outputScript library="js" name="/js/jarallax.min.js" />
+   <h:outputScript library="js" name="/js/jquery-ui.min.js" />
+   <h:outputScript library="js" name="/js/jquery.countdown.min.js" />
+   <h:outputScript library="js" name="/js/jquery.counterup.min.js" />
+   <h:outputScript library="js" name="/js/jquery.easing.min.js" />
+   <h:outputScript library="js" name="/js/jquery.magnific-popup.min.js" />
+   <h:outputScript library="js" name="/js/jquery.min.js" />
+   <h:outputScript library="js" name="/js/jquery.nice-select.js" />
+   <h:outputScript library="js" name="/js/owl.carousel.min.js" />
+   <h:outputScript library="js" name="/js/waypoints.min.js" />
+   <h:outputScript library="js" name="/js/wow.min.js" />
 </h:head>
 
 <h:body>
@@ -85,7 +104,7 @@
                     <nav class="classy-navbar justify-content-between" id="robertoNav">
 
                         <!-- Logo -->
-                        <a class="nav-brand" href="index.html"><img src="./img/core-img/logo.png" alt=""/></a>
+                        <a class="nav-brand" href="index.html"><img src="/img/core-img/logo.png" alt=""/></a>
 
                         <!-- Navbar Toggler -->
                         <div class="classy-navbar-toggler">
@@ -150,7 +169,7 @@
     <section class="welcome-area">
         <div class="welcome-slides owl-carousel">
             <!-- Single Welcome Slide -->
-            <div class="single-welcome-slide bg-img bg-overlay" style="background-image: url(img/bg-img/16.jpg);" data-img-url="img/bg-img/16.jpg">
+            <div class="single-welcome-slide bg-img bg-overlay" style="background-image: url(/img/bg-img/16.jpg);" data-img-url="/img/bg-img/16.jpg">
                 <!-- Welcome Content -->
                 <div class="welcome-content h-100">
                     <div class="container h-100">
@@ -169,7 +188,7 @@
             </div>
 
             <!-- Single Welcome Slide -->
-            <div class="single-welcome-slide bg-img bg-overlay" style="background-image: url(img/bg-img/17.jpg);" data-img-url="img/bg-img/17.jpg">
+            <div class="single-welcome-slide bg-img bg-overlay" style="background-image: url(/img/bg-img/17.jpg);" data-img-url="img/bg-img/17.jpg">
                 <!-- Welcome Content -->
                 <div class="welcome-content h-100">
                     <div class="container h-100">
@@ -188,7 +207,7 @@
             </div>
 
             <!-- Single Welcome Slide -->
-            <div class="single-welcome-slide bg-img bg-overlay" style="background-image: url(img/bg-img/18.jpg);" data-img-url="img/bg-img/18.jpg">
+            <div class="single-welcome-slide bg-img bg-overlay" style="background-image: url(/img/bg-img/18.jpg);" data-img-url="/img/bg-img/18.jpg">
                 <!-- Welcome Content -->
                 <div class="welcome-content h-100">
                     <div class="container h-100">
@@ -196,7 +215,7 @@
                             <!-- Welcome Text -->
                             <div class="col-12">
                                 <div class="welcome-text text-center">
-                                    <h6 data-animation="fadeInDown" data-delay="200ms">Hotel &amp; Resort</h6>
+                                    <h6 data-animation="fadeInDown" data-delay="200ms">Cinemark</h6>
                                     <h2 data-animation="fadeInDown" data-delay="500ms">Welcome To Roberto</h2>
                                     <a href="#" class="btn roberto-btn btn-2" data-animation="fadeInDown" data-delay="800ms">Discover Now</a>
                                 </div>
@@ -278,7 +297,7 @@
                     <div class="about-us-content mb-100">
                         <h5 class="wow fadeInUp" data-wow-delay="300ms">With over 340 hotels worldwide, NH Hotel Group offers a wide variety of hotels catering for a perfect stay no matter where your destination.</h5>
                         <p class="wow fadeInUp" data-wow-delay="400ms">Manager: <span>Michen Taylor</span></p>
-                        <img src="img/core-img/signature.png" alt="" class="wow fadeInUp" data-wow-delay="500ms"/>
+                        <img src="/img/core-img/signature.png" alt="" class="wow fadeInUp" data-wow-delay="500ms"/>
                     </div>
                 </div>
 
@@ -287,15 +306,15 @@
                         <div class="row no-gutters">
                             <div class="col-6">
                                 <div class="single-thumb">
-                                    <img src="img/bg-img/13.jpg" alt=""/>
+                                    <img src="/img/bg-img/13.jpg" alt=""/>
                                 </div>
                                 <div class="single-thumb">
-                                    <img src="img/bg-img/14.jpg" alt=""/>
+                                    <img src="/img/bg-img/14.jpg" alt=""/>
                                 </div>
                             </div>
                             <div class="col-6">
                                 <div class="single-thumb">
-                                    <img src="img/bg-img/15.jpg" alt=""/>
+                                    <img src="/img/bg-img/15.jpg" alt=""/>
                                 </div>
                             </div>
                         </div>
@@ -315,7 +334,7 @@
                     <div class="col-12 col-sm-6 col-lg-3">
                         <div class="single-footer-widget mb-80">
                             <!-- Footer Logo -->
-                            <a href="#" class="footer-logo"><img src="img/core-img/logo2.png" alt=""/></a>
+                            <a href="#" class="footer-logo"><img src="/img/core-img/logo2.png" alt=""/></a>
 
                             <h4>+12 345-678-9999</h4>
                             <span>Info.colorlib@gmail.com</span>
@@ -384,9 +403,7 @@
                     <div class="col-12 col-md-8">
                         <!-- Copywrite Text -->
                         <div class="copywrite-text">
-                            <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
+                            <p> All rights reserved | Cinemark </p>
                         </div>
                     </div>
                     <div class="col-12 col-md-4">
@@ -403,19 +420,8 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
         </div>
     </footer>
     <!-- Footer Area End -->
-
-    <!-- **** All JS Files ***** -->
-    <!-- jQuery 2.2.4 -->
-    <script src="js/jquery.min.js"></script>
-    <!-- Popper -->
-    <script src="js/popper.min.js"></script>
-    <!-- Bootstrap -->
-    <script src="js/bootstrap.min.js"></script>
-    <!-- All Plugins -->
-    <script src="js/roberto.bundle.js"></script>
-    <!-- Active -->
-    <script src="js/default-assets/active.js"></script>
-
+   
+    
 </h:body>
    
 </html>
