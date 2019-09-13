@@ -34,7 +34,7 @@ public class FirmaConsultora implements Serializable{
 	@Column(name = "contactoFirma", nullable = false, length = 30)
 	private String contactoFirma;
 
-	@Size(min = 10, max = 10)
+	@Size(min = 9, max = 9)
 	@NotEmpty(message = "Ingresar el numero de contacto de la firma consultora")
 	@Column(name = "numeroFirma", nullable = false, length = 45, unique = true)
 	private String numeroFirma;

@@ -53,7 +53,7 @@
 			<p:inputText autocomplete="off" id="numeroFirma"
 				styleClass="form-control"
 				value="#{firmaConsultoraController.firma.numeroFirma}"
-				maxlength="10" required="true"/>
+				maxlength="9" required="true"/>
 				
 			<h:outputLabel for="prestigioFirma" value="Nivel de Prestigio "
 				styleClass="control-label" />
@@ -68,9 +68,9 @@
 			<p:commandButton value="Grabar"
 				actionListener="#{firmaConsultoraController.insertar()}"
 				styleClass="btn btn-primary " update="@form"
-				action="listFirma?faces-redirect=true" />
+				action="listFirmaConsultora?faces-redirect=true" />
 			<p:commandButton value="Cancelar"
-				action="listFirma?faces-redirect=true" immediate="true"
+				action="listFirmaConsultora?faces-redirect=true" immediate="true"
 				styleClass="btn btn-default" ajax="false" />
 
 			<p:growl id="growl" sticky="true" showDetail="true" life="3000" />
