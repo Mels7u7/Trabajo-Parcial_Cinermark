@@ -13,60 +13,49 @@ import pe.edu.upc.dao.IEmpleadoDao;
 import pe.edu.upc.entity.Empleado;
 
 public class EmpleadoDaoImpl implements IEmpleadoDao, Serializable {
-		
+
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	@PersistenceContext(unitName = "TrabajoParcial")
 	private EntityManager em;
-	
-	@Transactional	
+
+	@Transactional
 	@Override
-	public void insertar(Empleado empleado)
-	{
-		try
-		{
+	public void insertar(Empleado empleado) {
+		try {
 			em.persist(empleado);
-		}
-		catch(Exception e)
-		{
+		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 	}
 
-	@Transactional	
+	@Transactional
 	@Override
-	public void eliminar(int idEmpleado)
-	{
-	
+	public void eliminar(int idEmpleado) {
+
 		Empleado emp = new Empleado();
 		try {
 			emp = em.getReference(Empleado.class, idEmpleado);
 			em.remove(emp);
-		}
-		catch(Exception e)
-		{
+		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Empleado> listar()
-	{
+	public List<Empleado> listar() {
 		List<Empleado> lista = new ArrayList<Empleado>();
-		try
-		{
+		try {
 			Query q = em.createQuery("Select e from Empleado e");
 			lista = (List<Empleado>) q.getResultList();
-		}
-		catch(Exception e)
-		{
+		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		
+
 		return lista;
 	}
 }

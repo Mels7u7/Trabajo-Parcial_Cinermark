@@ -9,6 +9,8 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import org.apache.poi.util.SystemOutLogger;
+
 import pe.edu.upc.entity.Empleado;
 import pe.edu.upc.service.IEmpleadoService;
 
@@ -41,8 +43,9 @@ public class EmpleadoController implements Serializable {
 		try {
 			eService.insertar(empleado);
 			limpiarEmpleado();
+			this.listar();
 		} catch (Exception e) {
-			e.getMessage();
+			System.out.println(e.getMessage());
 		}
 	}
 
