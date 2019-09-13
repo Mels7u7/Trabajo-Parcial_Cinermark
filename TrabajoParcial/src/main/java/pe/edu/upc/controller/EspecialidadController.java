@@ -1,6 +1,8 @@
 package pe.edu.upc.controller;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
@@ -22,10 +24,14 @@ public class EspecialidadController implements Serializable{
 	@Inject
 	private IEspecialidadService esService;
 	private Especialidad especialidad;
+	List<Especialidad> listaEspecialidades;
+
 	
 	@PostConstruct
 	public void init() {
+		this.listaEspecialidades = new ArrayList<Especialidad>();
 		this.especialidad = new Especialidad();
+		this.listar();
 	}
 	public String nuevaEspecialidad() {
 		this.setEspecialidad(new Especialidad());
@@ -48,6 +54,13 @@ public class EspecialidadController implements Serializable{
 			e.getMessage();
 		}
 	}
+	public void listar() {
+		try {
+			listaEspecialidades = esService.listar();
+		} catch (Exception e) {
+			e.getMessage();
+		}
+	}
 	public void limpiarEspecialidad() {
 		this.init();
 	}
@@ -62,6 +75,12 @@ public class EspecialidadController implements Serializable{
 	}
 	public void setEspecialidad(Especialidad especialidad) {
 		this.especialidad = especialidad;
+	}
+	public List<Especialidad> getListaEspecialidades() {
+		return listaEspecialidades;
+	}
+	public void setListaEspecialidades(List<Especialidad> listaEspecialidades) {
+		this.listaEspecialidades = listaEspecialidades;
 	}
 	
 }

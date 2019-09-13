@@ -1,9 +1,69 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" 
-      xmlns:ui="http://java.sun.com/jsf/facelets" 
-      xmlns:h="http://java.sun.com/jsf/html" 
-      xmlns:f="http://java.sun.com/jsf/core">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
 
-   
-   
+<ui:composition template="master.xhtml">
+
+	<ui:define name="title">
+        .:Registro de Herramientas:.
+    </ui:define>
+
+	<ui:define name="titleCont">
+		<span>Herramienta</span>
+	</ui:define>
+
+	<ui:define name="content">
+		<h:form>
+			<h:outputLabel for="idHerramienta" value="Id " styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="idHerramienta"
+				styleClass="form-control"
+				value="#{herramientaController.herramienta.idHerramienta}" required="true" />
+				
+			<h:outputLabel for="nombreHerramienta" value="Nombre "
+				styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="nombreHerramienta"
+				styleClass="form-control"
+				value="#{herramientaController.herramienta.nombreHerramienta}"
+				maxlength="30" required="true"/>
+
+			<h:outputLabel for="stockHerramienta" value="Stock "
+				styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="stockHerramienta"
+				styleClass="form-control"
+				value="#{herramientaController.herramienta.stockHerramienta}"
+				maxlength="30" required="true"/>
+				
+			<h:outputLabel for="unidadHerramienta" value="Unidades "
+				styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="unidadHerramienta"
+				styleClass="form-control"
+				value="#{herramientaController.herramienta.unidadHerramienta}"
+				maxlength="30" required="true"/>
+			<br />
+			
+
+			<p:commandButton value="Grabar"
+				actionListener="#{herramientaController.insertar()}"
+				styleClass="btn btn-primary " update="@form"
+				action="listHerramienta?faces-redirect=true" />
+			<p:commandButton value="Cancelar"
+				action="listHerramienta?faces-redirect=true" immediate="true"
+				styleClass="btn btn-default" ajax="false" />
+
+			<p:growl id="growl" sticky="true" showDetail="true" life="3000" />
+
+		</h:form>
+	</ui:define>
+
+	<ui:define name="footerCont">
+
+	</ui:define>
+</ui:composition>
 </html>

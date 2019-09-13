@@ -1,9 +1,87 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" 
-      xmlns:ui="http://java.sun.com/jsf/facelets" 
-      xmlns:h="http://java.sun.com/jsf/html" 
-      xmlns:f="http://java.sun.com/jsf/core">
 
-   
-   
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="master.xhtml">
+
+	<ui:define name="title">
+        .:Registro de Empleados:.
+    </ui:define>
+
+	<ui:define name="titleCont">
+		<span>Empleado</span>
+	</ui:define>
+
+	<ui:define name="content">
+		<h:form>
+			<h:outputLabel for="idEmpleado" value="Id "
+				styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="idEmpleado"
+				styleClass="form-control"
+				value="#{empleadoController.empleado.idEmpleado}" required="true" />
+
+			<h:outputLabel for="nombreEmpleado" value="Nombres "
+				styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="nombreEmpleado"
+				styleClass="form-control"
+				value="#{empleadoController.empleado.nombreEmpleado}" maxlength="30"
+				required="true" />
+				
+			<h:outputLabel for="apellidoEmpleado" value="Apellidos "
+				styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="apellidoEmpleado"
+				styleClass="form-control"
+				value="#{empleadoController.empleado.apellidoEmpleado}" maxlength="30"
+				required="true" />	
+
+			<h:outputLabel for="dniEmpleado" value="DNI "
+				styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="dniEmpleado"
+				styleClass="form-control"
+				value="#{empleadoController.empleado.dniEmpleado}" maxlength="7"
+				required="true" />	
+				
+			<h:outputLabel for="puestolaboralEmpleado" value="Puesto Laboral "
+				styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="puestolaboralEmpleado"
+				styleClass="form-control"
+				value="#{empleadoController.empleado.puestolaboralEmpleado}" maxlength="20"
+				required="true" />	
+				
+			<h:outputLabel for="celularEmpleado" value="Celular "
+				styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="celularEmpleado"
+				styleClass="form-control"
+				value="#{empleadoController.empleado.celularEmpleado}" maxlength="9"
+				required="true" />	
+			<br />
+
+
+			<p:commandButton value="Grabar"
+				actionListener="#{empleadoController.insertar()}"
+				styleClass="btn btn-primary " update="@form"
+				action="listEmpleado?faces-redirect=true" />
+			<p:commandButton value="Cancelar"
+				action="listEmpleado?faces-redirect=true" immediate="true"
+				styleClass="btn btn-default" ajax="false" />
+
+			<p:growl id="growl" sticky="true" showDetail="true" life="3000" />
+
+		</h:form>
+	</ui:define>
+
+	<ui:define name="footerCont">
+
+	</ui:define>
+</ui:composition>
 </html>

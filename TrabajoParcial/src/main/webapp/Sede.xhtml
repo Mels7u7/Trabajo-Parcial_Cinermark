@@ -1,9 +1,53 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" 
-      xmlns:ui="http://java.sun.com/jsf/facelets" 
-      xmlns:h="http://java.sun.com/jsf/html" 
-      xmlns:f="http://java.sun.com/jsf/core">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
 
-   
-   
+<ui:composition template="master.xhtml">
+
+	<ui:define name="title">
+        .:Registro de Sedes:.
+    </ui:define>
+
+	<ui:define name="titleCont">
+		<span>Sede</span>
+	</ui:define>
+
+	<ui:define name="content">
+		<h:form>
+			<h:outputLabel for="idSede" value="Id " styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="idSede"
+				styleClass="form-control"
+				value="#{sedeController.sede.idSede}" required="true" />
+			<h:outputLabel for="direccionSede" value="Direccion "
+				styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="direccionSede"
+				styleClass="form-control"
+				value="#{sedeController.sede.direccionSede}"
+				maxlength="30" required="true"/>
+
+			<br />
+			
+
+			<p:commandButton value="Grabar"
+				actionListener="#{sedeController.insertar()}"
+				styleClass="btn btn-primary " update="@form"
+				action="listSede?faces-redirect=true" />
+			<p:commandButton value="Cancelar"
+				action="listSede?faces-redirect=true" immediate="true"
+				styleClass="btn btn-default" ajax="false" />
+
+			<p:growl id="growl" sticky="true" showDetail="true" life="3000" />
+
+		</h:form>
+	</ui:define>
+
+	<ui:define name="footerCont">
+
+	</ui:define>
+</ui:composition>
 </html>

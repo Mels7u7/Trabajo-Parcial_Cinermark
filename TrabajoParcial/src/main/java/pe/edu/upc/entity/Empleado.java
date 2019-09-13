@@ -9,7 +9,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "empleado")
@@ -32,7 +31,7 @@ public class Empleado implements Serializable {
 	@Column(name = "apellidoEmpleado", nullable = false, length = 30)
 	private String apellidoEmpleado;
 
-	@Size(min = 8, max = 8)
+	
 	@NotEmpty(message = "Ingresar DNI del empleado")
 	@Column(name = "dniEmpleado", nullable = false, length = 45, unique = true)
 	private int dniEmpleado;
@@ -41,7 +40,7 @@ public class Empleado implements Serializable {
 	@Column(name = "puestolaboralEmpleado", nullable = false, length = 20)
 	private String puestolaboralEmpleado;
 
-	@Size(min = 9, max = 9)
+	
 	@NotEmpty(message = "Ingrese el celular del empleado")
 	@Column(name = "celularEmpleado", nullable = false, length = 9)
 	private int celularEmpleado;

@@ -1,6 +1,7 @@
 package pe.edu.upc.serviceImpl;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -30,5 +31,10 @@ public class EspecialidadServiceImpl implements IEspecialidadService, Serializab
 	public void eliminar(int idEspecialidad)
 	{
 		eD.eliminar(idEspecialidad);
+	}
+
+	@Override
+	public List<Especialidad> listar() {
+		return eD.listar();
 	}
 }

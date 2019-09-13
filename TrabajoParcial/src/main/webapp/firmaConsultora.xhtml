@@ -1,9 +1,85 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml" 
-      xmlns:ui="http://java.sun.com/jsf/facelets" 
-      xmlns:h="http://java.sun.com/jsf/html" 
-      xmlns:f="http://java.sun.com/jsf/core">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
 
-   
-   
+<ui:composition template="master.xhtml">
+
+	<ui:define name="title">
+        .:Registro de Firma Consultora:.
+    </ui:define>
+
+	<ui:define name="titleCont">
+		<span>Firma Consultora</span>
+	</ui:define>
+
+	<ui:define name="content">
+		<h:form>
+			<h:outputLabel for="idFirma" value="Id " styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="idFirma"
+				styleClass="form-control"
+				value="#{firmaConsultoraController.firma.idFirma}" required="true" />
+				
+			<h:outputLabel for="nombreFirma" value="Nombre "
+				styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="nombreFirma"
+				styleClass="form-control"
+				value="#{firmaConsultoraController.firma.nombreFirma}"
+				maxlength="30" required="true"/>
+
+			<h:outputLabel for="direccionFirma" value="Direccion "
+				styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="direccionFirma"
+				styleClass="form-control"
+				value="#{firmaConsultoraController.firma.direccionFirma}"
+				maxlength="30" required="true"/>
+			
+			<h:outputLabel for="contactoFirma" value="Contacto "
+				styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="contactoFirma"
+				styleClass="form-control"
+				value="#{firmaConsultoraController.firma.contactoFirma}"
+				maxlength="30" required="true"/>
+				
+			<h:outputLabel for="numeroFirma" value="Numero "
+				styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="numeroFirma"
+				styleClass="form-control"
+				value="#{firmaConsultoraController.firma.numeroFirma}"
+				maxlength="10" required="true"/>
+				
+			<h:outputLabel for="prestigioFirma" value="Nivel de Prestigio "
+				styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="prestigioFirma"
+				styleClass="form-control"
+				value="#{firmaConsultoraController.firma.prestigioFirma}"
+				maxlength="30" required="true"/>
+			<br />
+			
+
+			<p:commandButton value="Grabar"
+				actionListener="#{firmaConsultoraController.insertar()}"
+				styleClass="btn btn-primary " update="@form"
+				action="listFirma?faces-redirect=true" />
+			<p:commandButton value="Cancelar"
+				action="listFirma?faces-redirect=true" immediate="true"
+				styleClass="btn btn-default" ajax="false" />
+
+			<p:growl id="growl" sticky="true" showDetail="true" life="3000" />
+
+		</h:form>
+	</ui:define>
+
+	<ui:define name="footerCont">
+
+	</ui:define>
+</ui:composition>
 </html>
