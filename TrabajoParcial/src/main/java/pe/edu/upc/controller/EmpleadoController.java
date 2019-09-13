@@ -14,7 +14,7 @@ import pe.edu.upc.service.IEmpleadoService;
 
 @Named
 @RequestScoped
-public class EmpleadoController implements Serializable{
+public class EmpleadoController implements Serializable {
 
 	/**
 	 * 
@@ -24,25 +24,28 @@ public class EmpleadoController implements Serializable{
 	private IEmpleadoService eService;
 	private Empleado empleado;
 	List<Empleado> listaEmpleados;
-	
+
 	@PostConstruct
 	public void init() {
 		this.listaEmpleados = new ArrayList<Empleado>();
 		this.empleado = new Empleado();
 		this.listar();
 	}
+
 	public String nuevoEmpleado() {
 		this.setEmpleado(new Empleado());
 		return "empleado.xhtml";
 	}
+
 	public void insertar() {
 		try {
 			eService.insertar(empleado);
 			limpiarEmpleado();
-			} catch (Exception e) {
+		} catch (Exception e) {
 			e.getMessage();
 		}
 	}
+
 	public void listar() {
 		try {
 			listaEmpleados = eService.listar();
@@ -50,6 +53,7 @@ public class EmpleadoController implements Serializable{
 			e.getMessage();
 		}
 	}
+
 	public void eliminar(Empleado empleado) {
 		try {
 			eService.eliminar(empleado.getIdEmpleado());
@@ -58,26 +62,33 @@ public class EmpleadoController implements Serializable{
 			e.getMessage();
 		}
 	}
+
 	public void limpiarEmpleado() {
 		this.init();
 	}
+
 	public IEmpleadoService geteService() {
 		return eService;
 	}
+
 	public void seteService(IEmpleadoService eService) {
 		this.eService = eService;
 	}
+
 	public Empleado getEmpleado() {
 		return empleado;
 	}
+
 	public void setEmpleado(Empleado empleado) {
 		this.empleado = empleado;
 	}
+
 	public List<Empleado> getListaEmpleados() {
 		return listaEmpleados;
 	}
+
 	public void setListaEmpleados(List<Empleado> listaEmpleados) {
 		this.listaEmpleados = listaEmpleados;
 	}
-	
+
 }
