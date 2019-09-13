@@ -27,6 +27,7 @@ public class EmpleadoController implements Serializable{
 	
 	@PostConstruct
 	public void init() {
+		
 		this.listaEmpleados = new ArrayList<Empleado>();
 		this.empleado = new Empleado();
 		this.listar();
@@ -39,6 +40,7 @@ public class EmpleadoController implements Serializable{
 		try {
 			eService.insertar(empleado);
 			limpiarEmpleado();
+			this.listaEmpleados();
 			} catch (Exception e) {
 			e.getMessage();
 		}
