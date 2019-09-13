@@ -19,7 +19,7 @@
 		href='https://fonts.googleapis.com/css?family=Roboto:400,300,500|Ubuntu+Condensed'
 		rel='stylesheet' type='text/css' />
 	<link rel="shortcut icon" type="image/x-icon"
-		href="resources/img/core-img/favicon.png" />
+		href="/img/core-img/favicon.png" />
 
 	<h:outputStylesheet name="/css/bootstrap.min.css" />
 	<h:outputStylesheet name="/css/style.css" />
@@ -30,12 +30,15 @@
 	<h:outputStylesheet name="/css/magnific-popup.css" />
 	<h:outputStylesheet name="/css/nice-select.css" />
 	<h:outputStylesheet name="/css/owl.carousel.min.css" />
+	<h:outputStylesheet name="/css/default-assets/classy-nav.css" />
 	
 	<h:outputScript library="js" name="/js/jquery.min.js" />
    <h:outputScript library="js" name="/js/popper.min.js" />
    <h:outputScript library="js" name="/js/bootstrap.min.js" />
    <h:outputScript library="js" name="/js/roberto.bundle.js" />
    <h:outputScript library="js" name="/js/default-assets/active.js" />
+   <h:outputScript library="js" name="/js/default-assets/classy-nav.js" />
+   <h:outputScript library="js" name="/js/default-assets/jquery.scrollup.min.js" />
    <h:outputScript library="js" name="/js/bootstrap-datepicker.min.js" />
    <h:outputScript library="js" name="/js/imagesloaded.pkgd.min.js" />
    <h:outputScript library="js" name="/js/isotope.pkgd.min.js" />
@@ -125,12 +128,11 @@
                                     <li><a href="./about.html">About Us</a></li>
                                     <li><a href="#">Pages</a>
                                         <ul class="dropdown">
-                                            <li><a href="./index.html">- Home</a></li>
-                                            <li><a href="./room.html">- Rooms</a></li>
-                                            <li><a href="./single-room.html">- Single Rooms</a></li>
-                                            <li><a href="./about.html">- About Us</a></li>
-                                            <li><a href="./blog.html">- Blog</a></li>
-                                            <li><a href="./single-blog.html">- Single Blog</a></li>
+                                            <li><a href="./index.html">- Empleado</a></li>
+                                            <li><a href="./room.html">- Especialidad</a></li>
+                                            <li><a href="./single-room.html">- FirmaConsultora</a></li>
+                                            <li><a href="./about.html">- Herramienta</a></li>
+                                            <li><a href="./blog.html">- Sede</a></li>
                                             <li><a href="./contact.html">- Contact</a></li>
                                             <li><a href="#">- Dropdown</a>
                                                 <ul class="dropdown">
@@ -169,7 +171,7 @@
     <section class="welcome-area">
         <div class="welcome-slides owl-carousel">
             <!-- Single Welcome Slide -->
-            <div class="single-welcome-slide bg-img bg-overlay" style="background-image: url(/img/bg-img/16.jpg);" data-img-url="/img/bg-img/16.jpg">
+            <div class="single-welcome-slide bg-img bg-overlay" style="background-image: /img/bg-img/16.jpg" data-img-url="/img/bg-img/16.jpg">
                 <!-- Welcome Content -->
                 <div class="welcome-content h-100">
                     <div class="container h-100">
@@ -188,7 +190,7 @@
             </div>
 
             <!-- Single Welcome Slide -->
-            <div class="single-welcome-slide bg-img bg-overlay" style="background-image: url(/img/bg-img/17.jpg);" data-img-url="img/bg-img/17.jpg">
+            <div class="single-welcome-slide bg-img bg-overlay" style="background-image: /img/bg-img/17.jpg" data-img-url="img/bg-img/17.jpg">
                 <!-- Welcome Content -->
                 <div class="welcome-content h-100">
                     <div class="container h-100">
@@ -207,7 +209,7 @@
             </div>
 
             <!-- Single Welcome Slide -->
-            <div class="single-welcome-slide bg-img bg-overlay" style="background-image: url(/img/bg-img/18.jpg);" data-img-url="/img/bg-img/18.jpg">
+            <div class="single-welcome-slide bg-img bg-overlay" style="background-image: /img/bg-img/18.jpg" data-img-url="/img/bg-img/18.jpg">
                 <!-- Welcome Content -->
                 <div class="welcome-content h-100">
                     <div class="container h-100">
@@ -234,7 +236,7 @@
         <div class="hotel-search-form-area">
             <div class="container-fluid">
                 <div class="hotel-search-form">
-                    <form action="#" method="post">
+                    <h:form action="#" method="post">
                         <div class="row justify-content-between align-items-end">
                             <div class="col-6 col-md-2 col-lg-3">
                                 <label for="checkIn">Check In</label>
@@ -281,7 +283,7 @@
                                 <button type="submit" class="form-control btn roberto-btn w-100">Check Availability</button>
                             </div>
                         </div>
-                    </form>
+                    </h:form>
                 </div>
             </div>
         </div>
@@ -386,10 +388,10 @@
                             <span>Subscribe our newsletter gor get notification about new updates.</span>
 
                             <!-- Newsletter Form -->
-                            <form action="index.html" class="nl-form">
+                            <h:form action="index.html" class="nl-form">
                                 <input type="email" class="form-control" placeholder="Enter your email..."/>
                                 <button type="submit"><i class="fa fa-paper-plane" aria-hidden="true"></i></button>
-                            </form>
+                            </h:form>
                         </div>
                     </div>
                 </div>
