@@ -33,7 +33,7 @@ public class FirmaConsultoraController implements Serializable{
 	}
 	public String nuevoFirma() {
 		this.setFirma(new FirmaConsultora());
-		return "firma.xhtml";
+		return "firmaConsultora.xhtml";
 	}
 	public void insertar() {
 		try {
