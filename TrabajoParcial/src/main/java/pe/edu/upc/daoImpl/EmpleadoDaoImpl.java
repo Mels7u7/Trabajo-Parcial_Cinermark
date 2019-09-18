@@ -1,6 +1,7 @@
 package pe.edu.upc.daoImpl;
 
 import java.io.Serializable;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,6 +16,7 @@ import pe.edu.upc.entity.Empleado;
 public class EmpleadoDaoImpl implements IEmpleadoDao, Serializable {
 
 	/**
+	 *
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
@@ -50,9 +52,11 @@ public class EmpleadoDaoImpl implements IEmpleadoDao, Serializable {
 	public List<Empleado> listar() {
 		List<Empleado> lista = new ArrayList<Empleado>();
 		try {
-			Query q = em.createQuery("Select e from Empleado e");
+			Query q = em.createQuery("Select a from Empleado a");
 			lista = (List<Empleado>) q.getResultList();
-		} catch (Exception e) {
+		} 
+		catch (Exception e) {
+			
 			System.out.println(e.getMessage());
 		}
 

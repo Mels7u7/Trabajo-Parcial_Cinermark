@@ -1,9 +1,11 @@
 package pe.edu.upc.serviceImpl;
 
 import java.io.Serializable;
+
 import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
+import javax.inject.Inject;
 import javax.inject.Named;
 
 import pe.edu.upc.dao.IEmpleadoDao;
@@ -18,7 +20,7 @@ public class EmpleadoServiceImpl implements IEmpleadoService, Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+	@Inject
 	private IEmpleadoDao eD;
 	
 	@Override
