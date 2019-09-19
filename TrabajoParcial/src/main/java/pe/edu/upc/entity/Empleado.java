@@ -37,6 +37,7 @@ public class Empleado implements Serializable {
 	@Column(name = "puestolaboralEmpleado", nullable = false, length = 20)
 	private String puestolaboralEmpleado;
 
+	@NotEmpty(message = "Ingrese el numero de celular del empleado")
 	@Size(min = 9, max = 9)
 	@Column(name = "celularEmpleado", nullable = false, length = 9)
 	private String celularEmpleado;
