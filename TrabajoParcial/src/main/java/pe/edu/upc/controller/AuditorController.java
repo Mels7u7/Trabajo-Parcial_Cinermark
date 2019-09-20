@@ -59,6 +59,7 @@ public class AuditorController implements Serializable {
 		this.setAuditor(new Auditor());
 		return "auditor.xhtml";
 	}
+	
 
 	public void insertar() {
 		try {

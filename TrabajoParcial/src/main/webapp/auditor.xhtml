@@ -12,7 +12,7 @@
     </ui:define>
 
 	<ui:define name="titleCont">
-		<span>Auditores</span>
+		<span>Auditor</span>
 	</ui:define>
 
 	<ui:define name="content">
@@ -52,7 +52,7 @@
 				value="#{auditorController.auditor.especialidadAuditor}"
 				converter="omnifaces.SelectItemsConverter">
 				<f:selectItems value="#{auditorController.listaEspecialidad}"
-					var="e" itemLabel="#{e.idEspecialidad}" itemValue="#{e}" />
+					var="e" itemLabel="#{e.nombreEspecialidad}" itemValue="#{e}" />
 			</p:selectOneMenu>
 
 
@@ -61,7 +61,7 @@
 				value="#{auditorController.auditor.firmaAuditor}"
 				converter="omnifaces.SelectItemsConverter">
 				<f:selectItems value="#{auditorController.listaFirmas}"
-					var="f" itemLabel="#{f.idFirma}" itemValue="#{f}" />
+					var="f" itemLabel="#{f.nombreFirma}" itemValue="#{f}" />
 			</p:selectOneMenu>
 
 			<br />
