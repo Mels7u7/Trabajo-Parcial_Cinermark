@@ -36,7 +36,7 @@ public class EspecialidadDaoImpl implements IEspecialidadDao, Serializable {
 		}
 	}
 	
-	@Transactional	
+	@Transactional
 	@Override
 	public void eliminar(int idEspecialidad)
 	{

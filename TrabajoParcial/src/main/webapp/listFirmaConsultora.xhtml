@@ -52,6 +52,13 @@
 							<p:column headerText="Nivel Prestigio" sortBy="#{fir.prestigioFirma}">
 								<h:outputText value="#{fir.prestigioFirma}" />
 							</p:column>
+							
+							
+							<p:column headerText="Operación" exportable="false">
+								<h:commandLink action="lstFirma" value="Eliminar"
+									actionListener="#{firmaConsultoraController.eliminar(fir)}" />
+							</p:column>
+							
 						</p:dataTable>
 						
 						

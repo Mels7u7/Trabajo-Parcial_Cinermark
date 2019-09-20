@@ -35,7 +35,8 @@ public class EmpleadoDaoImpl implements IEmpleadoDao, Serializable {
 			System.out.println(e.getMessage());
 		}
 	}
-
+    
+    @Transactional
 	@Override
 	public void eliminar(int idEmpleado) {
 		// TODO Auto-generated method stub

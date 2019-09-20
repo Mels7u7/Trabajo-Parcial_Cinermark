@@ -42,6 +42,12 @@
 							<p:column headerText="Unidades" sortBy="#{her.unidadHerramienta}">
 								<h:outputText value="#{her.unidadHerramienta}" />
 							</p:column>
+							
+							<p:column headerText="Operación" exportable="false">
+								<h:commandLink action="lstHerramienta" value="Eliminar"
+									actionListener="#{herramientaController.eliminar(her)}" />
+							</p:column>
+							
 						</p:dataTable>
 						
 						

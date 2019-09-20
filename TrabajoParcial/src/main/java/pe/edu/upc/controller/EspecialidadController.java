@@ -8,6 +8,7 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+import javax.transaction.Transactional;
 
 import pe.edu.upc.entity.Especialidad;
 import pe.edu.upc.service.IEspecialidadService;
@@ -45,6 +46,7 @@ public class EspecialidadController implements Serializable{
 			e.getMessage();
 		}
 	}
+	@Transactional
 	
 	public void eliminar(Especialidad especialidad) {
 		try {

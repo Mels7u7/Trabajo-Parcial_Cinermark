@@ -52,6 +52,15 @@
 							<p:column headerText="Celular" sortBy="#{emp.celularEmpleado}">
 								<h:outputText value="#{emp.celularEmpleado}" />
 							</p:column>
+							
+							<p:column headerText="Operación" exportable="false">
+								<h:commandLink action="lstEmpleado" value="Eliminar"
+									actionListener="#{empleadoController.eliminar(emp)}" />
+							</p:column>
+							
+							
+							
+							
 						</p:dataTable>
 						
 					

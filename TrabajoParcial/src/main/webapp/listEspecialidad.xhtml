@@ -40,6 +40,12 @@
 							<p:column headerText="Certificadora" sortBy="#{esp.certificadoraEspecialidad}">
 								<h:outputText value="#{esp.certificadoraEspecialidad}" />
 							</p:column>
+							
+							<p:column headerText="Operación" exportable="false">
+								<h:commandLink action="lstEspecialidad" value="Eliminar"
+									actionListener="#{especialidadController.eliminar(esp)}" />
+							</p:column>
+							
 						</p:dataTable>
 						
 						
