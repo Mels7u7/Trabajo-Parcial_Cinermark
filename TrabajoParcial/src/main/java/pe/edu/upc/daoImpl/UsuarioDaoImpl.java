@@ -82,8 +82,15 @@ public class UsuarioDaoImpl implements IUsuarioDao, Serializable {
 
 	@Override
 	public Optional<Usuario> findUserByUsername(Usuario us) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		Usuario usEncon;
+		TypedQuery<Usuario> query = em.createQuery("FROM User u WHERE u.username = ?1 and u.password = ?2",
+				Usuario.class);
+		query.setParameter(1, us.getNusuario());
+		query.setParameter(2, us.getContraseña());
+
+		usEncon = query.getSingleResult();
+
+		return Optional.of(usEncon);
 	}
 
 }
