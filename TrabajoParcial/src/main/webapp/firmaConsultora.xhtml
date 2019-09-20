@@ -58,10 +58,16 @@
 			<h:outputLabel for="prestigioFirma" value="Nivel de Prestigio "
 				styleClass="control-label" />
 
-			<p:inputText autocomplete="off" id="prestigioFirma"
-				styleClass="form-control"
-				value="#{firmaConsultoraController.firma.prestigioFirma}"
-				maxlength="30" required="true"/>
+			<p:selectOneMenu id="prestigioFirma"
+				value="#{firmaConsultoraController.firma.prestigioFirma}">
+				<f:selectItem itemLabel="--Select--" noSelectionOption="true" />
+				<f:selectItem itemLabel="Muy Baja" itemValue="Muy Baja" />
+				<f:selectItem itemLabel="Baja" itemValue="Baja" />
+				<f:selectItem itemLabel="Media" itemValue="Media" />
+				<f:selectItem itemLabel="Alta" itemValue="Alta" />
+				<f:selectItem itemLabel="Muy Alta" itemValue="Muy Alta" />
+			</p:selectOneMenu>
+			<h:message for="selecOneMenu" />
 			<br />
 			
 

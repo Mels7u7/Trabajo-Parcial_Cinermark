@@ -10,12 +10,13 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import pe.edu.upc.entity.Sala;
+import pe.edu.upc.entity.Sede;
 import pe.edu.upc.service.ISalaService;
-
+import pe.edu.upc.service.ISedeService;
 
 @Named
 @RequestScoped
-public class SalaController implements Serializable{
+public class SalaController implements Serializable {
 
 	/**
 	 * 
@@ -23,73 +24,102 @@ public class SalaController implements Serializable{
 	private static final long serialVersionUID = 1L;
 	@Inject
 	private ISalaService sService;
+
+	@Inject
+	private ISedeService seService;
+
 	private Sala sala;
-	List<Sala>listarSalas;
-	
+	private Sede sede;
+
+	List<Sala> listarSalas;
+	List<Sede> listarSedes;
+
 	@PostConstruct
-	public void init()
-	{
-		this.listarSalas=new ArrayList<Sala>();
-		this.sala =new Sala();
-		this.listar();	
+	public void init() {
+		listarSalas = new ArrayList<Sala>();
+		listarSedes = new ArrayList<Sede>();
+
+		sala = new Sala();
+		sede = new Sede();
+
+		this.listSala();
+		this.listSede();
 	}
-	public String nuevoSala()
-	{
+
+	public String nuevoSala() {
 		this.setSala(new Sala());
 		return "sala.xhtml";
 	}
-	
-	public void insertar()
-	{
+
+	public void insertar() {
+		try {
+			sService.insertar(sala);
+			limpiarSala();
+		} catch (Exception e) {
+			e.getMessage();
+		}
+	}
+
+	public void listSala() {
 		try {
 			listarSalas = sService.listar();
 		} catch (Exception e) {
 			e.getMessage();
 		}
 	}
-	
-	public void listar()
-	{
+
+	public void listSede() {
 		try {
-			listarSalas =sService.listar();
+			listarSedes = seService.listar();
 		} catch (Exception e) {
 			e.getMessage();
 		}
 	}
-	public void eliminar(Sala sala)
-	{
+
+	public void eliminar(Sala sala) {
 		try {
 			sService.eliminar(sala.getIdSala());
+			listSala();
 		} catch (Exception e) {
 			e.getMessage();
 		}
 	}
-	
-	public void limpiarSala()
-	{
+
+	public void limpiarSala() {
 		this.init();
 	}
-	public ISalaService getsService() {
-		return sService;
-	}
-	public void setsService(ISalaService sService) {
-		this.sService = sService;
-	}
+
+	// get y set
+
 	public Sala getSala() {
 		return sala;
 	}
+
 	public void setSala(Sala sala) {
 		this.sala = sala;
 	}
+
+	public Sede getSede() {
+		return sede;
+	}
+
+	public void setSede(Sede sede) {
+		this.sede = sede;
+	}
+
 	public List<Sala> getListarSalas() {
 		return listarSalas;
 	}
+
 	public void setListarSalas(List<Sala> listarSalas) {
 		this.listarSalas = listarSalas;
 	}
 
-	
-	
-	
+	public List<Sede> getListarSedes() {
+		return listarSedes;
+	}
 
+	public void setListarSedes(List<Sede> listarSedes) {
+		this.listarSedes = listarSedes;
+	}
 }
