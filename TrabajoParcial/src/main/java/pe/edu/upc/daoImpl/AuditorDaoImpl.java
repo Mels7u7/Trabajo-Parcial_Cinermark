@@ -18,55 +18,44 @@ public class AuditorDaoImpl implements IAuditorDao, Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	@PersistenceContext(unitName = "TrabajoParcial")
 	private EntityManager em;
-	
-	@Transactional	
+
+	@Transactional
 	@Override
-	public void insertar(Auditor auditor)
-	{
-		try
-		{
+	public void insertar(Auditor auditor) {
+		try {
 			em.persist(auditor);
-		}
-		catch(Exception e)
-		{
+		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 	}
-	
-	@Transactional	
+
+	@Transactional
 	@Override
-	public void eliminar(int idAuditor)
-	{
-	
+	public void eliminar(int idAuditor) {
+
 		Auditor aud = new Auditor();
 		try {
 			aud = em.getReference(Auditor.class, idAuditor);
 			em.remove(aud);
-		}
-		catch(Exception e)
-		{
+		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Auditor> listar()
-	{
+	public List<Auditor> listar() {
 		List<Auditor> lista = new ArrayList<Auditor>();
-		try
-		{
+		try {
 			Query q = em.createQuery("Select a from Auditor a");
 			lista = (List<Auditor>) q.getResultList();
-		}
-		catch(Exception e)
-		{
+		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		
+
 		return lista;
 	}
 }

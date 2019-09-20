@@ -12,7 +12,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name = "empleadoxauditoria")
-public class EmpleadoxAuditoria implements Serializable{
+public class EmpleadoxAuditoria implements Serializable {
 
 	/**
 	 * 
@@ -21,11 +21,11 @@ public class EmpleadoxAuditoria implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idEmpleadoxAuditoria;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "idEmpleado")
 	private Empleado empleadoEmpleadoxAuditoria;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "idAuditoria")
 	private Auditoria auditoriaEmpleadoxAuditoria;
@@ -65,8 +65,26 @@ public class EmpleadoxAuditoria implements Serializable{
 	public void setAuditoriaEmpleadoxAuditoria(Auditoria auditoriaEmpleadoxAuditoria) {
 		this.auditoriaEmpleadoxAuditoria = auditoriaEmpleadoxAuditoria;
 	}
-	
-	
-	
-	
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + idEmpleadoxAuditoria;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		EmpleadoxAuditoria other = (EmpleadoxAuditoria) obj;
+		if (idEmpleadoxAuditoria != other.idEmpleadoxAuditoria)
+			return false;
+		return true;
+	}
 }
