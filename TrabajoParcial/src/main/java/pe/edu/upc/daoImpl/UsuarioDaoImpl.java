@@ -62,8 +62,22 @@ public class UsuarioDaoImpl implements IUsuarioDao, Serializable {
 
 	@Override
 	public String getPassworHashedByUserName(String nusuario) throws Exception {
-		// TODO Auto-generated method stub
-		return null;
+		Usuario usua = new Usuario();
+
+		try {
+
+			Query query = em.createQuery("FROM User u WHERE u.username = ?1");
+			query.setParameter(1, nusuario);
+			@SuppressWarnings("unchecked")
+			List<Usuario> lista = query.getResultList();
+			if (!lista.isEmpty()) {
+				usua = lista.get(0);
+			}
+		} catch (Exception e) {
+			throw e;
+		}
+
+		return usua != null ? usua.getContraseña() : "";
 	}
 
 	@Override
