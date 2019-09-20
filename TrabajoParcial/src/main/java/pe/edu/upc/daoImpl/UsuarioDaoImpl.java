@@ -9,6 +9,7 @@ import javax.inject.Named;
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
+import javax.persistence.TypedQuery;
 
 import pe.edu.upc.dao.IUsuarioDao;
 import pe.edu.upc.entity.Usuario;
@@ -50,8 +51,13 @@ public class UsuarioDaoImpl implements IUsuarioDao, Serializable {
 
 	@Override
 	public Optional<Usuario> findById(Usuario us) throws Exception {
-		
-		return null;
+		Usuario usua;
+		TypedQuery<Usuario> query = em.createQuery("SELECT u FROM User u WHERE u.id = ?1", Usuario.class);
+		query.setParameter(1, us.getId());
+
+		usua = query.getSingleResult();
+
+		return Optional.of(usua);
 	}
 
 	@Override
