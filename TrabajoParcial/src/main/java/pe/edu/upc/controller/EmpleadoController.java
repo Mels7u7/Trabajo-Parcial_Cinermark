@@ -1,7 +1,6 @@
 package pe.edu.upc.controller;
 
 import java.io.Serializable;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -15,17 +14,19 @@ import pe.edu.upc.service.IEmpleadoService;
 
 @Named
 @RequestScoped
+
 public class EmpleadoController implements Serializable {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
+
 	@Inject
-	private IEmpleadoService aService;
+	private IEmpleadoService eService;
 	private Empleado empleado;
 	List<Empleado> listaEmpleados;
-
+	
 	@PostConstruct
 	public void init() {
 		this.listaEmpleados = new ArrayList<Empleado>();
@@ -33,64 +34,79 @@ public class EmpleadoController implements Serializable {
 		this.listar();
 	}
 	
-
+	
 	public String nuevoEmpleado() {
 		this.setEmpleado(new Empleado());
 		return "empleado.xhtml";
 	}
-
+	
 	public void insertar() {
 		try {
-			aService.insertar(empleado);
+			eService.insertar(empleado);
 			limpiarEmpleado();
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
+			} catch (Exception e) {
+			e.getMessage();
 		}
 	}
-
+	
 	public void listar() {
 		try {
-			listaEmpleados = aService.listar();
+			listaEmpleados = eService.listar();
 		} catch (Exception e) {
 			e.getMessage();
 		}
 	}
-
+	
 	public void eliminar(Empleado empleado) {
 		try {
-			aService.eliminar(empleado.getIdEmpleado());
+			eService.eliminar(empleado.getIdEmpleado());
 			listar();
 		} catch (Exception e) {
 			e.getMessage();
 		}
 	}
-
+	
 	public void limpiarEmpleado() {
 		this.init();
 	}
 
+
 	public IEmpleadoService geteService() {
-		return aService;
+		return eService;
 	}
 
+
 	public void seteService(IEmpleadoService eService) {
-		this.aService = eService;
+		this.eService = eService;
 	}
+
 
 	public Empleado getEmpleado() {
 		return empleado;
 	}
 
+
 	public void setEmpleado(Empleado empleado) {
 		this.empleado = empleado;
 	}
+
 
 	public List<Empleado> getListaEmpleados() {
 		return listaEmpleados;
 	}
 
+
 	public void setListaEmpleados(List<Empleado> listaEmpleados) {
 		this.listaEmpleados = listaEmpleados;
 	}
+	
+	
+	
+	
+	
+	
+	
+	
 
 }
+

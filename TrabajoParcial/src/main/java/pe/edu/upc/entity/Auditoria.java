@@ -143,4 +143,25 @@ public class Auditoria implements Serializable {
 		this.estadoAuditoria = estadoAuditoria;
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + idAuditoria;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Auditoria other = (Auditoria) obj;
+		if (idAuditoria != other.idAuditoria)
+			return false;
+		return true;
+	}
 }

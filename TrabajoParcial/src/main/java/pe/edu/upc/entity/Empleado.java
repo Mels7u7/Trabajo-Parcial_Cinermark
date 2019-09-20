@@ -1,5 +1,8 @@
 package pe.edu.upc.entity;
+
 import java.io.Serializable;
+
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,47 +10,53 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.Size;
+
+
 @Entity
-@Table(name = "empleado")
+@Table(name="empleado")
 public class Empleado implements Serializable {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idEmpleado;
-
+	
 	@NotEmpty(message = "Ingrese los nombres del empleado")
-	@Column(name = "nombreEmpleado", nullable = false, length = 30)
+	@Column(name = "nombreEmpleado", nullable = false, length = 50)
 	private String nombreEmpleado;
 
 	@NotEmpty(message = "Ingrese los apellidos del empleado")
-	@Column(name = "apellidoEmpleado", nullable = false, length = 30)
+	@Column(name = "apellidoEmpleado", nullable = false, length = 50)
 	private String apellidoEmpleado;
-
-	@Size(min = 8, max = 8)
-	@Column(name = "dniEmpleado", nullable = false, length = 45, unique = true)
-	private String dniEmpleado;
-
+	
+	
+	@NotEmpty(message = "Ingrese el DNI del empleado")
+	@Column(name = "dniEmpleado", nullable = false, length = 8)
+	private String dniEmpleado; 
+	
+	
 	@NotEmpty(message = "Ingrese el puesto laboral del empleado")
-	@Column(name = "puestolaboralEmpleado", nullable = false, length = 20)
-	private String puestolaboralEmpleado;
-
+	@Column(name = "puestolaboralEmpleado", nullable = false, length = 30)
+	private String puestolaboralEmpleado; 
+	
+	
 	@NotEmpty(message = "Ingrese el numero de celular del empleado")
-	@Size(min = 9, max = 9)
 	@Column(name = "celularEmpleado", nullable = false, length = 9)
 	private String celularEmpleado;
 
 	public Empleado() {
 		super();
+		// TODO Auto-generated constructor stub
 	}
 
-	public Empleado(int idEmpleado, String nombreEmpleado, String apellidoEmpleado, String dniEmpleado,
-			String puestolaboralEmpleado, String celularEmpleado) {
+	public Empleado(int idEmpleado, @NotEmpty(message = "Ingrese los nombres del empleado") String nombreEmpleado,
+			@NotEmpty(message = "Ingrese los apellidos del empleado") String apellidoEmpleado,
+			 @NotEmpty(message = "Ingrese el DNI del empleado") String dniEmpleado,
+			@NotEmpty(message = "Ingrese el puesto laboral del empleado") String puestolaboralEmpleado,
+			 @NotEmpty(message = "Ingrese el numero de celular del empleado") String celularEmpleado) {
 		super();
 		this.idEmpleado = idEmpleado;
 		this.nombreEmpleado = nombreEmpleado;
@@ -103,28 +112,13 @@ public class Empleado implements Serializable {
 
 	public void setCelularEmpleado(String celularEmpleado) {
 		this.celularEmpleado = celularEmpleado;
-	}
+	} 
+	
+	
+	
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + idEmpleado;
-		return result;
-	}
+	
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Empleado other = (Empleado) obj;
-		if (idEmpleado != other.idEmpleado)
-			return false;
-		return true;
-	}
+	
 
 }

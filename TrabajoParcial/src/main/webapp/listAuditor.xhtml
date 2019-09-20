@@ -1,0 +1,78 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+<ui:composition template="master.xhtml">
+	<ui:define name="title">
+        .:Listado de Auditores:.
+    </ui:define>
+	<ui:define name="titleCont">
+		<span>Auditores</span>
+	</ui:define>
+	<ui:define name="content">
+		<h:form>
+
+			<div class="row" align="center">
+				<p:commandButton value="Nuevo Auditor"
+					action="#{auditorController.nuevoAuditor()}"
+					styleClass="btn btn-primary" ajax="false" />
+			</div>
+			<div class="row">
+				<div class="col-sm-12">
+					<div class="form-group table-responsive box-table-class">
+						<p:dataTable id="lstAuditor" var="aud"
+							value="#{auditorController.listaAuditores}" paginator="true"
+							paginatorPosition="top" rowsPerPageTemplate="10,20,30,40,50"
+							rows="10" styleClass="table table-bordered"
+							emptyMessage="No existen registros" rowIndexVar="item"
+							style="margin-bottom:0">
+
+							<p:column headerText="Id" sortBy="#{aud.idAuditor}">
+								<h:outputText value="#{aud.idAuditor}"
+									class="btn btn-primary btn-xs" />
+							</p:column>
+
+							<p:column headerText="Nombre" sortBy="#{aud.nombreAuditor}">
+								<h:outputText value="#{aud.nombreAuditor}" />
+							</p:column>
+
+							<p:column headerText="Numero telefonico"
+								sortBy="#{aud.numeroAuditor}">
+								<h:outputText value="#{aud.numeroAuditor}" />
+							</p:column>
+
+							<p:column headerText="Años de experiencia"
+								sortBy="#{aud.tiempoExpAuditor}">
+								<h:outputText value="#{aud.tiempoExpAuditor}" />
+							</p:column>
+
+							<p:column headerText="Especialidad"
+								sortBy="#{aud.especialidadAuditor.nombreEspecialidad}">
+								<h:outputText
+									value="#{aud.especialidadAuditor.nombreEspecialidad}" />
+							</p:column>
+							
+							<p:column headerText="Firma consultora"
+								sortBy="#{aud.firmaAuditor.nombreFirma}">
+								<h:outputText
+									value="#{aud.firmaAuditor.nombreFirma}" />
+							</p:column>
+
+							<p:column headerText="Operación" exportable="false">
+								<h:commandLink action="lstAuditor" value="Eliminar"
+									actionListener="#{auditorController.eliminar(aud)}" />
+							</p:column>
+						</p:dataTable>
+
+
+					</div>
+				</div>
+			</div>
+		</h:form>
+	</ui:define>
+	<ui:define name="footerCont">
+	</ui:define>
+</ui:composition>
+</html>

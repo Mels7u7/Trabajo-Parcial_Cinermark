@@ -28,11 +28,11 @@ public class Auditor implements Serializable {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idAuditor;
 
-	@NotEmpty(message = "Ingresa el nombre del Auditor")
+	@NotEmpty(message = "Ingresar el nombre del Auditor")
 	@Column(name = "nombreAuditor", nullable = false, length = 20)
 	private String nombreAuditor;
 
-	@NotEmpty(message = "Ingresa el tema principal")
+	@NotEmpty(message = "Ingresar el numero telefonico del auditor")
 	@Column(name = "numeroAuditor", nullable = false, length = 9)
 	private String numeroAuditor;
 
@@ -112,4 +112,25 @@ public class Auditor implements Serializable {
 		this.firmaAuditor = firmaAuditor;
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + idAuditor;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Auditor other = (Auditor) obj;
+		if (idAuditor != other.idAuditor)
+			return false;
+		return true;
+	}
 }

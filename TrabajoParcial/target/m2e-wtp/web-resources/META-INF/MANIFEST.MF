@@ -1,5 +1,9 @@
 Manifest-Version: 1.0
+<<<<<<< HEAD
 Built-By: sbast
+=======
+Built-By: porta
+>>>>>>> branch 'master' of https://github.com/Mels7u7/Trabajo-Parcial_Cinermark.git
 Build-Jdk: 1.8.0_221
 Created-By: Maven Integration for Eclipse
 
