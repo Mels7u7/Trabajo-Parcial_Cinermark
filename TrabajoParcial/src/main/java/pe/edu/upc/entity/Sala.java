@@ -31,7 +31,7 @@ public class Sala implements Serializable {
 	private String tipoSala;
 
 	@Min(1)
-	@Max(50)
+	@Max(100)
 	@Column(name = "capacidadSala", nullable = false)
 	private int capacidadSala;
 

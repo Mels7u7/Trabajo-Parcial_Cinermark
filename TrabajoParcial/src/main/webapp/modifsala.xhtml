@@ -8,11 +8,11 @@
 <ui:composition template="master.xhtml">
 
 	<ui:define name="title">
-        .:Registro de Salas:.
+        Modificar Salas
     </ui:define>
 
 	<ui:define name="titleCont">
-		<span>Sala</span>
+		<span>Modificar Sala</span>
 	</ui:define>
 
 	<ui:define name="content">
@@ -37,15 +37,16 @@
 			<br />
 
 			<h:outputLabel for="capacidadSala"
-				value="Capacidad maxima de la sala:" styleClass="control-label" />
+				value="Capacidad maxima de la sala: " styleClass="control-label" />
 
 			<p:inputText autocomplete="off" id="capacidadSala"
 				styleClass="form-control"
-				value="#{salaController.sala.capacidadSala}" 
-				required="true" />
+				value="#{salaController.sala.capacidadSala}" required="true" />
 
-			<p:outputLabel for="sedeSala"
-				value="Dirección de la sede en la que se encuentra:" />
+			<h:outputLabel for="direccionSede"
+				value="Dirección de la sede en la que se encuentra: "
+				styleClass="control-label" />
+
 			<p:selectOneMenu id="sedeSala"
 				value="#{salaController.sala.sedeSala}"
 				converter="omnifaces.SelectItemsConverter">
@@ -55,14 +56,14 @@
 
 			<br />
 
-
-			<p:commandButton value="Grabar"
-				actionListener="#{salaController.insertar()}"
-				styleClass="btn btn-primary " update="@form"
-				action="listSala?faces-redirect=true" />
+			<p:commandButton value="Modificar"
+				actionListener="#{salaController.modificar()}"
+				style="margin-bottom:20px;" styleClass="btn btn-primary "
+				update="@form" action="listSala?faces-redirect=true" />
 			<p:commandButton value="Cancelar"
 				action="listSala?faces-redirect=true" immediate="true"
-				styleClass="btn btn-default" ajax="false" />
+				style="margin-bottom:20px;" styleClass="btn btn-default"
+				ajax="false" />
 
 			<p:growl id="growl" sticky="true" showDetail="true" life="3000" />
 
