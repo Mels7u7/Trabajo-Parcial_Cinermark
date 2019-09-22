@@ -70,4 +70,15 @@ public class AuditoriaDaoImpl implements IAuditoriaDao, Serializable {
 		return lista;
 	}
 
+	@Transactional
+	@Override
+	public void modificar(Auditoria auditoria) {
+		try {
+			em.merge(auditoria);
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+	}
+
 }

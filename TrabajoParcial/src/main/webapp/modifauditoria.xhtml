@@ -1,0 +1,112 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="master.xhtml">
+
+	<ui:define name="title">
+        Modificar Auditorias
+    </ui:define>
+
+	<ui:define name="titleCont">
+		<span>Modificar Auditoria</span>
+	</ui:define>
+
+	<ui:define name="content">
+		<h:form>
+			<h:outputLabel for="idAuditoria" value="Id: "
+				styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="idAuditoria"
+				styleClass="form-control"
+				value="#{auditoriaController.auditoria.idAuditoria}" required="true" />
+
+			<h:outputLabel for="temaPrincipal" value="Tema Principal: "
+				styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="temaPrincipal"
+				styleClass="form-control"
+				value="#{auditoriaController.auditoria.temaPrincipal}"
+				maxlength="100" required="true" />
+
+			<h:outputLabel for="descripcionAuditoria" value="Descripción: "
+				styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="descripcionAuditoria"
+				styleClass="form-control"
+				value="#{auditoriaController.auditoria.descripcionAuditoria}"
+				maxlength="500" required="true" />
+
+			<h:outputLabel for="fechaAuditoria" value="Fecha Programada: "
+				styleClass="control-label" />
+			<p:calendar id="fechaAuditoria" pattern="dd/MM/yyyy HH:mm"
+				value="#{auditoriaController.auditoria.fechaAuditoria}"
+				showOn="button" timeZone="UTC" required="true">
+			</p:calendar>
+			<br />
+
+			<h:outputLabel for="trabajadoresAuditados" value="Asistentes: "
+				styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="trabajadoresAuditados"
+				styleClass="form-control"
+				value="#{auditoriaController.auditoria.trabajadoresAuditados}"
+				required="true" />
+
+			<h:outputLabel for="nombreAuditor" value="Nombre del Auditor: "
+				styleClass="control-label" />
+
+			<p:selectOneMenu id="nombreAuditor"
+				value="#{auditoriaController.auditor.nombreAuditor}"
+				converter="omnifaces.SelectItemsConverter">
+				<f:selectItems value="#{auditoriaController.listarAuditores}"
+					var="a" itemLabel="#{a.nombreAuditor}" itemValue="#{a}" />
+			</p:selectOneMenu>
+			<br />
+
+			<p:outputLabel for="tipoSala" value="Tipo de Sala: "
+				styleClass="control-label" />
+			<p:selectOneMenu id="tipoSala"
+				value="#{auditoriaController.sala.tipoSala}"
+				converter="omnifaces.SelectItemsConverter">
+				<f:selectItems value="#{auditoriaController.listarSalas}" var="s"
+					itemLabel="#{s.tipoSala},#{s.sedeSala.direccionSede}"
+					itemValue="#{s}" />
+			</p:selectOneMenu>
+
+
+			<p:outputLabel for="estadoAuditoria" value="Estado:"
+				styleClass="control-label" />
+			<p:selectOneMenu id="estadoAuditoria"
+				value="#{auditoriaController.auditoria.estadoAuditoria}">
+				<f:selectItem itemLabel="-Seleccionar-" noSelectionOption="true" />
+				<f:selectItem itemLabel="Pendiente" itemValue="Pendiente" />
+				<f:selectItem itemLabel="En proceso" itemValue="En proceso" />
+				<f:selectItem itemLabel="Terminado" itemValue="Terminado" />
+			</p:selectOneMenu>
+			<h:message for="selecOneMenu" />
+			<br />
+
+
+			<p:commandButton value="Modificar"
+				actionListener="#{auditoriaController.modificar()}"
+				style="margin-bottom:20px;" styleClass="btn btn-primary "
+				update="@form" action="listAuditoria?faces-redirect=true" />
+			<p:commandButton value="Cancelar"
+				action="listAuditoria?faces-redirect=true" immediate="true"
+				style="margin-bottom:20px;" styleClass="btn btn-default"
+				ajax="false" />
+
+			<p:growl id="growl" sticky="true" showDetail="true" life="3000" />
+
+		</h:form>
+	</ui:define>
+
+	<ui:define name="footerCont">
+
+	</ui:define>
+</ui:composition>
+</html>

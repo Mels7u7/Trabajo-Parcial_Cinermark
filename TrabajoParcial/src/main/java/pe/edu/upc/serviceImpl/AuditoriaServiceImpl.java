@@ -38,4 +38,9 @@ public class AuditoriaServiceImpl implements IAuditoriaService, Serializable {
 	{
 		return aD.listar();
 	}
+
+	@Override
+	public void modificar(Auditoria auditoria) {
+		aD.modificar(auditoria);	
+	}
 }

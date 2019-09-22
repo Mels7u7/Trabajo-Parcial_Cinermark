@@ -3,6 +3,7 @@ package pe.edu.upc.entity;
 import java.io.Serializable;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -10,6 +11,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.MapsId;
 import javax.persistence.Table;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
@@ -32,11 +34,11 @@ public class Auditoria implements Serializable {
 	private int idAuditoria;
 
 	@NotEmpty(message = "Ingresa el tema principal")
-	@Column(name = "temaPrincipal", nullable = false, length = 45)
+	@Column(name = "temaPrincipal", nullable = false, length = 100)
 	private String temaPrincipal;
 
 	@NotEmpty(message = "Escriba una descripcion")
-	@Column(name = "descripcionAuditoria", nullable = false, length = 70)
+	@Column(name = "descripcionAuditoria", nullable = false, length = 500)
 	private String descripcionAuditoria;
 
 	@NotNull(message = "La fecha es obligatoria")
@@ -54,7 +56,8 @@ public class Auditoria implements Serializable {
 	@JoinColumn(name = "idAuditor")
 	private Auditor auditorAuditoria;
 
-	@ManyToOne
+	@MapsId
+	@ManyToOne(cascade = CascadeType.ALL)
 	@JoinColumn(name = "idSala")
 	private Sala salaAuditoria;
 
