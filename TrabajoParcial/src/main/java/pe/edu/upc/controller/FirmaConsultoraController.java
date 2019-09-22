@@ -10,6 +10,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import pe.edu.upc.entity.FirmaConsultora;
+import pe.edu.upc.service.IAuditoriaService;
 import pe.edu.upc.service.IFirmaConsultoraService;
 
 @Named
@@ -25,20 +26,25 @@ public class FirmaConsultoraController implements Serializable{
 	private FirmaConsultora firma;
 	List<FirmaConsultora>listaFirmas;
 	
+	private String mensaje = "";
+
 	@PostConstruct
 	public void init() {
+		
 		this.listaFirmas = new ArrayList<FirmaConsultora>();
 		this.firma = new FirmaConsultora();
 		this.listar();
 	}
-	public String nuevoFirma() {
+	public String nuevoFirma() 
+	{
+		
 		this.setFirma(new FirmaConsultora());
 		return "firmaConsultora.xhtml";
 	}
 	public void insertar() {
 		try {
 			fService.insertar(firma);
-			limpiarFirma();
+			limpiarFirma1();
 			} catch (Exception e) {
 			e.getMessage();
 		}
@@ -57,6 +63,21 @@ public class FirmaConsultoraController implements Serializable{
 			listar();
 		} catch (Exception e) {
 			e.getMessage();
+			mensaje = "No se puede eliminar";
+		}
+	}
+	public void limpiarFirma1() {
+		this.init();
+	}
+	public void modificar() {
+		try {
+			fService.modificar(this.firma);
+			limpiarFirma1();
+			this.listar();
+			
+		} catch (Exception e) {
+			e.getMessage();
+			mensaje = "No se puede modificar";
 		}
 	}
 	public void limpiarFirma() {
@@ -79,6 +100,12 @@ public class FirmaConsultoraController implements Serializable{
 	}
 	public void setListaFirmas(List<FirmaConsultora> listaFirmas) {
 		this.listaFirmas = listaFirmas;
+	}
+	public String getMensaje() {
+		return mensaje;
+	}
+	public void setMensaje(String mensaje) {
+		this.mensaje = mensaje;
 	}
 	
 }

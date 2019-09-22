@@ -9,6 +9,7 @@ public interface IFirmaConsultoraService {
 	public void insertar(FirmaConsultora firma);
 	public void eliminar(int idFirma);
 	public List<FirmaConsultora> listar();
+	public void modificar(FirmaConsultora firma);
 
 
 }

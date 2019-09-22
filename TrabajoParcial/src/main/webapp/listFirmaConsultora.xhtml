@@ -17,7 +17,9 @@
 			<div class="row" align="center">
 				<p:commandButton value="Nuevo"
 					action="#{firmaConsultoraController.nuevoFirma()}"
-					styleClass="btn btn-primary" ajax="false" />
+					styleClass="btn btn-primary" ajax="false"
+					style="
+					 transition:1s ;  border:none; position: fixed; border-radius: 50%; width: 70px;  height: 70px; right: 50px; bottom: 20px; z-index:10; text-align:center; padding:0px; " />
 			</div>
 			<div class="row">
 				<div class="col-sm-12">
@@ -58,8 +60,20 @@
 								<h:commandLink action="lstFirma" value="Eliminar"
 									actionListener="#{firmaConsultoraController.eliminar(fir)}" />
 							</p:column>
-							
 						</p:dataTable>
+						<h:outputLabel value="#{firmaConsultoraController.mensaje}" />
+						<br />
+						<h:commandLink>
+							<p:outputLabel value="Descargar Excel"></p:outputLabel>
+							<p:dataExporter type="xls" target="lstFirma"
+								fileName="RegistrosFirmaConsultora" pageOnly="false" />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						</h:commandLink>
+						<h:commandLink>
+							<p:outputLabel value="Descargar PDF"></p:outputLabel>
+							<p:dataExporter type="pdf" target="lstFirma"
+								fileName="RegistrosFirmaConsultora" />
+						</h:commandLink>
 						
 						
 					</div>
