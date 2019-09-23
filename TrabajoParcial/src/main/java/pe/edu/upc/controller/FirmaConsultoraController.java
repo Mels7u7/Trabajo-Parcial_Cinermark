@@ -10,7 +10,6 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import pe.edu.upc.entity.FirmaConsultora;
-import pe.edu.upc.service.IAuditoriaService;
 import pe.edu.upc.service.IFirmaConsultoraService;
 
 @Named

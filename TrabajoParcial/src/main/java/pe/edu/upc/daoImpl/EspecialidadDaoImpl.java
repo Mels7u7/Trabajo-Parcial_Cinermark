@@ -13,41 +13,34 @@ import pe.edu.upc.dao.IEspecialidadDao;
 import pe.edu.upc.entity.Especialidad;
 
 public class EspecialidadDaoImpl implements IEspecialidadDao, Serializable {
-	
+
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	@PersistenceContext(unitName = "TrabajoParcial")
 	private EntityManager em;
-	
-	@Transactional	
+
+	@Transactional
 	@Override
-	public void insertar(Especialidad especialidad)
-	{
-		try
-		{
+	public void insertar(Especialidad especialidad) {
+		try {
 			em.persist(especialidad);
-		}
-		catch(Exception e)
-		{
+		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 	}
-	
+
 	@Transactional
 	@Override
-	public void eliminar(int idEspecialidad)
-	{
-	
+	public void eliminar(int idEspecialidad) {
+
 		Especialidad esp = new Especialidad();
 		try {
 			esp = em.getReference(Especialidad.class, idEspecialidad);
 			em.remove(esp);
-		}
-		catch(Exception e)
-		{
+		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 	}
@@ -56,17 +49,23 @@ public class EspecialidadDaoImpl implements IEspecialidadDao, Serializable {
 	@Override
 	public List<Especialidad> listar() {
 		List<Especialidad> lista = new ArrayList<Especialidad>();
-		try
-		{
+		try {
 			Query q = em.createQuery("Select e from Especialidad e");
 			lista = (List<Especialidad>) q.getResultList();
-		}
-		catch(Exception e)
-		{
+		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		
+
 		return lista;
 	}
 
+	@Transactional
+	@Override
+	public void detalles(Especialidad especialidad) {
+		try {
+			em.merge(especialidad);
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+	}
 }
