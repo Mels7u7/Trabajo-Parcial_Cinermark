@@ -1,6 +1,9 @@
 package pe.edu.upc.controller;
 
 import java.io.Serializable;
+
+
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,20 +20,21 @@ import pe.edu.upc.service.IEmpleadoService;
 
 public class EmpleadoController implements Serializable {
 
-	/**
-	 * 
-	 */
+	
 	private static final long serialVersionUID = 1L;
 
 	@Inject
 	private IEmpleadoService eService;
-	private Empleado empleado;
-	List<Empleado> listaEmpleados;
+	private Empleado empleado; 
+	
+	List<Empleado> listaEmpleados; 
+	
+	private String mensaje ="";
 	
 	@PostConstruct
 	public void init() {
-		this.listaEmpleados = new ArrayList<Empleado>();
-		this.empleado = new Empleado();
+		listaEmpleados = new ArrayList<Empleado>();
+		empleado = new Empleado();
 		this.listar();
 	}
 	
@@ -39,6 +43,14 @@ public class EmpleadoController implements Serializable {
 		this.setEmpleado(new Empleado());
 		return "empleado.xhtml";
 	}
+	
+	public String Modifempleado(Empleado _emp) {
+		this.setEmpleado(_emp);
+		return "modifEmpleado.xhtml";
+		
+	}
+	
+	
 	
 	public void insertar() {
 		try {
@@ -63,6 +75,18 @@ public class EmpleadoController implements Serializable {
 			listar();
 		} catch (Exception e) {
 			e.getMessage();
+		}
+	}
+	
+	public void modificar() {
+		try {
+			eService.modificar(this.empleado);
+			limpiarEmpleado();
+			this.listar();
+			
+		} catch (Exception e) {
+			e.getMessage();
+			mensaje = "No se puede modificar";
 		}
 	}
 	
@@ -98,6 +122,13 @@ public class EmpleadoController implements Serializable {
 
 	public void setListaEmpleados(List<Empleado> listaEmpleados) {
 		this.listaEmpleados = listaEmpleados;
+	}
+	public String getMensaje() {
+		return mensaje;
+	}
+
+	public void setMensaje(String mensaje) {
+		this.mensaje = mensaje;
 	}
 	
 	

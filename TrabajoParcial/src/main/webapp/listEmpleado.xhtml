@@ -53,15 +53,38 @@
 								<h:outputText value="#{emp.celularEmpleado}" />
 							</p:column>
 							
-							<p:column headerText="Operación" exportable="false">
+							<p:column headerText="Operación" exportable="false"
+							style=" justify-content: space-around;">
+							
 								<h:commandLink action="lstEmpleado" value="Eliminar"
-									actionListener="#{empleadoController.eliminar(emp)}" />
+								style="color:red; display:flex;"
+								actionListener="#{empleadoController.eliminar(emp)}" />
+									
+									<h:commandLink value="Modificar"
+									action="#{empleadoController.Modifempleado(emp)}"
+									style="color:blue;" />
+									
 							</p:column>
 							
+							</p:dataTable>
+							
+							<h:commandLink>
+							<p:outputLabel value="Descargar Excel"></p:outputLabel>
+							<p:dataExporter type="xls" target="lstEmpleado"
+								fileName="RegistroEmpleados" pageOnly="false" />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						</h:commandLink>
+						
+						<h:commandLink>
+							<p:outputLabel value="Descargar PDF"></p:outputLabel>
+							<p:dataExporter type="pdf" target="lstEmpleado"
+								fileName="RegistroEmpleados" />
+						</h:commandLink>
 							
 							
 							
-						</p:dataTable>
+							
+						
 						
 					
 					</div>

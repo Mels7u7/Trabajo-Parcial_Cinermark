@@ -9,11 +9,11 @@
 <ui:composition template="master.xhtml">
 
 	<ui:define name="title">
-        .:Registro de Empleados:.
+        .:Modificar empleados:.
     </ui:define>
 
 	<ui:define name="titleCont">
-		<span>Empleado</span>
+		<span>	Modificar Empleado</span>
 	</ui:define>
 
 	<ui:define name="content">
@@ -67,13 +67,17 @@
 			<br />
 
 
-			<p:commandButton value="Grabar"
-				actionListener="#{empleadoController.insertar()}"
-				styleClass="btn btn-primary " update="@form"
-				action="listEmpleado?faces-redirect=true" />
+			<p:commandButton value="Modificar"
+				actionListener="#{empleadoController.modificar()}"
+				style="margin-bottom:20px;" styleClass="btn btn-primary "
+				update="@form" action="listEmpleado?faces-redirect=true" />
+		
+				
 			<p:commandButton value="Cancelar"
 				action="listEmpleado?faces-redirect=true" immediate="true"
-				styleClass="btn btn-default" ajax="false" />
+				style="margin-bottom:20px;" styleClass="btn btn-default"
+				ajax="false" />
+				
 
 			<p:growl id="growl" sticky="true" showDetail="true" life="3000" />
 

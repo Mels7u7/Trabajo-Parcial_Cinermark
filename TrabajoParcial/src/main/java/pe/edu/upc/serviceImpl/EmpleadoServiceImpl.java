@@ -3,6 +3,7 @@ package pe.edu.upc.serviceImpl;
 import java.io.Serializable;
 
 
+
 import java.util.List;
 
 import javax.enterprise.context.RequestScoped;
@@ -11,6 +12,7 @@ import javax.inject.Named;
 
 import pe.edu.upc.dao.IEmpleadoDao;
 import pe.edu.upc.entity.Empleado;
+
 import pe.edu.upc.service.IEmpleadoService;
 
 @Named
@@ -39,5 +41,9 @@ public class EmpleadoServiceImpl implements IEmpleadoService, Serializable {
 	public List<Empleado> listar()
 	{
 		return eD.listar();
+	}
+	@Override
+	public void modificar(Empleado empleado) {
+		eD.modificar(empleado);
 	}
 }
