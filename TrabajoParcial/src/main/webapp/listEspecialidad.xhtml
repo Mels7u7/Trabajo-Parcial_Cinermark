@@ -15,9 +15,11 @@
 		<h:form>
 
 			<div class="row" align="center">
-				<p:commandButton value="Nuevo"
+				<p:commandButton value="+"
 					action="#{especialidadController.nuevaEspecialidad()}"
-					styleClass="btn btn-primary" ajax="false" />
+					styleClass="btn btn-primary" ajax="false"
+					style="
+					 transition:1s ;  border:none; position: fixed; border-radius: 50%; width: 70px;  height: 70px; right: 50px; bottom: 20px; z-index:10; text-align:center; padding:0px; " />
 			</div>
 			<div class="row">
 				<div class="col-sm-12">
@@ -31,17 +33,21 @@
 							style="margin-bottom:0">
 
 							<p:column headerText="Id" sortBy="#{esp.idEspecialidad}">
-								<h:commandLink value="#{esp.idEspecialidad}"
+								<h:outputText value="#{esp.idEspecialidad}"
 									class="btn btn-primary btn-xs"
 									action="#{especialidadController.detallesEspecialidad(esp)}" />
 							</p:column>
 
-							<p:column headerText="Nombre" sortBy="#{esp.nombreEspecialidad}">
+							<p:column headerText="Nombre" sortBy="#{esp.nombreEspecialidad}"
+								filterBy="#{esp.nombreEspecialidad}" filterMatchMode="contains"
+								filterStyle="width: 80%;">
 								<h:outputText value="#{esp.nombreEspecialidad}" />
 							</p:column>
 
 							<p:column headerText="Certificadora"
-								sortBy="#{esp.certificadoraEspecialidad}">
+								sortBy="#{esp.certificadoraEspecialidad}"
+								filterBy="#{esp.certificadoraEspecialidad}"
+								filterMatchMode="contains" filterStyle="width: 80%;">
 								<h:outputText value="#{esp.certificadoraEspecialidad}" />
 							</p:column>
 
@@ -51,7 +57,8 @@
 									style="color:red; display:flex;"
 									actionListener="#{especialidadController.eliminar(esp)}" />
 								<h:commandLink value="Modificar"
-									action="#{especialidadController.editar(esp)}" style="color:blue;" />
+									action="#{especialidadController.editar(esp)}"
+									style="color:blue;" />
 							</p:column>
 
 						</p:dataTable>

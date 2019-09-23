@@ -31,7 +31,7 @@
 							style="margin-bottom:0">
 
 							<p:column headerText="Id" sortBy="#{sa.idSala}"
-								filterby="#{sa.idSala}" filterMatchMode="contains"
+								filterBy="#{sa.idSala}" filterMatchMode="contains"
 								filterStyle="width: 80%;">
 								<h:outputText value="#{sa.idSala}"
 									class="btn btn-primary btn-xs" />
@@ -64,8 +64,7 @@
 									actionListener="#{salaController.eliminar(sa)}" />
 
 								<h:commandLink value="Modificar"
-									action="#{salaController.Modifsala(sa)}"
-									style="color:blue;" />
+									action="#{salaController.Modifsala(sa)}" style="color:blue;" />
 							</p:column>
 
 						</p:dataTable>
