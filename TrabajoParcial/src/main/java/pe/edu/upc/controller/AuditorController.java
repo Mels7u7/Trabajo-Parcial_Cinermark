@@ -59,7 +59,6 @@ public class AuditorController implements Serializable {
 		this.setAuditor(new Auditor());
 		return "auditor.xhtml";
 	}
-	
 
 	public void insertar() {
 		try {
@@ -105,6 +104,10 @@ public class AuditorController implements Serializable {
 		} catch (Exception e) {
 			e.getMessage();
 		}
+	}
+	public String detallesAuditor(Auditor _auditor) {
+		this.setAuditor(_auditor);
+		return "detalleAuditor.xhtml";
 	}
 
 	// get y set
@@ -157,4 +160,3 @@ public class AuditorController implements Serializable {
 		this.listaFirmas = listaFirmas;
 	}
 }
-		

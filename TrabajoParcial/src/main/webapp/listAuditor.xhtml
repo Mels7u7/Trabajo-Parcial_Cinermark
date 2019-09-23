@@ -30,8 +30,9 @@
 							style="margin-bottom:0">
 
 							<p:column headerText="Id" sortBy="#{aud.idAuditor}">
-								<h:outputText value="#{aud.idAuditor}"
-									class="btn btn-primary btn-xs" />
+								<h:commandLink value="#{aud.idAuditor}"
+									class="btn btn-primary btn-xs"
+									action="#{auditorController.detallesAuditor(aud)}" />
 							</p:column>
 
 							<p:column headerText="Nombre" sortBy="#{aud.nombreAuditor}">
@@ -53,11 +54,10 @@
 								<h:outputText
 									value="#{aud.especialidadAuditor.nombreEspecialidad}" />
 							</p:column>
-							
+
 							<p:column headerText="Firma consultora"
 								sortBy="#{aud.firmaAuditor.nombreFirma}">
-								<h:outputText
-									value="#{aud.firmaAuditor.nombreFirma}" />
+								<h:outputText value="#{aud.firmaAuditor.nombreFirma}" />
 							</p:column>
 
 							<p:column headerText="Operación" exportable="false">
