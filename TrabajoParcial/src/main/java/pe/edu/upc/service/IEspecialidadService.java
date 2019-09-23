@@ -12,6 +12,6 @@ public interface IEspecialidadService {
 
 	public List<Especialidad> listar();
 
-	public void detalles(Especialidad especialidad);
+	public void modificar(Especialidad especialidad);
 
 }

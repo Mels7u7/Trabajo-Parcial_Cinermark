@@ -45,9 +45,13 @@
 								<h:outputText value="#{esp.certificadoraEspecialidad}" />
 							</p:column>
 
-							<p:column headerText="Operación" exportable="false">
+							<p:column headerText="Operación" exportable="false"
+								style="justify-content: space-around;">
 								<h:commandLink action="lstEspecialidad" value="Eliminar"
+									style="color:red; display:flex;"
 									actionListener="#{especialidadController.eliminar(esp)}" />
+								<h:commandLink value="Modificar"
+									action="#{especialidadController.editar(esp)}" style="color:blue;" />
 							</p:column>
 
 						</p:dataTable>

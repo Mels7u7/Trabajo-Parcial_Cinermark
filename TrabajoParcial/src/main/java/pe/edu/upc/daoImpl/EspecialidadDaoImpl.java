@@ -61,7 +61,7 @@ public class EspecialidadDaoImpl implements IEspecialidadDao, Serializable {
 
 	@Transactional
 	@Override
-	public void detalles(Especialidad especialidad) {
+	public void modificar(Especialidad especialidad) {
 		try {
 			em.merge(especialidad);
 		} catch (Exception e) {

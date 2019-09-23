@@ -39,25 +39,10 @@
 								<h:outputText value="#{aud.nombreAuditor}" />
 							</p:column>
 
-							<p:column headerText="Numero telefonico"
-								sortBy="#{aud.numeroAuditor}">
-								<h:outputText value="#{aud.numeroAuditor}" />
-							</p:column>
-
-							<p:column headerText="Años de experiencia"
-								sortBy="#{aud.tiempoExpAuditor}">
-								<h:outputText value="#{aud.tiempoExpAuditor}" />
-							</p:column>
-
 							<p:column headerText="Especialidad"
 								sortBy="#{aud.especialidadAuditor.nombreEspecialidad}">
 								<h:outputText
 									value="#{aud.especialidadAuditor.nombreEspecialidad}" />
-							</p:column>
-
-							<p:column headerText="Firma consultora"
-								sortBy="#{aud.firmaAuditor.nombreFirma}">
-								<h:outputText value="#{aud.firmaAuditor.nombreFirma}" />
 							</p:column>
 
 							<p:column headerText="Operación" exportable="false">

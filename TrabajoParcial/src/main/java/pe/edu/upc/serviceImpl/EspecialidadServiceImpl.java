@@ -38,7 +38,7 @@ public class EspecialidadServiceImpl implements IEspecialidadService, Serializab
 	}
 
 	@Override
-	public void detalles(Especialidad especialidad) {
-		eD.detalles(especialidad);
+	public void modificar(Especialidad especialidad) {
+		eD.modificar(especialidad);
 	}
 }

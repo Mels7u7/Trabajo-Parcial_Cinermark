@@ -22,8 +22,12 @@ public class EspecialidadController implements Serializable {
 
 	@Inject
 	private IEspecialidadService esService;
+
 	private Especialidad especialidad;
+
 	List<Especialidad> listaEspecialidades;
+
+	private String mensaje = "";
 
 	@PostConstruct
 	public void init() {
@@ -66,10 +70,26 @@ public class EspecialidadController implements Serializable {
 	public void limpiarEspecialidad() {
 		this.init();
 	}
-	
+
 	public String detallesEspecialidad(Especialidad _especialidad) {
 		this.setEspecialidad(_especialidad);
 		return "detalleEspecialidad.xhtml";
+	}
+
+	public void modificar() {
+		try {
+			esService.modificar(this.especialidad);
+			limpiarEspecialidad();
+			this.listar();
+		} catch (Exception e) {
+			e.getMessage();
+			mensaje = "No se puede modificar";
+		}
+	}
+
+	public String editar(Especialidad especialidad) {
+		this.setEspecialidad(especialidad);
+		return "modifEspecialidad.xhtml";
 	}
 
 	// get y set
@@ -98,4 +118,11 @@ public class EspecialidadController implements Serializable {
 		this.listaEspecialidades = listaEspecialidades;
 	}
 
+	public String getMensaje() {
+		return mensaje;
+	}
+
+	public void setMensaje(String mensaje) {
+		this.mensaje = mensaje;
+	}
 }

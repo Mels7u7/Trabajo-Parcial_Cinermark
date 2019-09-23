@@ -12,5 +12,5 @@ public interface IEspecialidadDao {
 
 	public List<Especialidad> listar();
 
-	public void detalles(Especialidad especialidad);
+	public void modificar(Especialidad especialidad);
 }
