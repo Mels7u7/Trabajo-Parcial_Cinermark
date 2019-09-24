@@ -30,11 +30,10 @@
 							emptyMessage="No existen registros" rowIndexVar="item"
 							style="margin-bottom:0">
 
-							<p:column headerText="Id" sortBy="#{sa.idSala}"
-								filterBy="#{sa.idSala}" filterMatchMode="contains"
-								filterStyle="width: 80%;">
-								<h:outputText value="#{sa.idSala}"
-									class="btn btn-primary btn-xs" />
+							<p:column headerText="Id" sortBy="#{sa.idSala}">
+								<h:commandLink value="#{sa.idSala}"
+									class="btn btn-primary btn-xs"
+									action="#"/>
 							</p:column>
 
 							<p:column headerText="Tipo" sortBy="#{sa.tipoSala}"
