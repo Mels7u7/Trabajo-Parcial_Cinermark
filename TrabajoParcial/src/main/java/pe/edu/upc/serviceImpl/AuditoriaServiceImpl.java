@@ -14,33 +14,31 @@ import pe.edu.upc.service.IAuditoriaService;
 @Named
 @RequestScoped
 public class AuditoriaServiceImpl implements IAuditoriaService, Serializable {
-	
+
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	@Inject
 	private IAuditoriaDao aD;
-	
+
 	@Override
 	public void insertar(Auditoria auditoria) {
 		aD.insertar(auditoria);
 	}
-	
+
 	@Override
-	public void eliminar(int idAuditoria)
-	{
+	public void eliminar(int idAuditoria) {
 		aD.eliminar(idAuditoria);
 	}
 
 	@Override
-	public List<Auditoria> listar()
-	{
+	public List<Auditoria> listar() {
 		return aD.listar();
 	}
 
 	@Override
 	public void modificar(Auditoria auditoria) {
-		aD.modificar(auditoria);	
+		aD.modificar(auditoria);
 	}
 }

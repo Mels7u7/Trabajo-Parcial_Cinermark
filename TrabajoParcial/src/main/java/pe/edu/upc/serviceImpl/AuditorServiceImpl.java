@@ -22,21 +22,19 @@ public class AuditorServiceImpl implements IAuditorService, Serializable {
 	private static final long serialVersionUID = 1L;
 	@Inject
 	private IAuditorDao aD;
-	
+
 	@Override
 	public void insertar(Auditor auditor) {
 		aD.insertar(auditor);
 	}
-	
+
 	@Override
-	public void eliminar(int idAuditor)
-	{
+	public void eliminar(int idAuditor) {
 		aD.eliminar(idAuditor);
 	}
-	
+
 	@Override
-	public List<Auditor> listar()
-	{
+	public List<Auditor> listar() {
 		return aD.listar();
 	}
 }

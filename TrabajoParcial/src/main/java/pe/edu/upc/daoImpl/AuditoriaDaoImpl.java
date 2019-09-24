@@ -13,60 +13,48 @@ import pe.edu.upc.dao.IAuditoriaDao;
 import pe.edu.upc.entity.Auditoria;
 
 public class AuditoriaDaoImpl implements IAuditoriaDao, Serializable {
-	
+
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	@PersistenceContext(unitName = "TrabajoParcial")
 	private EntityManager em;
-	
-	@Transactional	
+
+	@Transactional
 	@Override
-	public void insertar(Auditoria auditoria)
-	{
-		try
-		{
+	public void insertar(Auditoria auditoria) {
+		try {
 			em.persist(auditoria);
-		}
-		catch(Exception e)
-		{
+		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 	}
-	
-	@Transactional	
+
+	@Transactional
 	@Override
-	public void eliminar(int idAuditoria)
-	{
-	
+	public void eliminar(int idAuditoria) {
+
 		Auditoria aud = new Auditoria();
 		try {
 			aud = em.getReference(Auditoria.class, idAuditoria);
 			em.remove(aud);
-		}
-		catch(Exception e)
-		{
+		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 	}
-	
+
 	@SuppressWarnings("unchecked")
 	@Override
-	public List<Auditoria> listar()
-	{
+	public List<Auditoria> listar() {
 		List<Auditoria> lista = new ArrayList<Auditoria>();
-		try
-		{
-			Query q = em.createQuery("Select a from Auditoria a");
+		try {
+			Query q = em.createQuery("Select au from Auditoria au");
 			lista = (List<Auditoria>) q.getResultList();
-		}
-		catch(Exception e)
-		{
+		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		
 		return lista;
 	}
 

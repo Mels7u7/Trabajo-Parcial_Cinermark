@@ -33,7 +33,7 @@
 							style="margin-bottom:0">
 
 							<p:column headerText="Id" sortBy="#{esp.idEspecialidad}">
-								<h:outputText value="#{esp.idEspecialidad}"
+								<h:commandLink value="#{esp.idEspecialidad}"
 									class="btn btn-primary btn-xs"
 									action="#{especialidadController.detallesEspecialidad(esp)}" />
 							</p:column>

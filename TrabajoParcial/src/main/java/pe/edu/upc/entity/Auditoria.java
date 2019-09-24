@@ -19,7 +19,6 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Past;
 
 @Entity
 @Table(name = "auditoria")
@@ -34,7 +33,7 @@ public class Auditoria implements Serializable {
 	private int idAuditoria;
 
 	@NotEmpty(message = "Ingresa el tema principal")
-	@Column(name = "temaPrincipal", nullable = false, length = 100)
+	@Column(name = "temaPrincipal", nullable = false, length = 50)
 	private String temaPrincipal;
 
 	@NotEmpty(message = "Escriba una descripcion")
@@ -42,7 +41,6 @@ public class Auditoria implements Serializable {
 	private String descripcionAuditoria;
 
 	@NotNull(message = "La fecha es obligatoria")
-	@Past(message = "La fecha debe estar en el pasado")
 	@Temporal(TemporalType.TIMESTAMP)
 	@Column(name = "fechaAuditoria")
 	private Date fechaAuditoria;

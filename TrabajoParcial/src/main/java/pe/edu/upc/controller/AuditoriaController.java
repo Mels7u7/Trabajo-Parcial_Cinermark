@@ -24,13 +24,12 @@ public class AuditoriaController implements Serializable {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-
 	@Inject
 	private IAuditoriaService auService;
 	@Inject
-	private IAuditorService aS;
+	private IAuditorService aService;
 	@Inject
-	private ISalaService sS;
+	private ISalaService sService;
 
 	private Auditoria auditoria;
 	private Auditor auditor;
@@ -46,7 +45,7 @@ public class AuditoriaController implements Serializable {
 		listarAuditorias = new ArrayList<Auditoria>();
 		listarAuditores = new ArrayList<Auditor>();
 		listarSalas = new ArrayList<Sala>();
-		
+
 		auditoria = new Auditoria();
 		auditor = new Auditor();
 		sala = new Sala();
@@ -54,7 +53,6 @@ public class AuditoriaController implements Serializable {
 		this.listAuditoria();
 		this.listAuditor();
 		this.listSala();
-
 	}
 
 	public String nuevoAuditoria() {
@@ -64,17 +62,16 @@ public class AuditoriaController implements Serializable {
 
 	public String ModifAuditoria(Auditoria _auditoria) {
 		this.setAuditoria(_auditoria);
-		return "modifauditoria.xhtml";		
+		return "modifauditoria.xhtml";
 	}
-	
+
 	public void insertar() {
 		try {
 			auService.insertar(auditoria);
 			limpiarAuditoria();
-			mensaje = "Se registró correctamente";
 		} catch (Exception e) {
 			e.getMessage();
-			
+
 		}
 	}
 
@@ -88,7 +85,7 @@ public class AuditoriaController implements Serializable {
 
 	public void listAuditor() {
 		try {
-			listarAuditores = aS.listar();
+			listarAuditores = aService.listar();
 		} catch (Exception e) {
 			e.getMessage();
 		}
@@ -96,7 +93,7 @@ public class AuditoriaController implements Serializable {
 
 	public void listSala() {
 		try {
-			listarSalas = sS.listar();
+			listarSalas = sService.listar();
 		} catch (Exception e) {
 			e.getMessage();
 		}
@@ -112,7 +109,6 @@ public class AuditoriaController implements Serializable {
 			listAuditoria();
 		} catch (Exception e) {
 			e.getMessage();
-			mensaje = "No se puede eliminar";
 		}
 	}
 
@@ -123,15 +119,15 @@ public class AuditoriaController implements Serializable {
 			this.listAuditoria();
 			this.listAuditor();
 			this.listSala();
-			
+
 		} catch (Exception e) {
 			e.getMessage();
 			mensaje = "No se puede modificar";
 		}
 	}
-	
+
 	// get y set
-	
+
 	public Auditoria getAuditoria() {
 		return auditoria;
 	}
@@ -187,5 +183,4 @@ public class AuditoriaController implements Serializable {
 	public void setListarSalas(List<Sala> listarSalas) {
 		this.listarSalas = listarSalas;
 	}
-	
 }
