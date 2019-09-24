@@ -15,7 +15,7 @@ import pe.edu.upc.service.IFirmaConsultoraService;
 
 @Named
 @RequestScoped
-public class FirmaConsultoraController implements Serializable{
+public class FirmaConsultoraController implements Serializable {
 
 	/**
 	 * 
@@ -24,32 +24,33 @@ public class FirmaConsultoraController implements Serializable{
 	@Inject
 	private IFirmaConsultoraService fService;
 	private FirmaConsultora firma;
-	List<FirmaConsultora>listaFirmas;
-	
+	List<FirmaConsultora> listaFirmas;
+
 	private String mensaje = "";
 
 	@PostConstruct
 	public void init() {
-		
+
 		this.listaFirmas = new ArrayList<FirmaConsultora>();
 		this.firma = new FirmaConsultora();
 		this.listar();
 	}
-	public String nuevoFirma() 
-	{
-		
+
+	public String nuevoFirma() {
+
 		this.setFirma(new FirmaConsultora());
 		return "firmaConsultora.xhtml";
 	}
+
 	public void insertar() {
 		try {
 			fService.insertar(firma);
 			limpiarFirma();
-			} catch (Exception e) {
+		} catch (Exception e) {
 			e.getMessage();
 		}
 	}
-	
+
 	public void listar() {
 		try {
 			listaFirmas = fService.listar();
@@ -57,6 +58,7 @@ public class FirmaConsultoraController implements Serializable{
 			e.getMessage();
 		}
 	}
+
 	public void eliminar(FirmaConsultora firma) {
 		try {
 			fService.eliminar(firma.getIdFirma());
@@ -66,8 +68,7 @@ public class FirmaConsultoraController implements Serializable{
 			mensaje = "No se puede eliminar";
 		}
 	}
-	
-	
+
 	public String ModificarFirma(FirmaConsultora firma) {
 		this.setFirma(firma);
 		return "modificarfirma.xhtml";
@@ -78,38 +79,47 @@ public class FirmaConsultoraController implements Serializable{
 			fService.modificar(this.firma);
 			limpiarFirma();
 			this.listar();
-			
+
 		} catch (Exception e) {
 			e.getMessage();
 			mensaje = "No se puede modificar";
 		}
 	}
+
 	public void limpiarFirma() {
 		this.init();
 	}
+
 	public IFirmaConsultoraService getfService() {
 		return fService;
 	}
+
 	public void setfService(IFirmaConsultoraService fService) {
 		this.fService = fService;
 	}
+
 	public FirmaConsultora getFirma() {
 		return firma;
 	}
+
 	public void setFirma(FirmaConsultora firma) {
 		this.firma = firma;
 	}
+
 	public List<FirmaConsultora> getListaFirmas() {
 		return listaFirmas;
 	}
+
 	public void setListaFirmas(List<FirmaConsultora> listaFirmas) {
 		this.listaFirmas = listaFirmas;
 	}
+
 	public String getMensaje() {
 		return mensaje;
 	}
+
 	public void setMensaje(String mensaje) {
 		this.mensaje = mensaje;
 	}
-	
+
 }
