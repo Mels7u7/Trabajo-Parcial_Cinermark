@@ -15,9 +15,11 @@
 		<h:form>
 			
 			<div class="row" align="center">
-				<p:commandButton value="Nuevo"
+				<p:commandButton value="+"
 					action="#{empleadoController.nuevoEmpleado()}"
-					styleClass="btn btn-primary" ajax="false" />
+					styleClass="btn btn-primary" ajax="false"
+					style="
+					 transition:1s ;  border:none; position: fixed; border-radius: 50%; width: 70px;  height: 70px; right: 50px; bottom: 20px; z-index:10; text-align:center; padding:0px; " />
 			</div>
 			<div class="row">
 				<div class="col-sm-12">
@@ -29,27 +31,52 @@
 							emptyMessage="No existen registros" rowIndexVar="item"
 							style="margin-bottom:0">
 
-							<p:column headerText="Id" sortBy="#{emp.idEmpleado}">
-								<h:outputText value="#{emp.idEmpleado}" />
+							<p:column headerText="Id" sortBy="#{emp.idEmpleado}"
+							filterBy="#{emp.idEmpleado}" filterMatchMode="contains"
+								filterStyle="width: 80%;">
+							
+								<h:outputText value="#{emp.idEmpleado}" class="btn btn-primary btn-xs" />
 							</p:column>
 
-							<p:column headerText="Nombre" sortBy="#{emp.nombreEmpleado}">
+							<p:column headerText="Nombre" sortBy="#{emp.nombreEmpleado}"
+							filterBy="#{emp.nombreEmpleado}" filterMatchMode="contains"
+								filterStyle="width: 80%;">
+							
 								<h:outputText value="#{emp.nombreEmpleado}" />
 							</p:column>
 							
-							<p:column headerText="Apellido" sortBy="#{emp.apellidoEmpleado}">
+							<p:column headerText="Apellido" sortBy="#{emp.apellidoEmpleado}"
+							filterBy="#{emp.apellidoEmpleado}" filterMatchMode="contains"
+								filterStyle="width: 80%;">
+							
+							
 								<h:outputText value="#{emp.apellidoEmpleado}" />
 							</p:column>
 							
-							<p:column headerText="Dni" sortBy="#{emp.dniEmpleado}">
+							<p:column headerText="Dni" sortBy="#{emp.dniEmpleado}"
+							filterBy="#{emp.dniEmpleado}" filterMatchMode="contains"
+								filterStyle="width: 80%;">
+							
+							
 								<h:outputText value="#{emp.dniEmpleado}" />
 							</p:column>
 							
-							<p:column headerText="Puesto Laboral" sortBy="#{emp.puestolaboralEmpleado}">
+							
+							<p:column headerText="Puesto Laboral" sortBy="#{emp.puestolaboralEmpleado}"
+							filterBy="#{emp.puestolaboralEmpleado}" filterMatchMode="contains"
+								filterStyle="width: 80%;">
+							
+							
+							
 								<h:outputText value="#{emp.puestolaboralEmpleado}" />
 							</p:column>
 							
-							<p:column headerText="Celular" sortBy="#{emp.celularEmpleado}">
+							<p:column headerText="Celular" sortBy="#{emp.celularEmpleado}"
+							filterBy="#{emp.celularEmpleado}" filterMatchMode="contains"
+								filterStyle="width: 80%;">
+							
+							
+							
 								<h:outputText value="#{emp.celularEmpleado}" />
 							</p:column>
 							
