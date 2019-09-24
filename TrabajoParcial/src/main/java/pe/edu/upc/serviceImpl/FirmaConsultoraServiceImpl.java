@@ -9,6 +9,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import pe.edu.upc.dao.IFirmaConsultoraDao;
+import pe.edu.upc.entity.Auditoria;
 import pe.edu.upc.entity.FirmaConsultora;
 import pe.edu.upc.service.IFirmaConsultoraService;
 
@@ -33,8 +34,7 @@ public class FirmaConsultoraServiceImpl implements IFirmaConsultoraService, Seri
 	public void eliminar(int idFirma)
 	{
 		fD.eliminar(idFirma);
-	}
-	
+	}	
 	@Override
 	public List<FirmaConsultora> listar()
 	{
@@ -43,6 +43,7 @@ public class FirmaConsultoraServiceImpl implements IFirmaConsultoraService, Seri
 
 	@Override
 	public void modificar(FirmaConsultora firma) {
+		fD.modificar(firma);
 		// TODO Auto-generated method stub
 		
 	}

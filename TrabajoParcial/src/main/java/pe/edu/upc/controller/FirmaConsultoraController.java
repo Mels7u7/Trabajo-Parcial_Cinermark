@@ -9,6 +9,7 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import pe.edu.upc.entity.Auditoria;
 import pe.edu.upc.entity.FirmaConsultora;
 import pe.edu.upc.service.IFirmaConsultoraService;
 
@@ -43,7 +44,7 @@ public class FirmaConsultoraController implements Serializable{
 	public void insertar() {
 		try {
 			fService.insertar(firma);
-			limpiarFirma1();
+			limpiarFirma();
 			} catch (Exception e) {
 			e.getMessage();
 		}
@@ -65,13 +66,17 @@ public class FirmaConsultoraController implements Serializable{
 			mensaje = "No se puede eliminar";
 		}
 	}
-	public void limpiarFirma1() {
-		this.init();
+	
+	
+	public String ModificarFirma(FirmaConsultora firma) {
+		this.setFirma(firma);
+		return "modificarfirma.xhtml";
 	}
+
 	public void modificar() {
 		try {
 			fService.modificar(this.firma);
-			limpiarFirma1();
+			limpiarFirma();
 			this.listar();
 			
 		} catch (Exception e) {
