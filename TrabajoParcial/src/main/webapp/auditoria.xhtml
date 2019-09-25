@@ -1,0 +1,111 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="master.xhtml">
+
+	<ui:define name="title">
+        .:Registro de auditorias:.
+    </ui:define>
+
+	<ui:define name="titleCont">
+		<span>Auditoria</span>
+	</ui:define>
+
+	<ui:define name="content">
+		<h:form>
+			<h:outputLabel for="idAuditoria" value="Id"
+				styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="idAuditoria"
+				styleClass="form-control"
+				value="#{auditoriaController.auditoria.idAuditoria}" required="true" />
+
+			<h:outputLabel for="temaPrincipalAuditoria"
+				value="Tema principal de la auditoria:" styleClass="control-label" />
+			<p:inputText autocomplete="off" id="temaPrincipalAuditoria"
+				styleClass="form-control"
+				value="#{auditoriaController.auditoria.temaPrincipalAuditoria}"
+				maxlength="40" required="true" />
+
+			<h:outputLabel for="descripcionAuditoria"
+				value="descripcion detallada de la auditoria:"
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="descripcionAuditoria"
+				styleClass="form-control"
+				value="#{auditoriaController.auditoria.descripcionAuditoria}"
+				maxlength="100" required="true" />
+
+			<h:outputLabel for="fechaAuditoria"
+				value="Fecha en la que se realiza la auditoria:"
+				styleClass="control-label" />
+			<p:calendar id="fechaAuditoria" pattern="dd/MM/yyyy"
+				value="#{auditoriaController.auditoria.fechaAuditoria}"
+				showOn="button" timeZone="UTC" required="true"
+				requiredMessage="fecha vacía">
+			</p:calendar>
+			<p:message for="fechaAuditoria" style="color:red" />
+			<br />
+
+			<h:outputLabel for="participantesAuditoria"
+				value="Numero de asistentes a la auditoria:"
+				styleClass="control-label" />
+			<p:inputText autocomplete="off" id="participantesAuditoria"
+				styleClass="form-control"
+				value="#{auditoriaController.auditoria.participantesAuditoria}"
+				maxlength="2" required="true" />
+			<br />
+			
+			<h:outputLabel for="estadoAuditoria" value="Estado de la auditoria:"
+				styleClass="control-label" />
+			<p:selectOneMenu id="estadoAuditoria"
+				value="#{auditoriaController.auditoria.estadoAuditoria}">
+				<f:selectItem itemLabel="--Select--" noSelectionOption="true" />
+				<f:selectItem itemLabel="Pendiente" itemValue="Pendiente" />
+				<f:selectItem itemLabel="En ejecución" itemValue="En ejecución" />
+				<f:selectItem itemLabel="Finalizada" itemValue="Finalizada" />
+			</p:selectOneMenu>
+			<h:message for="selecOneMenu" />
+			<br />
+
+			<p:outputLabel for="auditorAuditoria"
+				value="Auditor responsable de la auditoria:" />
+			<p:selectOneMenu id="auditorAuditoria"
+				value="#{auditoriaController.auditoria.auditorAuditoria}"
+				converter="omnifaces.SelectItemsConverter">
+				<f:selectItems value="#{auditoriaController.listaAuditores}" var="f"
+					itemLabel="#{f.nombreAuditor}" itemValue="#{f}" />
+			</p:selectOneMenu>
+			<br />
+
+			<p:outputLabel for="salaAuditoria"
+				value="Codigo de la sala en la que se realiza la auditoria:" />
+			<p:selectOneMenu id="salaAuditoria"
+				value="#{auditoriaController.auditoria.salaAuditoria}"
+				converter="omnifaces.SelectItemsConverter">
+				<f:selectItems value="#{auditoriaController.listaSalas}" var="f"
+					itemLabel="#{f.idSala}" itemValue="#{f}" />
+			</p:selectOneMenu>
+			<br />
+
+			<p:commandButton value="Grabar"
+				actionListener="#{auditoriaController.insertar()}"
+				styleClass="btn btn-primary " update="@form"
+				action="listAuditoria?faces-redirect=true" />
+			<p:commandButton value="Cancelar"
+				action="listAuditoria?faces-redirect=true" immediate="true"
+				styleClass="btn btn-default" ajax="false" />
+
+			<p:growl id="growl" sticky="true" showDetail="true" life="3000" />
+
+		</h:form>
+	</ui:define>
+
+	<ui:define name="footerCont">
+
+	</ui:define>
+</ui:composition>
+</html>
