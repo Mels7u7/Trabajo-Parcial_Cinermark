@@ -8,6 +8,7 @@
 		<jta-data-source>java:/PostgresDS</jta-data-source>
 
 		<class>pe.edu.upc.entity.Usuario</class>
+		<class>pe.edu.upc.entity.Auditoria</class>
 		<class>pe.edu.upc.entity.Auditor</class>
 		<class>pe.edu.upc.entity.Especialidad</class>
 		<class>pe.edu.upc.entity.Empleado</class>
