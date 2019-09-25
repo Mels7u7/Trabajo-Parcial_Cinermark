@@ -1,6 +1,7 @@
 package pe.edu.upc.daoImpl;
 
 import java.io.Serializable;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,6 +12,7 @@ import javax.transaction.Transactional;
 
 import pe.edu.upc.dao.IEmpleadoDao;
 import pe.edu.upc.entity.Empleado;
+
 
 
 public class EmpleadoDaoImpl implements IEmpleadoDao, Serializable {
@@ -35,7 +37,8 @@ public class EmpleadoDaoImpl implements IEmpleadoDao, Serializable {
 			System.out.println(e.getMessage());
 		}
 	}
-
+    
+    @Transactional
 	@Override
 	public void eliminar(int idEmpleado) {
 		// TODO Auto-generated method stub
@@ -67,5 +70,17 @@ public class EmpleadoDaoImpl implements IEmpleadoDao, Serializable {
 		
 		return lista;
 	}
+	
+	@Transactional
+	@Override
+	public void modificar(Empleado empleado) {
+		try {
+			em.merge(empleado);
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+	}
+
 
 }

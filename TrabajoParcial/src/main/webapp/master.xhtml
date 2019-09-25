@@ -20,6 +20,12 @@
 	<h:outputStylesheet name="css/bootstrap.min.css" />
 	<h:outputStylesheet name="css/main_base.css" />
 	<h:outputStylesheet name="css/font_ico.css" />
+	
+	<h:outputStylesheet name="css/main_base.css" />
+	<h:outputStylesheet name="css/nice-select.css" />
+	<h:outputStylesheet name="css/style.css" />
+	<h:outputStylesheet name="css/bootstrap-datepicker.min.css" />
+	
 	<ui:insert name="headCont"></ui:insert>
 </h:head>
 <h:body>
@@ -49,6 +55,8 @@
 				<ul class="nav nav-stacked" id="sidebar">
 					<li id="sidebar-1"><a href="panel.xhtml"><i
 							class="icon-home"></i> Inicio</a></li>
+					<li id="sidebar-1"><a href="listAuditoria.xhtml"><i
+							class="icon-home"></i> Auditoria</a></li>
 					<li id="sidebar-2"><a href="listEmpleado.xhtml"><i
 							class="icon-user"></i> Empleado</a></li>
 					<li id="sidebar-2"><a href="listEspecialidad.xhtml"><i
@@ -66,6 +74,11 @@
 				</ul>
 			</div>
 			<!--/left-->
+			<div class="row" align="center">
+				<h:graphicImage  
+   					value = "resources/img/cinemarkEntradasStatic.png"
+   					style="position: absolute; height: 190px; right: 1040px; bottom: 20px;"/> 
+			</div>
 
 			<!--right-->
 			<div class="col-md-9" style="padding-right: 30px">
@@ -82,6 +95,8 @@
 	</div>
 	<!--/container-->
 	<ui:insert name="footerCont"></ui:insert>
+	
+
 </h:body>
 </html>
 

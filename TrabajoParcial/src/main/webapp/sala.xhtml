@@ -19,7 +19,7 @@
 		<h:form>
 			<h:outputLabel for="idSala" value="Id:" styleClass="control-label" />
 
-			<p:inputText autocomplete="off" id="idSala" styleClass="form-control"
+			<p:inputText id="idSala" styleClass="form-control"
 				value="#{salaController.sala.idSala}" required="true" />
 
 			<h:outputLabel for="tipoSala" value="Tipo de sala:"
@@ -29,9 +29,9 @@
 				value="#{salaController.sala.tipoSala}">
 				<f:selectItem itemLabel="--Select--" noSelectionOption="true" />
 				<f:selectItem itemLabel="Sala XD" itemValue="Sala XD" />
-				<f:selectItem itemLabel="Sala 3D" itemValue="Sala 3D" />
+				<f:selectItem itemLabel="Sala REAL D 3D" itemValue="Sala REAL D 3D" />
 				<f:selectItem itemLabel="Sala Dbox" itemValue="Sala Dbox" />
-				<f:selectItem itemLabel="Sala Normal" itemValue="Sala Normal" />
+				<f:selectItem itemLabel="Sala 2D" itemValue="Sala 2D" />
 			</p:selectOneMenu>
 			<h:message for="selecOneMenu" />
 			<br />
@@ -41,7 +41,7 @@
 
 			<p:inputText autocomplete="off" id="capacidadSala"
 				styleClass="form-control"
-				value="#{salaController.sala.capacidadSala}" maxlength="3"
+				value="#{salaController.sala.capacidadSala}" maxlength="2"
 				required="true" />
 
 			<p:outputLabel for="sedeSala"

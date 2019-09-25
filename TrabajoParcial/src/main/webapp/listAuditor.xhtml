@@ -15,9 +15,11 @@
 		<h:form>
 
 			<div class="row" align="center">
-				<p:commandButton value="Nuevo Auditor"
+				<p:commandButton value="+"
 					action="#{auditorController.nuevoAuditor()}"
-					styleClass="btn btn-primary" ajax="false" />
+					styleClass="btn btn-primary" ajax="false"
+					style="
+					 transition:1s ;  border:none; position: fixed; border-radius: 50%; width: 70px;  height: 70px; right: 105px; bottom: 20px; z-index:10; text-align:center; padding:0px; background-Color:#b5121c" />
 			</div>
 			<div class="row">
 				<div class="col-sm-12">
@@ -30,38 +32,27 @@
 							style="margin-bottom:0">
 
 							<p:column headerText="Id" sortBy="#{aud.idAuditor}">
-								<h:outputText value="#{aud.idAuditor}"
-									class="btn btn-primary btn-xs" />
+								<h:commandLink value="#{aud.idAuditor}"
+									class="btn btn-primary btn-xs"
+									action="#{auditorController.detallesAuditor(aud)}" />
 							</p:column>
 
-							<p:column headerText="Nombre" sortBy="#{aud.nombreAuditor}">
+							<p:column headerText="Nombre" sortBy="#{aud.nombreAuditor}"
+								filterBy="#{aud.nombreAuditor}" filterMatchMode="contains"
+								filterStyle="width: 80%;">
 								<h:outputText value="#{aud.nombreAuditor}" />
 							</p:column>
 
-							<p:column headerText="Numero telefonico"
-								sortBy="#{aud.numeroAuditor}">
-								<h:outputText value="#{aud.numeroAuditor}" />
-							</p:column>
-
-							<p:column headerText="Años de experiencia"
-								sortBy="#{aud.tiempoExpAuditor}">
-								<h:outputText value="#{aud.tiempoExpAuditor}" />
-							</p:column>
-
 							<p:column headerText="Especialidad"
-								sortBy="#{aud.especialidadAuditor.nombreEspecialidad}">
+								sortBy="#{aud.especialidadAuditor.nombreEspecialidad}"
+								filterBy="#{aud.especialidadAuditor}" filterMatchMode="contains"
+								filterStyle="width: 80%;">
 								<h:outputText
 									value="#{aud.especialidadAuditor.nombreEspecialidad}" />
 							</p:column>
-							
-							<p:column headerText="Firma consultora"
-								sortBy="#{aud.firmaAuditor.nombreFirma}">
-								<h:outputText
-									value="#{aud.firmaAuditor.nombreFirma}" />
-							</p:column>
 
 							<p:column headerText="Operación" exportable="false">
-								<h:commandLink action="lstAuditor" value="Eliminar"
+								<h:commandLink action="lstAuditor" value="Eliminar" style="color:red;; display:flex;"
 									actionListener="#{auditorController.eliminar(aud)}" />
 							</p:column>
 						</p:dataTable>

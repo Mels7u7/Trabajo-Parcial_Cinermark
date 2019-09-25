@@ -10,6 +10,7 @@ import javax.persistence.Query;
 import javax.transaction.Transactional;
 
 import pe.edu.upc.dao.IFirmaConsultoraDao;
+import pe.edu.upc.entity.Auditoria;
 import pe.edu.upc.entity.FirmaConsultora;
 
 public class FirmaConsultoraDaoImpl implements IFirmaConsultoraDao, Serializable {
@@ -48,6 +49,16 @@ public class FirmaConsultoraDaoImpl implements IFirmaConsultoraDao, Serializable
 		}
 		catch(Exception e)
 		{
+			System.out.println(e.getMessage());
+		}
+	}
+	@Transactional
+	@Override
+	public void modificar(FirmaConsultora firma) {
+		try {
+			em.merge(firma);
+
+		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 	}

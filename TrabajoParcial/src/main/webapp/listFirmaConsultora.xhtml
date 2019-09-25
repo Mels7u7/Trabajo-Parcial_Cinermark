@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+  <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
@@ -13,11 +13,13 @@
 	</ui:define>
 	<ui:define name="content">
 		<h:form>
-			
+
 			<div class="row" align="center">
-				<p:commandButton value="Nuevo"
+				<p:commandButton value="+"
 					action="#{firmaConsultoraController.nuevoFirma()}"
-					styleClass="btn btn-primary" ajax="false" />
+					styleClass="btn btn-primary" ajax="false"
+					style="
+					 transition:1s ;  border:none; position: fixed; border-radius: 50%; width: 70px;  height: 70px; right: 105px; bottom: 20px; z-index:10; text-align:center; padding:0px; background-Color:#b5121c" />
 			</div>
 			<div class="row">
 				<div class="col-sm-12">
@@ -30,31 +32,57 @@
 							style="margin-bottom:0">
 
 							<p:column headerText="Id" sortBy="#{fir.idFirma}">
-								<h:outputText value="#{fir.idFirma}" />
+								<h:commandLink value="#{fir.idFirma}"
+									class="btn btn-primary btn-xs"
+									action="#{firmaConsultoraController.detallesFirmaConsultora(fir)}" />
 							</p:column>
 
 							<p:column headerText="Nombre" sortBy="#{fir.nombreFirma}">
 								<h:outputText value="#{fir.nombreFirma}" />
 							</p:column>
-							
+
 							<p:column headerText="Direccion" sortBy="#{fir.direccionFirma}">
 								<h:outputText value="#{fir.direccionFirma}" />
 							</p:column>
-							
+
 							<p:column headerText="Contacto" sortBy="#{fir.contactoFirma}">
 								<h:outputText value="#{fir.contactoFirma}" />
 							</p:column>
-							
+
 							<p:column headerText="Numero" sortBy="#{fir.numeroFirma}">
 								<h:outputText value="#{fir.numeroFirma}" />
 							</p:column>
-							
-							<p:column headerText="Nivel Prestigio" sortBy="#{fir.prestigioFirma}">
+
+							<p:column headerText="Nivel Prestigio"
+								sortBy="#{fir.prestigioFirma}">
 								<h:outputText value="#{fir.prestigioFirma}" />
 							</p:column>
+
+
+							<p:column headerText="Operación" exportable="false">
+								<h:commandLink action="lstFirma" value="Eliminar" style="color:red;; display:flex;"
+									actionListener="#{firmaConsultoraController.eliminar(fir)}" />
+								<br />
+								<h:commandLink value="Modificar"
+									action="#{firmaConsultoraController.ModificarFirma(fir)}"
+									style="color:blue;" />
+							</p:column>
 						</p:dataTable>
-						
-						
+						<h:outputLabel value="#{firmaConsultoraController.mensaje}" />
+						<br />
+						<h:commandLink style="color:green">
+							<p:outputLabel value="Descargar Excel"></p:outputLabel>
+							<p:dataExporter type="xls" target="lstFirma"
+								fileName="RegistrosFirmaConsultora" pageOnly="false" />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						</h:commandLink>
+						<h:commandLink>
+							<p:outputLabel value="Descargar PDF"></p:outputLabel>
+							<p:dataExporter type="pdf" target="lstFirma"
+								fileName="RegistrosFirmaConsultora" />
+						</h:commandLink>
+
+
 					</div>
 				</div>
 			</div>

@@ -14,29 +14,32 @@ import pe.edu.upc.service.ISalaService;
 @Named
 @RequestScoped
 public class SalaServiceImpl implements ISalaService, Serializable {
-	
+
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	@Inject
 	private ISalaDao sD;
-	
+
 	@Override
 	public void insertar(Sala sala) {
 		sD.insertar(sala);
 	}
-	
+
 	@Override
-	public void eliminar(int idSala)
-	{
+	public void eliminar(int idSala) {
 		sD.eliminar(idSala);
 	}
 
 	@Override
-	public List<Sala> listar()
-	{
+	public List<Sala> listar() {
 		return sD.listar();
+	}
+
+	@Override
+	public void modificar(Sala sala) {
+		sD.modificar(sala);
 	}
 }

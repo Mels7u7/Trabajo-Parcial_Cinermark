@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="master.xhtml">
+
+	<ui:define name="title">
+        Modificar Salas
+    </ui:define>
+
+	<ui:define name="titleCont">
+		<span>Modificar Sala</span>
+	</ui:define>
+
+	<ui:define name="content">
+		<h:form>
+			<h:outputLabel for="idSala" value="Id:" styleClass="control-label" />
+
+			<p:inputText id="idSala" styleClass="form-control"
+				value="#{salaController.sala.idSala}" required="true" />
+
+			<h:outputLabel for="tipoSala" value="Tipo de sala:"
+				styleClass="control-label" />
+
+			<p:selectOneMenu id="tipoSala"
+				value="#{salaController.sala.tipoSala}">
+				<f:selectItem itemLabel="--Select--" noSelectionOption="true" />
+				<f:selectItem itemLabel="Sala XD" itemValue="Sala XD" />
+				<f:selectItem itemLabel="Sala REAL D 3D" itemValue="Sala REAL D 3D" />
+				<f:selectItem itemLabel="Sala Dbox" itemValue="Sala Dbox" />
+				<f:selectItem itemLabel="Sala 2D" itemValue="Sala 2D" />
+			</p:selectOneMenu>
+			<h:message for="selecOneMenu" />
+			<br />
+
+			<h:outputLabel for="capacidadSala"
+				value="Capacidad maxima de la sala: " styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="capacidadSala"
+				styleClass="form-control"
+				value="#{salaController.sala.capacidadSala}" required="true" />
+
+			<h:outputLabel for="direccionSede"
+				value="Dirección de la sede en la que se encuentra: "
+				styleClass="control-label" />
+
+			<p:selectOneMenu id="sedeSala"
+				value="#{salaController.sala.sedeSala}"
+				converter="omnifaces.SelectItemsConverter">
+				<f:selectItems value="#{salaController.listarSedes}" var="s"
+					itemLabel="#{s.direccionSede}" itemValue="#{s}" />
+			</p:selectOneMenu>
+
+			<br />
+
+			<p:commandButton value="Modificar"
+				actionListener="#{salaController.modificar()}"
+				style="margin-bottom:20px;" styleClass="btn btn-primary "
+				update="@form" action="listSala?faces-redirect=true" />
+			<p:commandButton value="Cancelar"
+				action="listSala?faces-redirect=true" immediate="true"
+				style="margin-bottom:20px;" styleClass="btn btn-default"
+				ajax="false" />
+
+			<p:growl id="growl" sticky="true" showDetail="true" life="3000" />
+
+		</h:form>
+	</ui:define>
+
+	<ui:define name="footerCont">
+
+	</ui:define>
+</ui:composition>
+</html>

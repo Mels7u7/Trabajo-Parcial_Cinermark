@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="master.xhtml">
+
+	<ui:define name="title">
+        .:Registro de Firma Consultora:.
+    </ui:define>
+
+	<ui:define name="titleCont">
+		<span>Detalle de Firma Consultora</span>
+	</ui:define>
+
+	<ui:define name="content">
+		<h:form>
+			<h:outputLabel for="idFirmaConsultora" value="Id:  "
+				styleClass="control-label" />
+			<div align="center">
+				<h:outputLabel for="idFirma"
+					value="#{firmaConsultoraController.firma.idFirma}"
+					styleClass="control-label" />
+			</div>
+			<br />
+
+			<h:outputLabel for="nombreFirma" value="Nombre de Firma Consutora: "
+				styleClass="control-label" />
+			<div align="center">
+				<h:outputLabel for="nombreFirma"
+					value="#{firmaConsultoraController.firma.nombreFirma}"
+					styleClass="field" />
+			</div>
+			<br />
+
+			<h:outputLabel for="direccionFirma"
+				value="Dirección de Firma Consultora " styleClass="control-label" />
+			<div align="center">
+				<h:outputLabel for="direccionFirma"
+					value="#{firmaConsultoraController.firma.direccionFirma}"
+					styleClass="control-label" />
+			</div>
+
+			<br />
+			<h:outputLabel for="contactoFirma"
+				value="Contacto de Firma Consultora" styleClass="control-label" />
+			<div align="center">
+				<h:outputLabel for="certificadoraEspecialidad"
+					value="#{firmaConsultoraController.firma.contactoFirma}"
+					styleClass="control-label" />
+			</div>
+			<br />
+			<h:outputLabel for="numeroFirma" value="Numero Firma Consultora"
+				styleClass="control-label" />
+			<div align="center">
+				<h:outputLabel for="certificadoraEspecialidad"
+					value="#{firmaConsultoraController.firma.numeroFirma}"
+					styleClass="control-label" />
+			</div>
+
+			<br />
+			<h:outputLabel for="prestigioFirma" value="Nivel de Prestigio Firma"
+				styleClass="control-label" />
+			<div align="center">
+				<h:outputLabel for="prestigioFirma"
+					value="#{firmaConsultoraController.firma.prestigioFirma}"
+					styleClass="control-label" />
+			</div>
+			<br />
+			<br />
+			<div align="center">
+
+				<h:graphicImage value="/resources/imagenes/firmaconsultora.png"
+					alt="Firma Consultora" width="820" height="350" />
+
+			</div>
+
+			<br />
+
+			<p:commandButton value="Regresar a la lista"
+				action="listFirmaConsultora?faces-redirect=true" immediate="true"
+				styleClass="btn btn-primary btn-block" ajax="false" />
+			<br />
+			<p:growl id="growl" sticky="true" showDetail="true" life="3000" />
+
+		</h:form>
+	</ui:define>
+
+	<ui:define name="footerCont">
+
+	</ui:define>
+</ui:composition>
+</html>

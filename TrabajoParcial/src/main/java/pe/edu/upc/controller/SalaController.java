@@ -30,6 +30,7 @@ public class SalaController implements Serializable {
 
 	private Sala sala;
 	private Sede sede;
+	private String mensaje = "";
 
 	List<Sala> listarSalas;
 	List<Sede> listarSedes;
@@ -50,11 +51,19 @@ public class SalaController implements Serializable {
 		this.setSala(new Sala());
 		return "sala.xhtml";
 	}
+	
+	
+	public String Modifsala(Sala _sala) {
+		this.setSala(_sala);
+		return "modifsala.xhtml";
+		
+	}
 
 	public void insertar() {
 		try {
 			sService.insertar(sala);
 			limpiarSala();
+			mensaje = "Se registró correctamente";
 		} catch (Exception e) {
 			e.getMessage();
 		}
@@ -82,6 +91,20 @@ public class SalaController implements Serializable {
 			listSala();
 		} catch (Exception e) {
 			e.getMessage();
+			mensaje = "No se puede eliminar";
+		}
+	}
+	
+	public void modificar() {
+		try {
+			sService.modificar(this.sala);
+			limpiarSala();
+			this.listSala();
+			this.listSede();
+			
+		} catch (Exception e) {
+			e.getMessage();
+			mensaje = "No se puede modificar";
 		}
 	}
 
@@ -122,4 +145,13 @@ public class SalaController implements Serializable {
 	public void setListarSedes(List<Sede> listarSedes) {
 		this.listarSedes = listarSedes;
 	}
+
+	public String getMensaje() {
+		return mensaje;
+	}
+
+	public void setMensaje(String mensaje) {
+		this.mensaje = mensaje;
+	}
+
 }

@@ -13,36 +13,57 @@
 	</ui:define>
 	<ui:define name="content">
 		<h:form>
-			
+
 			<div class="row" align="center">
-				<p:commandButton value="Nuevo"
+				<p:commandButton value="+"
 					action="#{especialidadController.nuevaEspecialidad()}"
-					styleClass="btn btn-primary" ajax="false" />
+					styleClass="btn btn-primary" ajax="false"
+					style="
+					 transition:1s ;  border:none; position: fixed; border-radius: 50%; width: 70px;  height: 70px; right: 105px; bottom: 20px; z-index:10; text-align:center; padding:0px; background-Color:#b5121c" />
 			</div>
 			<div class="row">
 				<div class="col-sm-12">
 					<div class="form-group table-responsive box-table-class">
 						<p:dataTable id="lstEspecialidad" var="esp"
-							value="#{especialidadController.listaEspecialidades}" paginator="true"
-							paginatorPosition="top" rowsPerPageTemplate="10,20,30,40,50"
-							rows="10" styleClass="table table-bordered"
+							value="#{especialidadController.listaEspecialidades}"
+							paginator="true" paginatorPosition="top"
+							rowsPerPageTemplate="10,20,30,40,50" rows="10"
+							styleClass="table table-bordered"
 							emptyMessage="No existen registros" rowIndexVar="item"
 							style="margin-bottom:0">
 
 							<p:column headerText="Id" sortBy="#{esp.idEspecialidad}">
-								<h:outputText value="#{esp.idEspecialidad}" />
+								<h:commandLink value="#{esp.idEspecialidad}"
+									class="btn btn-primary btn-xs"
+									action="#{especialidadController.detallesEspecialidad(esp)}" />
 							</p:column>
 
-							<p:column headerText="Nombre" sortBy="#{esp.nombreEspecialidad}">
+							<p:column headerText="Nombre" sortBy="#{esp.nombreEspecialidad}"
+								filterBy="#{esp.nombreEspecialidad}" filterMatchMode="contains"
+								filterStyle="width: 80%;">
 								<h:outputText value="#{esp.nombreEspecialidad}" />
 							</p:column>
-							
-							<p:column headerText="Certificadora" sortBy="#{esp.certificadoraEspecialidad}">
+
+							<p:column headerText="Certificadora"
+								sortBy="#{esp.certificadoraEspecialidad}"
+								filterBy="#{esp.certificadoraEspecialidad}"
+								filterMatchMode="contains" filterStyle="width: 80%;">
 								<h:outputText value="#{esp.certificadoraEspecialidad}" />
 							</p:column>
+
+							<p:column headerText="Operación" exportable="false"
+								style="justify-content: space-around;">
+								<h:commandLink action="lstEspecialidad" value="Eliminar"
+									style="color:red; display:flex;"
+									actionListener="#{especialidadController.eliminar(esp)}" />
+								<h:commandLink value="Modificar"
+									action="#{especialidadController.editar(esp)}"
+									style="color:blue;" />
+							</p:column>
+
 						</p:dataTable>
-						
-						
+
+
 					</div>
 				</div>
 			</div>

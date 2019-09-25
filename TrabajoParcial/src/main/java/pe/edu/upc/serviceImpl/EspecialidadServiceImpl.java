@@ -14,27 +14,31 @@ import pe.edu.upc.service.IEspecialidadService;
 @Named
 @RequestScoped
 public class EspecialidadServiceImpl implements IEspecialidadService, Serializable {
-	
+
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	@Inject
 	private IEspecialidadDao eD;
-	
+
 	@Override
 	public void insertar(Especialidad especialidad) {
 		eD.insertar(especialidad);
 	}
-	
+
 	@Override
-	public void eliminar(int idEspecialidad)
-	{
+	public void eliminar(int idEspecialidad) {
 		eD.eliminar(idEspecialidad);
 	}
 
 	@Override
 	public List<Especialidad> listar() {
 		return eD.listar();
+	}
+
+	@Override
+	public void modificar(Especialidad especialidad) {
+		eD.modificar(especialidad);
 	}
 }

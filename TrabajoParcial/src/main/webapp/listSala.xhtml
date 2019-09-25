@@ -14,11 +14,11 @@
 	</ui:define>
 	<ui:define name="content">
 		<h:form>
-
 			<div class="row" align="center">
-				<p:commandButton value="Nueva Sala"
-					action="#{salaController.nuevoSala()}" styleClass="btn btn-primary"
-					ajax="false" />
+				<p:commandButton value="+" action="#{salaController.nuevoSala()}"
+					styleClass="btn btn-primary" ajax="false"
+					style="
+					 transition:1s ;  border:none; position: fixed; border-radius: 50%; width: 70px;  height: 70px; right: 105px; bottom: 20px; z-index:10; text-align:center; padding:0px; background-Color:#b5121c" />
 			</div>
 			<div class="row">
 				<div class="col-sm-12">
@@ -31,29 +31,55 @@
 							style="margin-bottom:0">
 
 							<p:column headerText="Id" sortBy="#{sa.idSala}">
-								<h:outputText value="#{sa.idSala}"
-									class="btn btn-primary btn-xs" />
+								<h:commandLink value="#{sa.idSala}"
+									class="btn btn-primary btn-xs"
+									action="#"/>
 							</p:column>
 
-							<p:column headerText="Tipo" sortBy="#{sa.tipoSala}">
+							<p:column headerText="Tipo" sortBy="#{sa.tipoSala}"
+								filterBy="#{sa.tipoSala}" filterMatchMode="contains"
+								filterStyle="width: 80%;">
 								<h:outputText value="#{sa.tipoSala}" />
 							</p:column>
 
-							<p:column headerText="Capacidad" sortBy="#{sa.capacidadSala}">
+							<p:column headerText="Capacidad" sortBy="#{sa.capacidadSala}"
+								filterBy="#{sa.capacidadSala}" filterMatchMode="contains"
+								filterStyle="width: 80%;">
 								<h:outputText value="#{sa.capacidadSala}" />
 							</p:column>
 
 							<p:column headerText="Direccion de sede"
-								sortBy="#{sa.sedeSala.direccionSede}">
+								sortBy="#{sa.sedeSala.direccionSede}"
+								filterBy="#{sa.sedeSala.direccionSede}"
+								filterMatchMode="contains" filterStyle="width: 80%;">
 								<h:outputText value="#{sa.sedeSala.direccionSede}" />
 							</p:column>
 
-							<p:column headerText="Operación" exportable="false">
-								<h:commandLink action="lstSala" value="Eliminar"
-									actionListener="#{salaController.eliminar(sa)}" />
-							</p:column>
-						</p:dataTable>
+							<p:column headerText="Operaciones" exportable="false"
+								style=" justify-content: space-around; ">
 
+								<h:commandLink action="lstSala" value="Eliminar"
+									style="color:red; display:flex;"
+									actionListener="#{salaController.eliminar(sa)}" />
+
+								<h:commandLink value="Modificar"
+									action="#{salaController.Modifsala(sa)}" style="color:blue;" />
+							</p:column>
+
+						</p:dataTable>
+						<h:outputLabel value="#{SalaController.mensaje}" />
+						<br />
+						<h:commandLink style="color:green">
+							<p:outputLabel value="Descargar Excel"></p:outputLabel>
+							<p:dataExporter type="xls" target="lstSala"
+								fileName="RegistroSalas" pageOnly="false" />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						</h:commandLink>
+						<h:commandLink>
+							<p:outputLabel value="Descargar PDF"></p:outputLabel>
+							<p:dataExporter type="pdf" target="lstSala"
+								fileName="RegistroSalas" />
+						</h:commandLink>
 
 					</div>
 				</div>

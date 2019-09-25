@@ -8,5 +8,8 @@ public interface IFirmaConsultoraDao {
 
 	public void insertar(FirmaConsultora firma);
 	public void eliminar(int idFirma);
+	
+	public void modificar(FirmaConsultora firma);
+
 	public List<FirmaConsultora> listar();
 }
