@@ -9,8 +9,6 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
-import pe.edu.upc.entity.Auditoria;
-import pe.edu.upc.entity.Especialidad;
 import pe.edu.upc.entity.FirmaConsultora;
 import pe.edu.upc.service.IFirmaConsultoraService;
 
@@ -51,8 +49,10 @@ public class FirmaConsultoraController implements Serializable {
 			e.getMessage();
 		}
 	}
+
 	public String detallesFirmaConsultora(FirmaConsultora firma) {
-		this.setFirma(firma);;
+		this.setFirma(firma);
+		;
 		return "detallefirmaconsultora.xhtml";
 	}
 
