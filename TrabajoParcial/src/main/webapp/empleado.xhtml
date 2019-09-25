@@ -24,6 +24,7 @@
 				styleClass="form-control"
 				value="#{empleadoController.empleado.idEmpleado}" required="true" />
 
+
 			<h:outputLabel for="nombreEmpleado" value="Nombres "
 				styleClass="control-label" />
 
@@ -31,6 +32,7 @@
 				styleClass="form-control"
 				value="#{empleadoController.empleado.nombreEmpleado}" maxlength="30"
 				required="true" />
+				
 				
 			<h:outputLabel for="apellidoEmpleado" value="Apellidos "
 				styleClass="control-label" />
@@ -48,13 +50,22 @@
 				value="#{empleadoController.empleado.dniEmpleado}" maxlength="8"
 				required="true" />	
 				
-			<h:outputLabel for="puestolaboralEmpleado" value="Puesto Laboral "
+				
+			<h:outputLabel for="puestolaboralempleado" value="Puesto Laboral "
 				styleClass="control-label" />
-
-			<p:inputText autocomplete="off" id="puestolaboralEmpleado"
-				styleClass="form-control"
-				value="#{empleadoController.empleado.puestolaboralEmpleado}" maxlength="20"
-				required="true" />	
+			<br />
+			<p:selectOneMenu id="puestolaboralEmpleado"
+				value="#{empleadoController.empleado.puestolaboralEmpleado}">
+				<f:selectItem itemLabel="--Select--" noSelectionOption="true" />
+				<f:selectItem itemLabel="Gerente" itemValue="Gerente" />
+				<f:selectItem itemLabel="Administrador" itemValue="Administrador" />
+				<f:selectItem itemLabel="Analista" itemValue="Analista" />
+				<f:selectItem itemLabel="Otro" itemValue="Otro" />
+			</p:selectOneMenu>
+			
+			<h:message for="selecOneMenu" />
+			<br />
+				
 				
 			<h:outputLabel for="celularEmpleado" value="Celular "
 				styleClass="control-label" />

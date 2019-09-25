@@ -1,13 +1,74 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:h="http://java.sun.com/jsf/html"> 
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
 
-<h:head></h:head> 
-<body> 
+<ui:composition template="master.xhtml">
+
+	<ui:define name="title">
+        .:Registro empleado por auditoria:.
+    </ui:define>
+
+	<ui:define name="titleCont">
+		<span>Empleados X Auditora</span>
+	</ui:define>
+
+	<ui:define name="content">
+		<h:form>
+			<h:outputLabel for="idEmpleadoxAuditoria" value="Id"
+				styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="idEmpleadoxAuditoria"
+				styleClass="form-control"
+				value="#{empleadoxAuditoriaController.empleadoxAuditoria.idEmpleadoxAuditoria}" required="true" />
+
+			
+
+			
+			<br />
+			
+
+			<p:outputLabel for="empleadoEmpleadoxAuditoria"
+				value="Empleado asitinte:" />
+			<p:selectOneMenu id="empleadoEmpleadoxAuditoria"
+				value="#{empleadoxAuditoriaController.empleadoxAuditoria.empleadoEmpleadoxAuditoria}"
+				converter="omnifaces.SelectItemsConverter">
+				<f:selectItems value="#{empleadoxAuditoriaController.listaEmpleados}" var="e"
+					itemLabel="#{e.nombreEmpleado}" itemValue="#{e}" />
+			</p:selectOneMenu>
+			<br />
+			
+			<p:outputLabel for="auditoriaEmpleadoxAuditoria"
+				value="Codigo de la auditoria" />
+			<p:selectOneMenu id="auditoriaEmpleadoxAuditoria"
+				value="#{empleadoxAuditoriaController.empleadoxAuditoria.auditoriaEmpleadoxAuditoria}"
+				converter="omnifaces.SelectItemsConverter">
+				<f:selectItems value="#{empleadoxAuditoriaController.listaAuditorias}" var="a"
+					itemLabel="#{a.idAuditoria}" itemValue="#{a}" />
+			</p:selectOneMenu>
+			<br />
+			
 
 
+			
+			<p:commandButton value="Grabar"
+				actionListener="#{empleadoxAuditoriaController.insertar()}"
+				styleClass="btn btn-primary " update="@form"
+				action="listEmpleadoxAuditor?faces-redirect=true" style=" background-Color:#b5121c; border-Color:#b5121c"/>
+			<p:commandButton value="Cancelar"
+				action="listEmpleadoxAuditor?faces-redirect=true" immediate="true"
+				styleClass="btn btn-default" ajax="false" />
 
-</body> 
+			<p:growl id="growl" sticky="true" showDetail="true" life="3000" />
+
+		</h:form>
+	</ui:define>
+
+	<ui:define name="footerCont">
+
+	</ui:define>
+</ui:composition>
 </html>
+

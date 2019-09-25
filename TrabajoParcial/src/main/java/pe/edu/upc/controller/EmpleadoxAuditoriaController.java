@@ -9,80 +9,119 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import pe.edu.upc.entity.Auditoria;
+import pe.edu.upc.entity.Empleado;
 import pe.edu.upc.entity.EmpleadoxAuditoria;
+import pe.edu.upc.service.IAuditoriaService;
+import pe.edu.upc.service.IEmpleadoService;
 import pe.edu.upc.service.IEmpleadoxAuditoriaService;
 
 @Named
 @RequestScoped
-public class EmpleadoxAuditoriaController implements Serializable{
+public class EmpleadoxAuditoriaController implements Serializable {
 
 	private static final long serialVersionUID = 1L;
-	
+
 	@Inject
 	private IEmpleadoxAuditoriaService eService;
+
+	@Inject
+	private IEmpleadoService emService;
+
+	@Inject
+	private IAuditoriaService aService;
+
 	private EmpleadoxAuditoria empleadoxAuditoria;
-	
+	private Empleado empleado;
+	private Auditoria auditoria;
+
 	List<EmpleadoxAuditoria> listaEmpleadosxAuditoria;
-	
-	private String mensaje ="";
-	
+	List<Empleado> listaEmpleados;
+	List<Auditoria> listaAuditorias;
+
+	private String mensaje = "";
+
 	@PostConstruct
-	
 	public void init() {
 		listaEmpleadosxAuditoria = new ArrayList<EmpleadoxAuditoria>();
+		listaEmpleados = new ArrayList<Empleado>();
+		listaAuditorias = new ArrayList<Auditoria>();
+
 		empleadoxAuditoria = new EmpleadoxAuditoria();
-		this.listar();
+		empleado = new Empleado();
+		auditoria = new Auditoria();
+
+		this.listEmpleadoxAuditoria();
+		this.listAuditoria();
+		this.listEmpleado();
+
 	}
-	
+
 	public String nuevoEmpleadoxAuditoria() {
 		this.setEmpleadoxAuditoria(new EmpleadoxAuditoria());
 		return "empleadoxAuditoria.xhtml";
 	}
-	
+
 	public String Modifempleado(EmpleadoxAuditoria _emp) {
 		this.setEmpleadoxAuditoria(_emp);
 		return "modifEmpleadoxAuditoria.xhtml";
-		
+
 	}
-	
+
 	public void insertar() {
 		try {
 			eService.insertar(empleadoxAuditoria);
 			limpiarEmpleadoxAuditoria();
-			} catch (Exception e) {
+		} catch (Exception e) {
 			e.getMessage();
 		}
 	}
-	
-	public void listar() {
+
+	public void listEmpleadoxAuditoria() {
 		try {
 			listaEmpleadosxAuditoria = eService.listar();
 		} catch (Exception e) {
 			e.getMessage();
 		}
 	}
-	
-	public void eliminar(EmpleadoxAuditoria empleadoxAuditoria) {
+
+	public void listAuditoria() {
 		try {
-			eService.eliminar(empleadoxAuditoria.getIdEmpleadoxAuditoria());
-			listar();
+			listaAuditorias = aService.listar();
 		} catch (Exception e) {
 			e.getMessage();
 		}
 	}
-	
+
+	public void listEmpleado() {
+		try {
+			listaEmpleados = emService.listar();
+		} catch (Exception e) {
+			e.getMessage();
+		}
+	}
+
+	public void eliminar(EmpleadoxAuditoria empleadoxAuditoria) {
+		try {
+			eService.eliminar(empleadoxAuditoria.getIdEmpleadoxAuditoria());
+			listEmpleadoxAuditoria();
+		} catch (Exception e) {
+			e.getMessage();
+		}
+	}
+
 	public void modificar() {
 		try {
 			eService.modificar(this.empleadoxAuditoria);
 			limpiarEmpleadoxAuditoria();
-			this.listar();
-			
+			this.listEmpleadoxAuditoria();
+
 		} catch (Exception e) {
 			e.getMessage();
 			mensaje = "No se puede modificar";
 		}
 	}
-	
+
 	public void limpiarEmpleadoxAuditoria() {
 		this.init();
 	}
@@ -111,11 +150,36 @@ public class EmpleadoxAuditoriaController implements Serializable{
 		this.mensaje = mensaje;
 	}
 
-	
-	
-	
+	public Empleado getEmpleado() {
+		return empleado;
+	}
 
-	
-	
-	
+	public void setEmpleado(Empleado empleado) {
+		this.empleado = empleado;
+	}
+
+	public Auditoria getAuditoria() {
+		return auditoria;
+	}
+
+	public void setAuditoria(Auditoria auditoria) {
+		this.auditoria = auditoria;
+	}
+
+	public List<Empleado> getListaEmpleados() {
+		return listaEmpleados;
+	}
+
+	public void setListaEmpleados(List<Empleado> listaEmpleados) {
+		this.listaEmpleados = listaEmpleados;
+	}
+
+	public List<Auditoria> getListaAuditorias() {
+		return listaAuditorias;
+	}
+
+	public void setListaAuditorias(List<Auditoria> listaAuditorias) {
+		this.listaAuditorias = listaAuditorias;
+	}
+
 }
