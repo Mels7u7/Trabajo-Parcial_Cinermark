@@ -1,4 +1,5 @@
-  <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
@@ -37,32 +38,42 @@
 									action="#{firmaConsultoraController.detallesFirmaConsultora(fir)}" />
 							</p:column>
 
-							<p:column headerText="Nombre" sortBy="#{fir.nombreFirma}">
+							<p:column headerText="Nombre" sortBy="#{fir.nombreFirma}"
+								filterBy="#{fir.nombreFirma}" filterMatchMode="contains"
+								filterStyle="width: 80%;">
 								<h:outputText value="#{fir.nombreFirma}" />
 							</p:column>
 
-							<p:column headerText="Direccion" sortBy="#{fir.direccionFirma}">
+							<p:column headerText="Direccion" sortBy="#{fir.direccionFirma}"
+								filterBy="#{fir.direccionFirma}" filterMatchMode="contains"
+								filterStyle="width: 80%;">
 								<h:outputText value="#{fir.direccionFirma}" />
 							</p:column>
 
-							<p:column headerText="Contacto" sortBy="#{fir.contactoFirma}">
+							<p:column headerText="Contacto" sortBy="#{fir.contactoFirma}"
+								filterBy="#{fir.contactoFirma}" filterMatchMode="contains"
+								filterStyle="width: 80%;">
 								<h:outputText value="#{fir.contactoFirma}" />
 							</p:column>
 
-							<p:column headerText="Numero" sortBy="#{fir.numeroFirma}">
+							<p:column headerText="Numero" sortBy="#{fir.numeroFirma}"
+								filterBy="#{fir.numeroFirma}" filterMatchMode="contains"
+								filterStyle="width: 80%;">
 								<h:outputText value="#{fir.numeroFirma}" />
 							</p:column>
 
-							<p:column headerText="Nivel Prestigio"
-								sortBy="#{fir.prestigioFirma}">
+							<p:column headerText="Nivel Prestigio" sortBy="#{fir.prestigioFirma}"
+							filterBy="#{fir.prestigioFirma}" filterMatchMode="contains"
+								filterStyle="width: 80%;">
 								<h:outputText value="#{fir.prestigioFirma}" />
 							</p:column>
 
 
 							<p:column headerText="Operación" exportable="false">
-								<h:commandLink action="lstFirma" value="Eliminar" style="color:red;; display:flex;"
+								<h:commandLink action="lstFirma" value="Eliminar"
+									style="color:red;; display:flex;"
 									actionListener="#{firmaConsultoraController.eliminar(fir)}" />
-								<br />
+
 								<h:commandLink value="Modificar"
 									action="#{firmaConsultoraController.ModificarFirma(fir)}"
 									style="color:blue;" />
