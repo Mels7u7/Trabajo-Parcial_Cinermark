@@ -10,6 +10,7 @@ public interface IFirmaConsultoraService {
 	public void eliminar(int idFirma);
 	public List<FirmaConsultora> listar();
 	public void modificar(FirmaConsultora firma);
+	
 
 
 }
