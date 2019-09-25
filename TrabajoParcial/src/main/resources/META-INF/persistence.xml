@@ -18,6 +18,8 @@
 		<class>pe.edu.upc.entity.Herramienta</class>
 		<class>pe.edu.upc.entity.FirmaConsultora</class>
 		<class>pe.edu.upc.entity.EmpleadoxAuditoria</class>
+		<class>pe.edu.upc.entity.UsuarioR</class>
+		<class>pe.edu.upc.entity.TipoUsuario</class>
 		<properties>
 			<property
 				name="javax.persistence.schema-generation.database.action"
