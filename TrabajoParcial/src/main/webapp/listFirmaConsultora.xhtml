@@ -19,7 +19,7 @@
 					action="#{firmaConsultoraController.nuevoFirma()}"
 					styleClass="btn btn-primary" ajax="false"
 					style="
-					 transition:1s ;  border:none; position: fixed; border-radius: 50%; width: 70px;  height: 70px; right: 105px; bottom: 20px; z-index:10; text-align:center; padding:0px; " />
+					 transition:1s ;  border:none; position: fixed; border-radius: 50%; width: 70px;  height: 70px; right: 105px; bottom: 20px; z-index:10; text-align:center; padding:0px; background-Color:#b5121c" />
 			</div>
 			<div class="row">
 				<div class="col-sm-12">
@@ -63,7 +63,7 @@
 						</p:dataTable>
 						<h:outputLabel value="#{firmaConsultoraController.mensaje}" />
 						<br />
-						<h:commandLink>
+						<h:commandLink style="color:green">
 							<p:outputLabel value="Descargar Excel"></p:outputLabel>
 							<p:dataExporter type="xls" target="lstFirma"
 								fileName="RegistrosFirmaConsultora" pageOnly="false" />

@@ -1,4 +1,5 @@
-      <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
@@ -13,13 +14,14 @@
 	</ui:define>
 	<ui:define name="content">
 		<h:form>
-			
+
 			<div class="row" align="center">
 				<p:commandButton value="+"
 					action="#{empleadoController.nuevoEmpleado()}"
 					styleClass="btn btn-primary" ajax="false"
 					style="
-					 transition:1s ;  border:none; position: fixed; border-radius: 50%; width: 70px;  height: 70px; right: 105px; bottom: 20px; z-index:10; text-align:center; padding:0px; " />
+					 transition:1s ;  border:none; position: fixed; border-radius: 50%; width: 70px;  height: 70px; right: 105px; bottom: 20px; z-index:10; text-align:center; padding:0px;
+					 background-Color:#b5121c" />
 			</div>
 			<div class="row">
 				<div class="col-sm-12">
@@ -31,88 +33,89 @@
 							emptyMessage="No existen registros" rowIndexVar="item"
 							style="margin-bottom:0">
 
-							<p:column headerText="Id" sortBy="#{emp.idEmpleado}"
-							>
-							
-								<h:outputText value="#{emp.idEmpleado}" class="btn btn-primary btn-xs" />
+							<p:column headerText="Id" sortBy="#{emp.idEmpleado}">
+
+								<h:outputText value="#{emp.idEmpleado}"
+									class="btn btn-primary btn-xs" />
 							</p:column>
 
 							<p:column headerText="Nombre" sortBy="#{emp.nombreEmpleado}"
-							filterBy="#{emp.nombreEmpleado}" filterMatchMode="contains"
+								filterBy="#{emp.nombreEmpleado}" filterMatchMode="contains"
 								filterStyle="width: 80%;">
-							
+
 								<h:outputText value="#{emp.nombreEmpleado}" />
 							</p:column>
-							
+
 							<p:column headerText="Apellido" sortBy="#{emp.apellidoEmpleado}"
-							filterBy="#{emp.apellidoEmpleado}" filterMatchMode="contains"
+								filterBy="#{emp.apellidoEmpleado}" filterMatchMode="contains"
 								filterStyle="width: 80%;">
-							
-							
+
+
 								<h:outputText value="#{emp.apellidoEmpleado}" />
 							</p:column>
-							
+
 							<p:column headerText="Dni" sortBy="#{emp.dniEmpleado}"
-							filterBy="#{emp.dniEmpleado}" filterMatchMode="contains"
+								filterBy="#{emp.dniEmpleado}" filterMatchMode="contains"
 								filterStyle="width: 80%;">
-							
-							
+
+
 								<h:outputText value="#{emp.dniEmpleado}" />
 							</p:column>
-							
-							
-							<p:column headerText="Puesto Laboral" sortBy="#{emp.puestolaboralEmpleado}"
-							filterBy="#{emp.puestolaboralEmpleado}" filterMatchMode="contains"
-								filterStyle="width: 80%;">
-							
-							
-							
+
+
+							<p:column headerText="Puesto Laboral"
+								sortBy="#{emp.puestolaboralEmpleado}"
+								filterBy="#{emp.puestolaboralEmpleado}"
+								filterMatchMode="contains" filterStyle="width: 80%;">
+
+
+
 								<h:outputText value="#{emp.puestolaboralEmpleado}" />
 							</p:column>
-							
+
 							<p:column headerText="Celular" sortBy="#{emp.celularEmpleado}"
-							filterBy="#{emp.celularEmpleado}" filterMatchMode="contains"
+								filterBy="#{emp.celularEmpleado}" filterMatchMode="contains"
 								filterStyle="width: 80%;">
-							
-							
-							
+
+
+
 								<h:outputText value="#{emp.celularEmpleado}" />
 							</p:column>
-							
+
 							<p:column headerText="Operación" exportable="false"
-							style=" justify-content: space-around;">
-							
+								style=" justify-content: space-around;">
+
 								<h:commandLink action="lstEmpleado" value="Eliminar"
-								style="color:red; display:flex;"
-								actionListener="#{empleadoController.eliminar(emp)}" />
-									
-									<h:commandLink value="Modificar"
+									style="color:red; display:flex;"
+									actionListener="#{empleadoController.eliminar(emp)}" />
+
+								<h:commandLink value="Modificar"
 									action="#{empleadoController.Modifempleado(emp)}"
 									style="color:blue;" />
-									
+
 							</p:column>
-							
-							</p:dataTable>
-							
-							<h:commandLink>
+
+						</p:dataTable>
+
+						<h:commandLink style="color:green">
 							<p:outputLabel value="Descargar Excel"></p:outputLabel>
 							<p:dataExporter type="xls" target="lstEmpleado"
 								fileName="RegistroEmpleados" pageOnly="false" />
 						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 						</h:commandLink>
-						
+
 						<h:commandLink>
 							<p:outputLabel value="Descargar PDF"></p:outputLabel>
 							<p:dataExporter type="pdf" target="lstEmpleado"
 								fileName="RegistroEmpleados" />
 						</h:commandLink>
-							
-							
-							
-							
-						
-						
-					
+
+
+
+
+
+
+
 					</div>
 				</div>
 			</div>
@@ -122,4 +125,3 @@
 	</ui:define>
 </ui:composition>
 </html>
-   
