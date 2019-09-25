@@ -65,7 +65,6 @@ public class EmpleadoxAuditoriaController implements Serializable {
 	public String Modifempleado(EmpleadoxAuditoria _emp) {
 		this.setEmpleadoxAuditoria(_emp);
 		return "modifEmpleadoxAuditoria.xhtml";
-
 	}
 
 	public void insertar() {

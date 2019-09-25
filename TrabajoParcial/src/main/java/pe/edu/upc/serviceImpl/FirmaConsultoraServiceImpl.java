@@ -9,35 +9,33 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import pe.edu.upc.dao.IFirmaConsultoraDao;
-import pe.edu.upc.entity.Auditoria;
 import pe.edu.upc.entity.FirmaConsultora;
 import pe.edu.upc.service.IFirmaConsultoraService;
 
 @Named
 @RequestScoped
 public class FirmaConsultoraServiceImpl implements IFirmaConsultoraService, Serializable {
-	
+
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	@Inject
 	private IFirmaConsultoraDao fD;
-	
+
 	@Override
 	public void insertar(FirmaConsultora firma) {
 		fD.insertar(firma);
 	}
-	
+
 	@Override
-	public void eliminar(int idFirma)
-	{
+	public void eliminar(int idFirma) {
 		fD.eliminar(idFirma);
-	}	
+	}
+
 	@Override
-	public List<FirmaConsultora> listar()
-	{
+	public List<FirmaConsultora> listar() {
 		return fD.listar();
 	}
 
@@ -45,6 +43,6 @@ public class FirmaConsultoraServiceImpl implements IFirmaConsultoraService, Seri
 	public void modificar(FirmaConsultora firma) {
 		fD.modificar(firma);
 		// TODO Auto-generated method stub
-		
+
 	}
 }

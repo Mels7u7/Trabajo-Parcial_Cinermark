@@ -17,19 +17,21 @@
 
 	<ui:define name="content">
 		<h:form>
-			<h:outputLabel for="idEspecialidad" value="Id " styleClass="control-label" />
+			<h:outputLabel for="idEspecialidad" value="Id "
+				styleClass="control-label" />
 
 			<p:inputText autocomplete="off" id="idEspecialidad"
 				styleClass="form-control"
-				value="#{especialidadController.especialidad.idEspecialidad}" required="true" />
-				
-			<h:outputLabel for="nombreEspecialidad" value="Nombre de Especialidad "
-				styleClass="control-label" />
+				value="#{especialidadController.especialidad.idEspecialidad}"
+				required="true" />
+
+			<h:outputLabel for="nombreEspecialidad"
+				value="Nombre de Especialidad " styleClass="control-label" />
 
 			<p:inputText autocomplete="off" id="nombreEspecialidad"
 				styleClass="form-control"
 				value="#{especialidadController.especialidad.nombreEspecialidad}"
-				maxlength="30" required="true"/>
+				maxlength="30" required="true" />
 
 			<h:outputLabel for="certificadoraEspecialidad" value="Certificadora "
 				styleClass="control-label" />
@@ -37,14 +39,15 @@
 			<p:inputText autocomplete="off" id="certificadoraEspecialidad"
 				styleClass="form-control"
 				value="#{especialidadController.especialidad.certificadoraEspecialidad}"
-				maxlength="30" required="true"/>
+				maxlength="30" required="true" />
 			<br />
-			
+
 
 			<p:commandButton value="Grabar"
 				actionListener="#{especialidadController.insertar()}"
 				styleClass="btn btn-primary " update="@form"
-				action="listEspecialidad?faces-redirect=true" style=" background-Color:#b5121c; border-Color:#b5121c"/>
+				action="listEspecialidad?faces-redirect=true"
+				style=" background-Color:#b5121c; border-Color:#b5121c" />
 			<p:commandButton value="Cancelar"
 				action="listEspecialidad?faces-redirect=true" immediate="true"
 				styleClass="btn btn-default" ajax="false" />
