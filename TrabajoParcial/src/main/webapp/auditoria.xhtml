@@ -58,7 +58,7 @@
 				value="#{auditoriaController.auditoria.participantesAuditoria}"
 				maxlength="2" required="true" />
 			<br />
-			
+
 			<h:outputLabel for="estadoAuditoria" value="Estado de la auditoria:"
 				styleClass="control-label" />
 			<p:selectOneMenu id="estadoAuditoria"
@@ -94,7 +94,8 @@
 			<p:commandButton value="Grabar"
 				actionListener="#{auditoriaController.insertar()}"
 				styleClass="btn btn-primary " update="@form"
-				action="listAuditoria?faces-redirect=true" style=" background-Color:#b5121c; border-Color:#b5121c"/>
+				action="listAuditoria?faces-redirect=true"
+				style=" background-Color:#b5121c; border-Color:#b5121c" />
 			<p:commandButton value="Cancelar"
 				action="listAuditoria?faces-redirect=true" immediate="true"
 				styleClass="btn btn-default" ajax="false" />
