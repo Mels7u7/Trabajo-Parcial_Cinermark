@@ -65,4 +65,5 @@ public class TipoUsuarioServiceImpl implements ITipoUsuarioService, Serializable
 	public List<UsuarioR> findUserRolesByUser(Usuario usu) throws Exception {
 		return tD.findUserRolesByUser(usu);
 	}
+	
 }
