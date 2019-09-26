@@ -2,7 +2,6 @@ package pe.edu.upc.entity;
 
 import java.io.Serializable;
 
-
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,9 +10,8 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
 
-
 @Entity
-@Table(name="empleado")
+@Table(name = "empleado")
 public class Empleado implements Serializable {
 
 	/**
@@ -23,7 +21,7 @@ public class Empleado implements Serializable {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int idEmpleado;
-	
+
 	@NotEmpty(message = "Ingrese los nombres del empleado")
 	@Column(name = "nombreEmpleado", nullable = false, length = 50)
 	private String nombreEmpleado;
@@ -31,18 +29,15 @@ public class Empleado implements Serializable {
 	@NotEmpty(message = "Ingrese los apellidos del empleado")
 	@Column(name = "apellidoEmpleado", nullable = false, length = 50)
 	private String apellidoEmpleado;
-	
-	
+
 	@NotEmpty(message = "Ingrese el DNI del empleado")
 	@Column(name = "dniEmpleado", nullable = false, length = 8)
-	private String dniEmpleado; 
-	
-	
+	private String dniEmpleado;
+
 	@NotEmpty(message = "Ingrese el puesto laboral del empleado")
 	@Column(name = "puestolaboralEmpleado", nullable = false, length = 30)
-	private String puestolaboralEmpleado; 
-	
-	
+	private String puestolaboralEmpleado;
+
 	@NotEmpty(message = "Ingrese el numero de celular del empleado")
 	@Column(name = "celularEmpleado", nullable = false, length = 9)
 	private String celularEmpleado;
@@ -54,9 +49,9 @@ public class Empleado implements Serializable {
 
 	public Empleado(int idEmpleado, @NotEmpty(message = "Ingrese los nombres del empleado") String nombreEmpleado,
 			@NotEmpty(message = "Ingrese los apellidos del empleado") String apellidoEmpleado,
-			 @NotEmpty(message = "Ingrese el DNI del empleado") String dniEmpleado,
+			@NotEmpty(message = "Ingrese el DNI del empleado") String dniEmpleado,
 			@NotEmpty(message = "Ingrese el puesto laboral del empleado") String puestolaboralEmpleado,
-			 @NotEmpty(message = "Ingrese el numero de celular del empleado") String celularEmpleado) {
+			@NotEmpty(message = "Ingrese el numero de celular del empleado") String celularEmpleado) {
 		super();
 		this.idEmpleado = idEmpleado;
 		this.nombreEmpleado = nombreEmpleado;
@@ -112,13 +107,27 @@ public class Empleado implements Serializable {
 
 	public void setCelularEmpleado(String celularEmpleado) {
 		this.celularEmpleado = celularEmpleado;
-	} 
-	
-	
-	
+	}
 
-	
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + idEmpleado;
+		return result;
+	}
 
-	
-
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Empleado other = (Empleado) obj;
+		if (idEmpleado != other.idEmpleado)
+			return false;
+		return true;
+	}
 }
