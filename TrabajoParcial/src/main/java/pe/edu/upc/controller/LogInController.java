@@ -22,18 +22,18 @@ public class LogInController implements Serializable {
 	@Inject
 	private UsuarioServiceImpl uS;
 
-	private Usuario usu;
+	private Usuario us;
 
 	@PostConstruct
 	public void init() {
-		this.usu = new Usuario();
+		this.us = new Usuario();
 	}
 
 	public String autenticacion() {
 		String redirect = null;
 
 		try {
-			Optional<Usuario> usuE = this.uS.autenticacion(usu);
+			Optional<Usuario> usuE = this.uS.autenticacion(us);
 
 			if (usuE.isPresent() && usuE.get().getEstado().equalsIgnoreCase("A")) {
 
@@ -51,11 +51,11 @@ public class LogInController implements Serializable {
 	}
 
 	public Usuario getUser() {
-		return usu;
+		return us;
 	}
 
 	public void setUser(Usuario usu) {
-		this.usu = usu;
+		this.us = usu;
 	}
 
 }

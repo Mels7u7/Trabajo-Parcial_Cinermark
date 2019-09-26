@@ -26,14 +26,16 @@
 
 				<p:outputLabel for="txtUsername" value="Usuario:" />
 				<h:inputText id="txtUsername"
-					value="#{loginController.user.username}" styleClass="form-control" />
+					value="#{logInController.usu.nusuario}" styleClass="form-control" />
+
 				<p:outputLabel for="txtPassword" value="Contraseña:" />
 				<h:inputSecret id="txtPassword"
-					value="#{loginController.user.password}" styleClass="form-control" />
+					value="#{logInController.usu.contraseña}" styleClass="form-control" />
 			</h:panelGrid>
-			<p:commandButton value="Login"
-				action="#{loginController.authentication()}" update=":frm"
+			<p:commandButton value="LogIn"
+				action="#{logInController.autenticacion()}" update=":frm"
 				styleClass="btn btn-primary" />
+
 			<p:commandButton value="Crear Usuario"
 				action="register?faces-redirect=true" immediate="true"
 				styleClass="btn btn-primary" />
