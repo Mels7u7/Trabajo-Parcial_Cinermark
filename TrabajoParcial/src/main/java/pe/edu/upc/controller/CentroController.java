@@ -7,8 +7,9 @@ import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
-import javax.xml.registry.infomodel.User;
 
+import pe.edu.upc.entity.Usuario;
+import pe.edu.upc.entity.UsuarioR;
 import pe.edu.upc.service.ITipoUsuarioService;
 
 @Named
@@ -23,17 +24,17 @@ public class CentroController implements Serializable {
 	public void verificarSesion() {
 		try {
 			FacesContext context = FacesContext.getCurrentInstance();
-			User us = (User) context.getExternalContext().getSessionMap().get("user");
+			Usuario u = (Usuario) context.getExternalContext().getSessionMap().get("usuario");
 
-			if (us == null) {
+			if (u == null) {
 				context.getExternalContext().redirect("index.xhtml");
 			} else {
-				// verificacion de roles
+
 				String viewId = context.getViewRoot().getViewId();
 				boolean rpta = this.verificarMenu(viewId);
 
 				if (!rpta) {
-					context.getExternalContext().redirect("./403.xhtml");
+					context.getExternalContext().redirect("./Error.xhtml");
 				}
 			}
 		} catch (Exception e) {
@@ -43,9 +44,9 @@ public class CentroController implements Serializable {
 
 	public boolean verificarMenu(String viewId) throws Exception {
 		FacesContext context = FacesContext.getCurrentInstance();
-		User us = (User) context.getExternalContext().getSessionMap().get("user");
+		Usuario us = (Usuario) context.getExternalContext().getSessionMap().get("usuario");
 
-		List<UserRol> roles = rS.findUserRolesByUser(us);
+		List<UsuarioR> uR = tS.findUserRolesByUser(us);
 
 		String rol = "";
 		switch (viewId) {
@@ -72,15 +73,14 @@ public class CentroController implements Serializable {
 		String arreglo[] = rol.split(",");
 
 		int[] iarr = { 0 };
-		roles.forEach(r -> {
+		uR.forEach(r -> {
 			for (String x : arreglo) {
-				if (r.getRol().getType().equals(x)) {
+				if (r.getTipo().getTipoUsuario().equals(x)) {
 					iarr[0]++;
 				}
 			}
 		});
 
-		// System.out.println(iarr[0]);
 		if (iarr[0] == 0) {
 			return false;
 		}
