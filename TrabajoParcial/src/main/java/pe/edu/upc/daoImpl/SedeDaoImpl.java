@@ -1,6 +1,7 @@
 package pe.edu.upc.daoImpl;
 
 import java.io.Serializable;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,6 +11,7 @@ import javax.persistence.Query;
 import javax.transaction.Transactional;
 
 import pe.edu.upc.dao.ISedeDao;
+
 import pe.edu.upc.entity.Sede;
 
 public class SedeDaoImpl implements ISedeDao, Serializable {
@@ -69,4 +71,16 @@ public class SedeDaoImpl implements ISedeDao, Serializable {
 		
 		return lista;
 	}
+	
+	@Transactional
+	@Override
+	public void modificar(Sede sede) {
+		try {
+			em.merge(sede);
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+	}
+
 }

@@ -1,6 +1,7 @@
 package pe.edu.upc.controller;
 
 import java.io.Serializable;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,6 +9,7 @@ import javax.annotation.PostConstruct;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
+
 
 import pe.edu.upc.entity.Sede;
 import pe.edu.upc.service.ISedeService;
@@ -25,6 +27,7 @@ public class SedeController implements Serializable{
 	private Sede sede;
 	List<Sede>listaSedes;
 	
+	
 	@PostConstruct
 	public void init() {
 		this.listaSedes = new ArrayList<Sede>();
@@ -36,6 +39,13 @@ public class SedeController implements Serializable{
 		this.setSede(new Sede());
 		return "Sede.xhtml";
 	}
+	
+	public String Modifsede(Sede sed) {
+		this.setSede(sed);
+		return "modifsede.xhtml";
+		
+	}
+	
 	
 	public void insertar() {
 		try {
@@ -61,6 +71,19 @@ public class SedeController implements Serializable{
 			e.getMessage();
 		}
 	}
+	
+	public void modificar() {
+		try {
+			sService.modificar(this.sede);
+			limpiarSede();
+			this.listar();
+			
+		} catch (Exception e) {
+			e.getMessage();
+			
+		}
+	}
+	
 	public void limpiarSede() {
 		this.init();
 	}
@@ -88,5 +111,6 @@ public class SedeController implements Serializable{
 	public void setListaSedes(List<Sede> listaSedes) {
 		this.listaSedes = listaSedes;
 	}
+	
 	
 }

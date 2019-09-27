@@ -8,6 +8,7 @@ import javax.inject.Inject;
 import javax.inject.Named;
 
 import pe.edu.upc.dao.ISedeDao;
+import pe.edu.upc.entity.Empleado;
 import pe.edu.upc.entity.Sede;
 import pe.edu.upc.service.ISedeService;
 
@@ -38,5 +39,10 @@ public class SedeServiceImpl implements ISedeService, Serializable {
 	public List<Sede> listar()
 	{
 		return sD.listar();
+	}
+	
+	@Override
+	public void modificar(Sede sede) {
+		sD.modificar(sede);
 	}
 }

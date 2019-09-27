@@ -36,8 +36,26 @@
 							</p:column>
 
 							<p:column headerText="Direccion" sortBy="#{sed.direccionSede}">
-								<h:outputText value="#{sed.direccionSede}" />
+								<h:outputText value="#{sed.direccionSede}" filterMatchMode="contains"
+								filterStyle="width: 80%;"/>
 							</p:column>
+							
+							
+						
+							<p:column headerText="Operación" exportable="false"
+								style=" justify-content: space-around;">
+
+								<h:commandLink action="lstSede" value="Eliminar"
+									style="color:red; display:flex;"
+									actionListener="#{sedeController.eliminar(sed)}" />
+								
+								<h:commandLink value="Modificar"
+									action="#{sedeController.Modifsede(sed)}"
+									style="color:blue;" />
+
+							</p:column>
+							
+							
 						</p:dataTable>
 						<br />
 						<h:commandLink style="color:green">

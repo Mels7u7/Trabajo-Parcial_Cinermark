@@ -8,6 +8,7 @@ public interface ISedeService {
 
 	public void insertar(Sede sede);
 	public void eliminar(int idSede);
+	public void modificar (Sede sede);
 	public List<Sede> listar();
 
 }
