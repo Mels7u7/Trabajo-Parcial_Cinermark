@@ -60,6 +60,12 @@ public class AuditoriaController implements Serializable {
 		return "auditoria.xhtml";
 	}
 
+	public String detalleEmpleado(Auditoria aud) {
+		this.setAuditoria(aud);
+		
+		return "detalleAuditoria.xhtml";
+	}
+	
 	public void insertar() {
 		try {
 			auService.insertar(auditoria);
