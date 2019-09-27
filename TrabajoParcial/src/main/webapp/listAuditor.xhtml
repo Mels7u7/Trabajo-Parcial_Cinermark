@@ -52,10 +52,27 @@
 							</p:column>
 
 							<p:column headerText="Operación" exportable="false">
-								<h:commandLink action="lstAuditor" value="Eliminar" style="color:red;; display:flex;"
+								<h:commandLink action="lstAuditor" value="Eliminar"
+									style="color:red;; display:flex;"
 									actionListener="#{auditorController.eliminar(aud)}" />
+								<h:commandLink
+									action="#{auditorController.ModifAuditor(aud)}"
+									value="Modificar" style="color:blue;" />
 							</p:column>
+
 						</p:dataTable>
+						<br />
+						<h:commandLink style="color:green">
+							<p:outputLabel value="Descargar Excel"></p:outputLabel>
+							<p:dataExporter type="xls" target="lstAuditor"
+								fileName="RegistroAuditores" pageOnly="false" />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						</h:commandLink>
+						<h:commandLink>
+							<p:outputLabel value="Descargar PDF"></p:outputLabel>
+							<p:dataExporter type="pdf" target="lstAuditor"
+								fileName="RegistroAuditores" />
+						</h:commandLink>
 
 
 					</div>

@@ -58,4 +58,15 @@ public class AuditorDaoImpl implements IAuditorDao, Serializable {
 
 		return lista;
 	}
+
+	@Transactional
+	@Override
+	public void modificar(Auditor auditor) {
+		try {
+			em.merge(auditor);
+
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
+	}
 }

@@ -105,11 +105,32 @@ public class AuditorController implements Serializable {
 			e.getMessage();
 		}
 	}
+	
 	public String detallesAuditor(Auditor _auditor) {
 		this.setAuditor(_auditor);
 		return "detalleAuditor.xhtml";
 	}
-
+	
+	
+	public void modificar() {
+		try {
+			aService.modificar(this.auditor);
+			limpiarAuditor();
+			this.listAuditor();
+			this.listEspecialidad();
+			this.listFirma();
+			
+		} catch (Exception e) {
+			e.getMessage();
+		}
+	
+	}
+	
+	public String ModifAuditor(Auditor _auditor) {
+		this.setAuditor(_auditor);
+		return "modifAuditor.xhtml";
+		
+	}
 	// get y set
 
 	public Auditor getAuditor() {

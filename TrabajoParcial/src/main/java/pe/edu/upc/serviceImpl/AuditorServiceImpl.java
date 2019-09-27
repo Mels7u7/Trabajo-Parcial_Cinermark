@@ -37,4 +37,10 @@ public class AuditorServiceImpl implements IAuditorService, Serializable {
 	public List<Auditor> listar() {
 		return aD.listar();
 	}
+
+	@Override
+	public void modificar(Auditor auditor) {
+		aD.modificar(auditor);
+		
+	}
 }

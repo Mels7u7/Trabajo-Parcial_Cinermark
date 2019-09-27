@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="master.xhtml">
+
+	<ui:define name="title">
+        Modificar Auditores
+    </ui:define>
+
+	<ui:define name="titleCont">
+		<span>Modificar Auditor</span>
+	</ui:define>
+
+	<ui:define name="content">
+		<h:form>
+			<h:outputLabel for="idAuditor" value="Id:" styleClass="control-label" />
+
+			<p:inputText id="idAuditor" styleClass="form-control"
+				value="#{auditorController.auditor.idAuditor}" required="true" />
+
+			<h:outputLabel for="nombreAuditor" value="Nombre del auditor: "
+				styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="nombreAuditor"
+				styleClass="form-control"
+				value="#{auditorController.auditor.nombreAuditor}" maxlength="30"
+				required="true" />
+
+
+			<h:outputLabel for="numeroAuditor" value="Número telefónico: "
+				styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="numeroAuditor"
+				styleClass="form-control"
+				value="#{auditorController.auditor.numeroAuditor}" maxlength="9"
+				required="true" />
+
+			<h:outputLabel for="tiempoExpAuditor" value="Años de experiencia: "
+				styleClass="control-label" />
+
+			<p:inputText autocomplete="off" id="tiempoExpAuditor"
+				styleClass="form-control"
+				value="#{auditorController.auditor.tiempoExpAuditor}" maxlength="2"
+				required="true" />
+
+			<p:outputLabel for="especialidadAuditor" value="Especialidad:" />
+			<p:selectOneMenu id="especialidadAuditor"
+				value="#{auditorController.auditor.especialidadAuditor}"
+				converter="omnifaces.SelectItemsConverter">
+				<f:selectItems value="#{auditorController.listaEspecialidad}"
+					var="e" itemLabel="#{e.nombreEspecialidad}" itemValue="#{e}" />
+			</p:selectOneMenu>
+
+			<p:outputLabel for="firmaAuditor"
+				value="Firma consultara para la que trabaja:" />
+			<p:selectOneMenu id="firmaAuditor"
+				value="#{auditorController.auditor.firmaAuditor}"
+				converter="omnifaces.SelectItemsConverter">
+				<f:selectItems value="#{auditorController.listaFirmas}" var="f"
+					itemLabel="#{f.nombreFirma}" itemValue="#{f}" />
+			</p:selectOneMenu>
+
+			<br />
+
+			<p:commandButton value="Modificar"
+				actionListener="#{auditorController.modificar()}"
+				style="margin-bottom:20px;" styleClass="btn btn-primary "
+				update="@form" action="listAuditor?faces-redirect=true" />
+			<p:commandButton value="Cancelar"
+				action="listAuditor?faces-redirect=true" immediate="true"
+				style="margin-bottom:20px;" styleClass="btn btn-default"
+				ajax="false" />
+
+			<p:growl id="growl" sticky="true" showDetail="true" life="3000" />
+
+		</h:form>
+	</ui:define>
+
+	<ui:define name="footerCont">
+
+	</ui:define>
+</ui:composition>
+</html>

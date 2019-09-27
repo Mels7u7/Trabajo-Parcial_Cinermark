@@ -122,7 +122,7 @@ public class AuditoriaController implements Serializable {
 	
 	public String ModifAuditoria(Auditoria _auditoria) {
 		this.setAuditoria(_auditoria);
-		return "modifsala.xhtml";
+		return "modifAuditoria.xhtml";
 		
 	}
 	
