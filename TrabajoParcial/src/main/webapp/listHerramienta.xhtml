@@ -51,7 +51,18 @@
 							</p:column>
 							
 						</p:dataTable>
-						
+						<br />
+						<h:commandLink style="color:green">
+							<p:outputLabel value="Descargar Excel"></p:outputLabel>
+							<p:dataExporter type="xls" target="lstHerramienta"
+								fileName="RegistroHerramientas" pageOnly="false" />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						</h:commandLink>
+						<h:commandLink>
+							<p:outputLabel value="Descargar PDF"></p:outputLabel>
+							<p:dataExporter type="pdf" target="lstHerramienta"
+								fileName="RegistroHerramientas" />
+						</h:commandLink>
 						
 					</div>
 				</div>

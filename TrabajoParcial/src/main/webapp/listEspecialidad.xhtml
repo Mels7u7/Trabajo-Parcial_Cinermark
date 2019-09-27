@@ -62,7 +62,18 @@
 							</p:column>
 
 						</p:dataTable>
-
+							<br />
+						<h:commandLink style="color:green">
+							<p:outputLabel value="Descargar Excel"></p:outputLabel>
+							<p:dataExporter type="xls" target="lstEspecialidad"
+								fileName="RegistroEspecialidades" pageOnly="false" />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						</h:commandLink>
+						<h:commandLink>
+							<p:outputLabel value="Descargar PDF"></p:outputLabel>
+							<p:dataExporter type="pdf" target="lstEspecialidad"
+								fileName="RegistroEspecialidades" />
+						</h:commandLink>
 
 					</div>
 				</div>

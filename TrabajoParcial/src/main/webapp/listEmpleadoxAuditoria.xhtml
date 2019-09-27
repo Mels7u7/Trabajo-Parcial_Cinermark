@@ -57,7 +57,18 @@
 									actionListener="#{empleadoxAuditoriaController.eliminar(exa)}" />
 							</p:column>
 						</p:dataTable>
-
+							<br />
+						<h:commandLink style="color:green">
+							<p:outputLabel value="Descargar Excel"></p:outputLabel>
+							<p:dataExporter type="xls" target="lstEmpleadoxAuditoria"
+								fileName="RegistroEmpleadosxAuditoria" pageOnly="false" />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						</h:commandLink>
+						<h:commandLink>
+							<p:outputLabel value="Descargar PDF"></p:outputLabel>
+							<p:dataExporter type="pdf" target="lstEmpleadoxAuditoria"
+								fileName="RegistroEmpleadosxAuditoria" />
+						</h:commandLink>
 
 					</div>
 				</div>

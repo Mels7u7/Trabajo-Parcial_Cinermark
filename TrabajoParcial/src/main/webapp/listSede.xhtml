@@ -39,7 +39,18 @@
 								<h:outputText value="#{sed.direccionSede}" />
 							</p:column>
 						</p:dataTable>
-						
+						<br />
+						<h:commandLink style="color:green">
+							<p:outputLabel value="Descargar Excel"></p:outputLabel>
+							<p:dataExporter type="xls" target="lstSede"
+								fileName="RegistroSedes" pageOnly="false" />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						</h:commandLink>
+						<h:commandLink>
+							<p:outputLabel value="Descargar PDF"></p:outputLabel>
+							<p:dataExporter type="pdf" target="lstSede"
+								fileName="RegistroSedes" />
+						</h:commandLink>
 					</div>
 				</div>
 			</div>
