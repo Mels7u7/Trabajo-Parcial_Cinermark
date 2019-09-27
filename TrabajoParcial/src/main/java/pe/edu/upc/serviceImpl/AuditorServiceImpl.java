@@ -1,8 +1,8 @@
 package pe.edu.upc.serviceImpl;
 
 import java.io.Serializable;
-
 import java.util.List;
+import java.util.Optional;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -41,6 +41,26 @@ public class AuditorServiceImpl implements IAuditorService, Serializable {
 	@Override
 	public void modificar(Auditor auditor) {
 		aD.modificar(auditor);
-		
+
+	}
+
+	@Override
+	public List<Auditor> getAll() throws Exception {
+		return aD.findAll();
+	}
+
+	@Override
+	public Optional<Auditor> getOne(Auditor aud) throws Exception {
+		return aD.findById(aud);
+	}
+
+	@Override
+	public List<Auditor> findAuditorByName(String name) throws Exception {
+		return aD.findByName(name);
+	}
+
+	@Override
+	public Optional<Auditor> findAuditorByDni(String dni) throws Exception {
+		return aD.findByDni(dni);
 	}
 }
