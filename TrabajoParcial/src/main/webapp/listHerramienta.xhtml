@@ -32,7 +32,9 @@
 							style="margin-bottom:0">
 
 							<p:column headerText="Id" sortBy="#{her.idHerramienta}">
-								<h:outputText value="#{her.idHerramienta}" />
+								<h:outputText value="#{her.idHerramienta}" 
+								class="btn btn-primary btn-xs"
+									action="#{herramientaController.detallesHerramienta(her)}"/>
 							</p:column>
 
 							<p:column headerText="Nombre" sortBy="#{her.nombreHerramienta}">

@@ -35,6 +35,12 @@ public class HerramientaController implements Serializable{
 		this.setHerramienta(new Herramienta());
 		return "herramienta.xhtml";
 	}
+	
+	public String detallesHerramienta(Herramienta her) {
+		this.setHerramienta(her);
+		return "detalleHerramienta.xhtml";
+	}
+	
 	public void insertar() {
 		try {
 			hService.insertar(herramienta);

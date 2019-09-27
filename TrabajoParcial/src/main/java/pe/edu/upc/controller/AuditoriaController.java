@@ -60,9 +60,8 @@ public class AuditoriaController implements Serializable {
 		return "auditoria.xhtml";
 	}
 
-	public String detalleEmpleado(Auditoria aud) {
-		this.setAuditoria(aud);
-		
+	public String detallesAuditoria(Auditoria _auditoria) {
+		this.setAuditoria(_auditoria);
 		return "detalleAuditoria.xhtml";
 	}
 	
@@ -132,10 +131,7 @@ public class AuditoriaController implements Serializable {
 		
 	}
 	
-	public String detallesAuditoria(Auditoria _auditoria) {
-		this.setAuditoria(_auditoria);
-		return "detalleAuditoria.xhtml";
-	}
+	
 
 	// get y set
 
