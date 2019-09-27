@@ -1,0 +1,79 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="master.xhtml">
+
+	<ui:define name="title">
+        .:Registro de Salas:.
+    </ui:define>
+
+	<ui:define name="titleCont">
+		<span>Detalle de Salas</span>
+	</ui:define>
+
+	<ui:define name="content">
+		<h:form>
+			<h:outputLabel for="idSala" value="Id:  "
+				styleClass="control-label" />
+			<div align="center">
+				<h:outputLabel for="idSala"
+					value="#{salaController.sala.idSala}"
+					styleClass="control-label" />
+			</div>
+			<br />
+
+			<h:outputLabel for="tipoSala" value="Tipo de Sala: "
+				styleClass="control-label" />
+			<div align="center">
+				<h:outputLabel for="tipoSala"
+					value="#{salaController.sala.tipoSala}"
+					styleClass="field" />
+			</div>
+			<br />
+
+			<h:outputLabel for="capacidadSala"
+				value="Capacidad: " styleClass="control-label" />
+			<div align="center">
+				<h:outputLabel for="capacidadSala"
+					value="#{salaController.sala.capacidadSala}"
+					styleClass="control-label" />
+			</div>
+		
+			<br />
+			<h:outputLabel for="sedeSala" value="Sede de la Sala: "
+				styleClass="control-label" />
+			<div align="center">
+				<h:outputLabel for="sedeSala"
+					value="#{salaController.sala.sedeSala.direccionSede}"
+					styleClass="control-label" />
+			</div>
+			
+			<br />
+			<br />
+			<div align="center">
+
+				<h:graphicImage value="/resources/imagenes/imagenHerramienta.jpg"
+					alt="Auditoria" width="80%"  />
+
+			</div>
+
+			<br />
+
+			<p:commandButton value="Regresar a la lista"
+				action="listSala?faces-redirect=true" immediate="true"
+				styleClass="btn btn-primary btn-block" ajax="false" style=" bottom: 20px; background-Color:#b5121c; border-Color:#b5121c"/>
+			<br />
+			<p:growl id="growl" sticky="true" showDetail="true" life="3000" />
+
+		</h:form>
+	</ui:define>
+
+	<ui:define name="footerCont">
+
+	</ui:define>
+</ui:composition>
+</html>

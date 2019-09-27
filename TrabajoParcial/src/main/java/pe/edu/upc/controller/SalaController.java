@@ -58,6 +58,11 @@ public class SalaController implements Serializable {
 		return "modifsala.xhtml";
 		
 	}
+	public String detalleSala(Sala _sala) {
+		this.setSala(_sala);
+		
+		return "detalleSala.xhtml";
+	}
 
 	public void insertar() {
 		try {
