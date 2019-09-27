@@ -2,6 +2,7 @@ package pe.edu.upc.entity;
 
 import java.io.Serializable;
 
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 
 @Entity
 @Table(name = "empleado")
@@ -25,11 +27,13 @@ public class Empleado implements Serializable {
 	@NotEmpty(message = "Ingrese los nombres del empleado")
 	@Column(name = "nombreEmpleado", nullable = false, length = 50)
 	private String nombreEmpleado;
+	
 
 	@NotEmpty(message = "Ingrese los apellidos del empleado")
 	@Column(name = "apellidoEmpleado", nullable = false, length = 50)
 	private String apellidoEmpleado;
-
+    
+	@Size(min = 8, max = 8)
 	@NotEmpty(message = "Ingrese el DNI del empleado")
 	@Column(name = "dniEmpleado", nullable = false, length = 8)
 	private String dniEmpleado;
@@ -37,7 +41,8 @@ public class Empleado implements Serializable {
 	@NotEmpty(message = "Ingrese el puesto laboral del empleado")
 	@Column(name = "puestolaboralEmpleado", nullable = false, length = 30)
 	private String puestolaboralEmpleado;
-
+	
+	@Size(min = 9, max = 9)
 	@NotEmpty(message = "Ingrese el numero de celular del empleado")
 	@Column(name = "celularEmpleado", nullable = false, length = 9)
 	private String celularEmpleado;

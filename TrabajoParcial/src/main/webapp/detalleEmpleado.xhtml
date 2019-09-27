@@ -1,0 +1,95 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui"
+	xmlns:ui="http://java.sun.com/jsf/facelets">
+
+<ui:composition template="master.xhtml">
+
+	<ui:define name="title">
+        .:Registro de Empleado:.
+    </ui:define>
+
+	<ui:define name="titleCont">
+		<span>Detalle de Empleado</span>
+	</ui:define>
+
+	<ui:define name="content">
+		<h:form>
+			<h:outputLabel for="idEmpleado" value="Id:  "
+				styleClass="control-label" />
+			<div align="center">
+				<h:outputLabel for="idEmpleado"
+					value="#{empleadoController.empleado.idEmpleado}"
+					styleClass="control-label" />
+			</div>
+			<br />
+
+			<h:outputLabel for="nombreEmpleado" value="Nombre del Empleado:   : "
+				styleClass="control-label" />
+			<div align="center">
+				<h:outputLabel for="nombreEmpleado"
+					value="#{empleadoController.empleado.nombreEmpleado}"
+					styleClass="field" />
+			</div>
+			<br />
+
+			<h:outputLabel for="apellidoEmpleado"
+				value="Apellido del empleado: " styleClass="control-label" />
+			<div align="center">
+				<h:outputLabel for="apellidoEmpleado"
+					value="#{empleadoController.empleado.apellidoEmpleado}"
+					styleClass="control-label" />
+			</div>
+
+			<br />
+			<h:outputLabel for="dniEmpleado"
+				value="DNI del empleado: " styleClass="control-label" />
+			<div align="center">
+				<h:outputLabel for="dniEmpleado"
+					value="#{empleadoController.empleado.dniEmpleado}"
+					styleClass="control-label" />
+			</div>
+			<br />
+			<h:outputLabel for="puestolaboralEmpleado" value="Puesto laboral: "
+				styleClass="control-label" />
+			<div align="center">
+				<h:outputLabel for="puestolaboralEmpleado"
+					value="#{empleadoController.empleado.puestolaboralEmpleado}"
+					styleClass="control-label" />
+			</div>
+
+			<br />
+			<h:outputLabel for="celularEmpleado" value="Numero de celular: "
+				styleClass="control-label" />
+			<div align="center">
+				<h:outputLabel for="celularEmpleado"
+					value="#{empleadoController.empleado.celularEmpleado}"
+					styleClass="control-label" />
+			</div>
+			<br />
+			<br />
+			<div align="center">
+
+				<h:graphicImage value="/resources/imagenes/firmaconsultora.png"
+					alt="Firma Consultora" width="80%"  />
+
+			</div>
+
+			<br />
+
+			<p:commandButton value="Regresar a la lista"
+				action="listEmpleado?faces-redirect=true" immediate="true"
+				styleClass="btn btn-primary btn-block" ajax="false" style=" bottom: 20px; background-Color:#b5121c; border-Color:#b5121c"/>
+			<br />
+			<p:growl id="growl" sticky="true" showDetail="true" life="3000" />
+
+		</h:form>
+	</ui:define>
+
+	<ui:define name="footerCont">
+
+	</ui:define>
+</ui:composition>
+</html>

@@ -50,6 +50,11 @@ public class EmpleadoController implements Serializable {
 		
 	}
 	
+	public String detalleEmpleado(Empleado _emp) {
+		this.setEmpleado(_emp);
+		
+		return "detalleEmpleado.xhtml";
+	}
 	
 	
 	public void insertar() {
