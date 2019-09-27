@@ -19,8 +19,8 @@ public class EmpleadoxAuditoriaServiceImpl implements IEmpleadoxAuditoriaService
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
-	@Inject 
+
+	@Inject
 	private IEmpleadoxAuditoriaDao eD;
 
 	@Override
@@ -33,13 +33,6 @@ public class EmpleadoxAuditoriaServiceImpl implements IEmpleadoxAuditoriaService
 	public void eliminar(int idEmpeladoxAuditoria) {
 		// TODO Auto-generated method stub
 		eD.eliminar(idEmpeladoxAuditoria);
-	}
-
-	@Override
-	public void modificar(EmpleadoxAuditoria empleadoxAuditoria) {
-		// TODO Auto-generated method stub
-		eD.modificar(empleadoxAuditoria);
-		
 	}
 
 	@Override

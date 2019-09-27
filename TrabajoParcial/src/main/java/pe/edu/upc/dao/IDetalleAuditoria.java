@@ -9,7 +9,5 @@ public interface IDetalleAuditoria {
 
 	public void eliminar(int idDDA);
 
-	public void modificar(DetalleDeAuditoria DDA);
-
 	public List<DetalleDeAuditoria> listar();
 }

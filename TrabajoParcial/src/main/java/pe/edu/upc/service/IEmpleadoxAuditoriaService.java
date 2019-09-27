@@ -8,9 +8,6 @@ public interface IEmpleadoxAuditoriaService {
 
 	public void insertar (EmpleadoxAuditoria empleadoxAuditoria);
 	public void eliminar (int idEmpeladoxAuditoria);
-	public void modificar (EmpleadoxAuditoria empleadoxAuditoria);
 	public List<EmpleadoxAuditoria> listar();
-	
-
-	
+		
 }

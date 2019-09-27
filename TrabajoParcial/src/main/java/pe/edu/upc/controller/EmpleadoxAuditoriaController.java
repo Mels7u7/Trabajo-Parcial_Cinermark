@@ -109,18 +109,6 @@ public class EmpleadoxAuditoriaController implements Serializable {
 		}
 	}
 
-	public void modificar() {
-		try {
-			eService.modificar(this.empleadoxAuditoria);
-			limpiarEmpleadoxAuditoria();
-			this.listEmpleadoxAuditoria();
-
-		} catch (Exception e) {
-			e.getMessage();
-			mensaje = "No se puede modificar";
-		}
-	}
-
 	public void limpiarEmpleadoxAuditoria() {
 		this.init();
 	}

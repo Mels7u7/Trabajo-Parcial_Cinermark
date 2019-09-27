@@ -43,17 +43,6 @@ public class DetalleAuditoriaDaoImpl implements IDetalleAuditoria, Serializable 
 
 	}
 
-	@Override
-	public void modificar(DetalleDeAuditoria DDA) {
-		try {
-			em.merge(DDA);
-
-		} catch (Exception e) {
-			System.out.println(e.getMessage());
-		}
-
-	}
-
 	@SuppressWarnings("unchecked")
 	@Override
 	public List<DetalleDeAuditoria> listar() {
