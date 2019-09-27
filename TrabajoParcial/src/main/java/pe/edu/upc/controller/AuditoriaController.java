@@ -106,6 +106,26 @@ public class AuditoriaController implements Serializable {
 		}
 	}
 	
+	public void modificar() {
+		try {
+			auService.modificar(this.auditoria);
+			limpiarAuditoria();
+			this.listSala();
+			this.listAuditor();
+			this.listAuditoria();
+			
+		} catch (Exception e) {
+			e.getMessage();
+		}
+	}
+	
+	
+	public String ModifAuditoria(Auditoria _auditoria) {
+		this.setAuditoria(_auditoria);
+		return "modifsala.xhtml";
+		
+	}
+	
 	public String detallesAuditoria(Auditoria _auditoria) {
 		this.setAuditoria(_auditoria);
 		return "detalleAuditoria.xhtml";

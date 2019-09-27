@@ -10,6 +10,8 @@ public interface IAuditoriaService {
 
 	public void eliminar(int idAuditoria);
 
+	public void modificar(Auditoria auditoria);
+
 	public List<Auditoria> listar();
 
 }

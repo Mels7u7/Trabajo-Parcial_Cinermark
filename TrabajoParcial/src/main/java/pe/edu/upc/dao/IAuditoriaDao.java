@@ -10,5 +10,7 @@ public interface IAuditoriaDao {
 
 	public void eliminar(int idAuditoria);
 
+	public void modificar(Auditoria auditoria);
+
 	public List<Auditoria> listar();
 }

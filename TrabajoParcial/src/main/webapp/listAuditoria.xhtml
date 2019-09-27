@@ -28,8 +28,8 @@
 							value="#{auditoriaController.listaAuditorias}" paginator="true"
 							paginatorPosition="top" rowsPerPageTemplate="10,20,30,40,50"
 							rows="10" styleClass="table table-bordered"
-							emptyMessage="No existen registros de auditorias" rowIndexVar="item"
-							style="margin-bottom:0">
+							emptyMessage="No existen registros de auditorias"
+							rowIndexVar="item" style="margin-bottom:0">
 
 							<p:column headerText="Id" sortBy="#{au.idAuditoria}">
 								<h:commandLink value="#{au.idAuditoria}"
@@ -37,9 +37,10 @@
 									action="#{auditoriaController.detallesAuditoria(au)}" />
 							</p:column>
 
-							<p:column headerText="Tema Principal" sortBy="#{au.temaPrincipalAuditoria}"
-								filterBy="#{au.temaPrincipalAuditoria}" filterMatchMode="contains"
-								filterStyle="width: 80%;">
+							<p:column headerText="Tema Principal"
+								sortBy="#{au.temaPrincipalAuditoria}"
+								filterBy="#{au.temaPrincipalAuditoria}"
+								filterMatchMode="contains" filterStyle="width: 80%;">
 								<h:outputText value="#{au.temaPrincipalAuditoria}" />
 							</p:column>
 
@@ -49,12 +50,30 @@
 								<h:outputText value="#{au.estadoAuditoria}" />
 							</p:column>
 
-							<p:column headerText="Operación" exportable="false">
+							<p:column headerText="Operaciones" exportable="false">
 								<h:commandLink action="lstAuditoria" value="Eliminar"
-									style="color:red;; display:flex;"
+									style="color:red; display:flex;"
 									actionListener="#{auditoriaController.eliminar(aud)}" />
+
+								<h:commandLink
+									action="#{auditoriaController.ModifAuditoria(aud)}"
+									value="Modificar" style="color:blue;" />
 							</p:column>
+
 						</p:dataTable>
+						
+						<br />
+						<h:commandLink style="color:green">
+							<p:outputLabel value="Descargar Excel"></p:outputLabel>
+							<p:dataExporter type="xls" target="lstAuditoria"
+								fileName="RegistroAuditorias" pageOnly="false" />
+						&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+						</h:commandLink>
+						<h:commandLink>
+							<p:outputLabel value="Descargar PDF"></p:outputLabel>
+							<p:dataExporter type="pdf" target="lstAuditoria"
+								fileName="RegistroAuditorias" />
+						</h:commandLink>
 
 
 					</div>

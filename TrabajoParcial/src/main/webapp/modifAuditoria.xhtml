@@ -8,59 +8,49 @@
 <ui:composition template="master.xhtml">
 
 	<ui:define name="title">
-        .:Registro de auditorias:.
+        Modificar Auditorias
     </ui:define>
 
 	<ui:define name="titleCont">
-		<span>Auditoria</span>
+		<span>Modificar Auditoria</span>
 	</ui:define>
 
 	<ui:define name="content">
 		<h:form>
-			<h:outputLabel for="idAuditoria" value="Id"
+			<h:outputLabel for="idAuditoria" value="Id:"
 				styleClass="control-label" />
 
-			<p:inputText autocomplete="off" id="idAuditoria"
-				styleClass="form-control"
+			<p:inputText id="idAuditoria" styleClass="form-control"
 				value="#{auditoriaController.auditoria.idAuditoria}" required="true" />
 
-			<h:outputLabel for="temaPrincipalAuditoria"
-				value="Tema principal de la auditoria:" styleClass="control-label" />
+			<h:outputLabel for="temaPrincipalAuditoria" value="Tema Principal: "
+				styleClass="control-label" />
+
 			<p:inputText autocomplete="off" id="temaPrincipalAuditoria"
 				styleClass="form-control"
 				value="#{auditoriaController.auditoria.temaPrincipalAuditoria}"
-				maxlength="40" required="true" />
+				required="true" />
 
-			<h:outputLabel for="descripcionAuditoria"
-				value="Descripcion detallada de la auditoria:"
+
+			<h:outputLabel for="descripcionAuditoria" value="Descripción: "
 				styleClass="control-label" />
+
 			<p:inputText autocomplete="off" id="descripcionAuditoria"
 				styleClass="form-control"
 				value="#{auditoriaController.auditoria.descripcionAuditoria}"
-				maxlength="100" required="true" />
-
-			<h:outputLabel for="fechaAuditoria"
-				value="Fecha en la que se realiza la auditoria:"
-				styleClass="control-label" />
-			<p:calendar id="fechaAuditoria" pattern="dd/MM/yyyy HH:mm"
-				value="#{auditoriaController.auditoria.fechaAuditoria}"
-				showOn="button" timeZone="UTC" required="true"
-				requiredMessage="fecha vacía">
-			</p:calendar>
-			<p:message for="fechaAuditoria" style="color:red" />
-			<br />
+				required="true" />
 
 			<h:outputLabel for="participantesAuditoria"
-				value="Numero de asistentes a la auditoria:"
-				styleClass="control-label" />
+				value="Cantidad de Asistentes: " styleClass="control-label" />
+
 			<p:inputText autocomplete="off" id="participantesAuditoria"
 				styleClass="form-control"
 				value="#{auditoriaController.auditoria.participantesAuditoria}"
-				maxlength="2" required="true" />
-			<br />
+				required="true" />
 
-			<h:outputLabel for="estadoAuditoria" value="Estado de la auditoria:"
+			<h:outputLabel for="estadoAuditoria" value="Estado: "
 				styleClass="control-label" />
+
 			<p:selectOneMenu id="estadoAuditoria"
 				value="#{auditoriaController.auditoria.estadoAuditoria}">
 				<f:selectItem itemLabel="--Select--" noSelectionOption="true" />
@@ -81,6 +71,7 @@
 			</p:selectOneMenu>
 			<br />
 
+
 			<p:outputLabel for="salaAuditoria"
 				value="Codigo de la sala en la que se realiza la auditoria:" />
 			<p:selectOneMenu id="salaAuditoria"
@@ -91,14 +82,14 @@
 			</p:selectOneMenu>
 			<br />
 
-			<p:commandButton value="Grabar"
-				actionListener="#{auditoriaController.insertar()}"
-				styleClass="btn btn-primary " update="@form"
-				action="listAuditoria?faces-redirect=true"
-				style=" background-Color:#b5121c; border-Color:#b5121c" />
+			<p:commandButton value="Modificar"
+				actionListener="#{auditoriaController.modificar()}"
+				style="margin-bottom:20px;" styleClass="btn btn-primary "
+				update="@form" action="listAuditoria?faces-redirect=true" />
 			<p:commandButton value="Cancelar"
 				action="listAuditoria?faces-redirect=true" immediate="true"
-				styleClass="btn btn-default" ajax="false" />
+				style="margin-bottom:20px;" styleClass="btn btn-default"
+				ajax="false" />
 
 			<p:growl id="growl" sticky="true" showDetail="true" life="3000" />
 
