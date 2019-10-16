@@ -26,12 +26,9 @@ public class HerramientaDaoImpl implements IHerramientaDao, Serializable{
 	@Override
 	public void insertar(Herramienta herramienta)
 	{
-		try
-		{
+		try {
 			em.persist(herramienta);
-		}
-		catch(Exception e)
-		{
+		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
 	}
@@ -57,16 +54,13 @@ public class HerramientaDaoImpl implements IHerramientaDao, Serializable{
 	public List<Herramienta> listar()
 	{
 		List<Herramienta> lista = new ArrayList<Herramienta>();
-		try
-		{
+		try {
 			Query q = em.createQuery("Select h from Herramienta h");
 			lista = (List<Herramienta>) q.getResultList();
-		}
-		catch(Exception e)
-		{
+		} catch (Exception e) {
 			System.out.println(e.getMessage());
 		}
-		
+
 		return lista;
 	}
 

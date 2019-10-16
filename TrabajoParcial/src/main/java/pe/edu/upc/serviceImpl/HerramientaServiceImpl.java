@@ -13,30 +13,28 @@ import pe.edu.upc.service.IHerramientaService;
 
 @Named
 @RequestScoped
-public class HerramientaServiceImpl implements IHerramientaService,Serializable {
-	
+public class HerramientaServiceImpl implements IHerramientaService, Serializable {
+
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	
+
 	@Inject
 	private IHerramientaDao hD;
-	
+
 	@Override
 	public void insertar(Herramienta herramienta) {
 		hD.insertar(herramienta);
 	}
-	
+
 	@Override
-	public void eliminar(int idHerramienta)
-	{
+	public void eliminar(int idHerramienta) {
 		hD.eliminar(idHerramienta);
 	}
-	
+
 	@Override
-	public List<Herramienta> listar()
-	{
+	public List<Herramienta> listar() {
 		return hD.listar();
 	}
 
